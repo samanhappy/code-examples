@@ -17,5 +17,6 @@
   <modules>
   	<module>spring-data-jpa</module>
     <module>guava</module>
+    <module>hibernate-validator</module>
   </modules>
 </project>
