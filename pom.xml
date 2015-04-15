@@ -18,5 +18,6 @@
   	<module>spring-data-jpa</module>
     <module>guava</module>
     <module>hibernate-validator</module>
+    <module>samanhappy-archetype-webapp</module>
   </modules>
 </project>
