@@ -20,5 +20,6 @@
     <module>hibernate-validator</module>
     <module>samanhappy-archetype-webapp</module>
     <module>samanhappy-archetype-java</module>
+    <module>jquery-validation</module>
   </modules>
 </project>
