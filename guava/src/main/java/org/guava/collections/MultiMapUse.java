@@ -1,4 +1,4 @@
-package org.guava.objects;
+package org.guava.collections;
 
 import java.util.ArrayList;
 import java.util.List;

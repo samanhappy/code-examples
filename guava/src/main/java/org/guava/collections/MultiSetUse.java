@@ -1,4 +1,4 @@
-package org.guava.objects;
+package org.guava.collections;
 
 import com.google.common.collect.BoundType;
 import com.google.common.collect.HashMultiset;
