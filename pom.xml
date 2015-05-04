@@ -22,5 +22,6 @@
     <module>samanhappy-archetype-java</module>
     <module>jquery-validation</module>
     <module>shiro</module>
+    <module>js</module>
   </modules>
 </project>
