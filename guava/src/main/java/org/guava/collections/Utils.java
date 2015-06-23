@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import com.google.common.base.Function;
+import com.google.common.collect.Collections2;
+import com.google.common.collect.FluentIterable;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
@@ -49,6 +52,42 @@ public class Utils {
 
 		// 获取iterable中唯一的元素，如果iterable为空或有多个元素，则快速失败
 		System.out.println(Iterables.getOnlyElement(Ints.asList(1)));
+
+		Iterables.addAll(list, list1);
+		System.out.println(list);
+
+		System.out.println(Iterables.contains(list, "1"));
+
+		Iterables.removeAll(list, list1);
+		System.out.println(list);
+
+		// 集合交集
+		Iterables.retainAll(list1, Lists.newArrayList("3", "4", "5"));
+		System.out.println(list1);
+
+		System.out.println(Iterables.size(list1));
+
+		System.out.println(Iterables.toArray(list1, String.class));
+
+		System.out.println(Iterables.isEmpty(list1));
+
+		System.out.println(Iterables.get(list1, 0));
+
+		System.out.println(Iterables.toString(list1));
+
+		// FluentIterable：处理Iterable，链式风格调用
+		list1.add("4");
+		list1.add("5");
+		Iterable<String> fluentIterable = FluentIterable.from(list1).transform(new Function<String, String>() {
+			public String apply(String paramF) {
+				return paramF.equals("3") ? "---" : paramF;
+			};
+		});
+		System.out.println(fluentIterable);
+		
+		System.out.println(Lists.partition(list1, 2));
+		
+		System.out.println(Lists.reverse(list1));
 
 	}
 
