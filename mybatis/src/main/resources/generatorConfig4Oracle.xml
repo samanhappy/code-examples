@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry location="D:\\jar\\ojdbc6-11.2.0.1.0.jar" />
+	<context id="context1" targetRuntime="MyBatis3">
+		
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+		
+		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:oracle:thin:@192.168.10.223:1521:hddb" userId="andfree"
+			password="andfree" />
+			
+		<javaTypeResolver type="com.andfree.common.util.MyJavaTypeResolver">
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		
+		<javaModelGenerator targetPackage="com.andfree.bean"
+			targetProject="andFreeCommon/src/main/java" />
+		<sqlMapGenerator targetPackage="com.andfree.mapper"
+			targetProject="andFreeCommon/src/main/resources" />
+		<javaClientGenerator targetPackage="com.andfree.mapper"
+			targetProject="andFreeCommon/src/main/java" type="XMLMAPPER" />
+
+		<table tableName="AF_CONFIG" domainObjectName="AfConfig">
+			<generatedKey column="id"
+				sqlStatement="select SEQ_AF_CONFIG_ID.NEXTVAL AS ID from dual" />
+		</table>
+<!-- 		<table tableName="AF_DISCOVERY" domainObjectName="AfDiscovery"> -->
+<!-- 			<generatedKey column="id" -->
+<!-- 				sqlStatement="select SEQ_AF_DISCOVERY_ID.NEXTVAL AS ID from dual" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="AF_ERROR_REPORT" domainObjectName="AfErrorReport"> -->
+<!-- 			<generatedKey column="id" -->
+<!-- 				sqlStatement="select SEQ_AF_ERROR_REPORT_ID.NEXTVAL AS ID from dual" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="AF_FEED_BACK" domainObjectName="AfFeedBack"> -->
+<!-- 			<generatedKey column="id" -->
+<!-- 				sqlStatement="select SEQ_AF_FEED_BACK_ID.NEXTVAL AS ID from dual" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="AF_OPERATOR" domainObjectName="AfOperator"> -->
+<!-- 			<generatedKey column="id" -->
+<!-- 				sqlStatement="select SEQ_AF_OPERATOR_ID.NEXTVAL AS ID from dual" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="AF_SOFTWARE_INFO" domainObjectName="AfSoftwareInfo"> -->
+<!-- 			<generatedKey column="id" -->
+<!-- 				sqlStatement="select SEQ_AF_SOFTWARE_INFO_ID.NEXTVAL AS ID from dual" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="AF_START_SCREEN" domainObjectName="AfStartScreen"> -->
+<!-- 			<generatedKey column="id" -->
+<!-- 				sqlStatement="select SEQ_AF_START_SCREEN_ID.NEXTVAL AS ID from dual" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="AF_USER_LOG" domainObjectName="AfUserLog"> -->
+<!-- 			<generatedKey column="id" -->
+<!-- 				sqlStatement="select SEQ_AF_USER_LOG_ID.NEXTVAL AS ID from dual" /> -->
+<!-- 		</table> -->
+	</context>
+</generatorConfiguration>

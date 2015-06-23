@@ -23,5 +23,6 @@
     <module>jquery-validation</module>
     <module>shiro</module>
     <module>js</module>
+    <module>mybatis</module>
   </modules>
 </project>
