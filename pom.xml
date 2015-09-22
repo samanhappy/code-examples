@@ -24,5 +24,6 @@
     <module>shiro</module>
     <module>js</module>
     <module>mybatis</module>
+    <module>util</module>
   </modules>
 </project>
