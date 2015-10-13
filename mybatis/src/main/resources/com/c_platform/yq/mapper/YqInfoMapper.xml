@@ -1,0 +1,1166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.c_platform.yq.mapper.YqInfoMapper">
+  <resultMap id="BaseResultMap" type="com.c_platform.yq.bean.YqInfo">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="YQ_ID" jdbcType="VARCHAR" property="yqId" />
+    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <result column="PROPAGATION_ID" jdbcType="DECIMAL" property="propagationId" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="SUMMARY" jdbcType="VARCHAR" property="summary" />
+    <result column="IMAGE_URL_LIST" jdbcType="VARCHAR" property="imageUrlList" />
+    <result column="SOURCE_SITE" jdbcType="VARCHAR" property="sourceSite" />
+    <result column="ORIGINAL_URL" jdbcType="VARCHAR" property="originalUrl" />
+    <result column="RELEASE_TIME" jdbcType="TIMESTAMP" property="releaseTime" />
+    <result column="CRAWL_TIME" jdbcType="TIMESTAMP" property="crawlTime" />
+    <result column="MEDIA_TYPE" jdbcType="VARCHAR" property="mediaType" />
+    <result column="POLARITY" jdbcType="VARCHAR" property="polarity" />
+    <result column="EXPONENT" jdbcType="VARCHAR" property="exponent" />
+    <result column="HEAT" jdbcType="VARCHAR" property="heat" />
+    <result column="BROWSE_COUNT" jdbcType="DECIMAL" property="browseCount" />
+    <result column="REPLY_COUNT" jdbcType="DECIMAL" property="replyCount" />
+    <result column="IS_COLLECTION" jdbcType="VARCHAR" property="isCollection" />
+    <result column="MAIN_BODY_URL" jdbcType="VARCHAR" property="mainBodyUrl" />
+    <result column="TOPIC_ID" jdbcType="VARCHAR" property="topicId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.c_platform.yq.bean.YqInfo">
+    <result column="TEXT_INFO" jdbcType="CLOB" property="textInfo" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, YQ_ID, USER_ID, PROPAGATION_ID, TITLE, SUMMARY, IMAGE_URL_LIST, SOURCE_SITE, 
+    ORIGINAL_URL, RELEASE_TIME, CRAWL_TIME, MEDIA_TYPE, POLARITY, EXPONENT, HEAT, BROWSE_COUNT, 
+    REPLY_COUNT, IS_COLLECTION, MAIN_BODY_URL, TOPIC_ID, CREATE_TIME, MODIFY_TIME
+  </sql>
+  <sql id="Blob_Column_List">
+    TEXT_INFO
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.c_platform.yq.bean.YqInfoExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from T_KL_YQ_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.c_platform.yq.bean.YqInfoExample" resultMap="BaseResultMap">
+    <include refid="OracleDialectPrefix" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from T_KL_YQ_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="OracleDialectSuffix" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from T_KL_YQ_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_KL_YQ_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.c_platform.yq.bean.YqInfoExample">
+    delete from T_KL_YQ_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.c_platform.yq.bean.YqInfo">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_INFO_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_INFO (ID, YQ_ID, USER_ID, 
+      PROPAGATION_ID, TITLE, SUMMARY, 
+      IMAGE_URL_LIST, SOURCE_SITE, ORIGINAL_URL, 
+      RELEASE_TIME, CRAWL_TIME, MEDIA_TYPE, 
+      POLARITY, EXPONENT, HEAT, 
+      BROWSE_COUNT, REPLY_COUNT, IS_COLLECTION, 
+      MAIN_BODY_URL, TOPIC_ID, CREATE_TIME, 
+      MODIFY_TIME, TEXT_INFO)
+    values (#{id,jdbcType=DECIMAL}, #{yqId,jdbcType=VARCHAR}, #{userId,jdbcType=DECIMAL}, 
+      #{propagationId,jdbcType=DECIMAL}, #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
+      #{imageUrlList,jdbcType=VARCHAR}, #{sourceSite,jdbcType=VARCHAR}, #{originalUrl,jdbcType=VARCHAR}, 
+      #{releaseTime,jdbcType=TIMESTAMP}, #{crawlTime,jdbcType=TIMESTAMP}, #{mediaType,jdbcType=VARCHAR}, 
+      #{polarity,jdbcType=VARCHAR}, #{exponent,jdbcType=VARCHAR}, #{heat,jdbcType=VARCHAR}, 
+      #{browseCount,jdbcType=DECIMAL}, #{replyCount,jdbcType=DECIMAL}, #{isCollection,jdbcType=VARCHAR}, 
+      #{mainBodyUrl,jdbcType=VARCHAR}, #{topicId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{textInfo,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.c_platform.yq.bean.YqInfo">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_INFO_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      ID,
+      <if test="yqId != null">
+        YQ_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="propagationId != null">
+        PROPAGATION_ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="summary != null">
+        SUMMARY,
+      </if>
+      <if test="imageUrlList != null">
+        IMAGE_URL_LIST,
+      </if>
+      <if test="sourceSite != null">
+        SOURCE_SITE,
+      </if>
+      <if test="originalUrl != null">
+        ORIGINAL_URL,
+      </if>
+      <if test="releaseTime != null">
+        RELEASE_TIME,
+      </if>
+      <if test="crawlTime != null">
+        CRAWL_TIME,
+      </if>
+      <if test="mediaType != null">
+        MEDIA_TYPE,
+      </if>
+      <if test="polarity != null">
+        POLARITY,
+      </if>
+      <if test="exponent != null">
+        EXPONENT,
+      </if>
+      <if test="heat != null">
+        HEAT,
+      </if>
+      <if test="browseCount != null">
+        BROWSE_COUNT,
+      </if>
+      <if test="replyCount != null">
+        REPLY_COUNT,
+      </if>
+      <if test="isCollection != null">
+        IS_COLLECTION,
+      </if>
+      <if test="mainBodyUrl != null">
+        MAIN_BODY_URL,
+      </if>
+      <if test="topicId != null">
+        TOPIC_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="modifyTime != null">
+        MODIFY_TIME,
+      </if>
+      <if test="textInfo != null">
+        TEXT_INFO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=DECIMAL},
+      <if test="yqId != null">
+        #{yqId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="propagationId != null">
+        #{propagationId,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="imageUrlList != null">
+        #{imageUrlList,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceSite != null">
+        #{sourceSite,jdbcType=VARCHAR},
+      </if>
+      <if test="originalUrl != null">
+        #{originalUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseTime != null">
+        #{releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crawlTime != null">
+        #{crawlTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mediaType != null">
+        #{mediaType,jdbcType=VARCHAR},
+      </if>
+      <if test="polarity != null">
+        #{polarity,jdbcType=VARCHAR},
+      </if>
+      <if test="exponent != null">
+        #{exponent,jdbcType=VARCHAR},
+      </if>
+      <if test="heat != null">
+        #{heat,jdbcType=VARCHAR},
+      </if>
+      <if test="browseCount != null">
+        #{browseCount,jdbcType=DECIMAL},
+      </if>
+      <if test="replyCount != null">
+        #{replyCount,jdbcType=DECIMAL},
+      </if>
+      <if test="isCollection != null">
+        #{isCollection,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBodyUrl != null">
+        #{mainBodyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="topicId != null">
+        #{topicId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="textInfo != null">
+        #{textInfo,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.c_platform.yq.bean.YqInfoExample" resultType="java.lang.Integer">
+    select count(*) from T_KL_YQ_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update T_KL_YQ_INFO
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=DECIMAL},
+      </if>
+      <if test="record.yqId != null">
+        YQ_ID = #{record.yqId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.propagationId != null">
+        PROPAGATION_ID = #{record.propagationId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.title != null">
+        TITLE = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.summary != null">
+        SUMMARY = #{record.summary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imageUrlList != null">
+        IMAGE_URL_LIST = #{record.imageUrlList,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sourceSite != null">
+        SOURCE_SITE = #{record.sourceSite,jdbcType=VARCHAR},
+      </if>
+      <if test="record.originalUrl != null">
+        ORIGINAL_URL = #{record.originalUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.releaseTime != null">
+        RELEASE_TIME = #{record.releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.crawlTime != null">
+        CRAWL_TIME = #{record.crawlTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.mediaType != null">
+        MEDIA_TYPE = #{record.mediaType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.polarity != null">
+        POLARITY = #{record.polarity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exponent != null">
+        EXPONENT = #{record.exponent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.heat != null">
+        HEAT = #{record.heat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.browseCount != null">
+        BROWSE_COUNT = #{record.browseCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.replyCount != null">
+        REPLY_COUNT = #{record.replyCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isCollection != null">
+        IS_COLLECTION = #{record.isCollection,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mainBodyUrl != null">
+        MAIN_BODY_URL = #{record.mainBodyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.topicId != null">
+        TOPIC_ID = #{record.topicId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyTime != null">
+        MODIFY_TIME = #{record.modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.textInfo != null">
+        TEXT_INFO = #{record.textInfo,jdbcType=CLOB},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update T_KL_YQ_INFO
+    set ID = #{record.id,jdbcType=DECIMAL},
+      YQ_ID = #{record.yqId,jdbcType=VARCHAR},
+      USER_ID = #{record.userId,jdbcType=DECIMAL},
+      PROPAGATION_ID = #{record.propagationId,jdbcType=DECIMAL},
+      TITLE = #{record.title,jdbcType=VARCHAR},
+      SUMMARY = #{record.summary,jdbcType=VARCHAR},
+      IMAGE_URL_LIST = #{record.imageUrlList,jdbcType=VARCHAR},
+      SOURCE_SITE = #{record.sourceSite,jdbcType=VARCHAR},
+      ORIGINAL_URL = #{record.originalUrl,jdbcType=VARCHAR},
+      RELEASE_TIME = #{record.releaseTime,jdbcType=TIMESTAMP},
+      CRAWL_TIME = #{record.crawlTime,jdbcType=TIMESTAMP},
+      MEDIA_TYPE = #{record.mediaType,jdbcType=VARCHAR},
+      POLARITY = #{record.polarity,jdbcType=VARCHAR},
+      EXPONENT = #{record.exponent,jdbcType=VARCHAR},
+      HEAT = #{record.heat,jdbcType=VARCHAR},
+      BROWSE_COUNT = #{record.browseCount,jdbcType=DECIMAL},
+      REPLY_COUNT = #{record.replyCount,jdbcType=DECIMAL},
+      IS_COLLECTION = #{record.isCollection,jdbcType=VARCHAR},
+      MAIN_BODY_URL = #{record.mainBodyUrl,jdbcType=VARCHAR},
+      TOPIC_ID = #{record.topicId,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      MODIFY_TIME = #{record.modifyTime,jdbcType=TIMESTAMP},
+      TEXT_INFO = #{record.textInfo,jdbcType=CLOB}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update T_KL_YQ_INFO
+    set ID = #{record.id,jdbcType=DECIMAL},
+      YQ_ID = #{record.yqId,jdbcType=VARCHAR},
+      USER_ID = #{record.userId,jdbcType=DECIMAL},
+      PROPAGATION_ID = #{record.propagationId,jdbcType=DECIMAL},
+      TITLE = #{record.title,jdbcType=VARCHAR},
+      SUMMARY = #{record.summary,jdbcType=VARCHAR},
+      IMAGE_URL_LIST = #{record.imageUrlList,jdbcType=VARCHAR},
+      SOURCE_SITE = #{record.sourceSite,jdbcType=VARCHAR},
+      ORIGINAL_URL = #{record.originalUrl,jdbcType=VARCHAR},
+      RELEASE_TIME = #{record.releaseTime,jdbcType=TIMESTAMP},
+      CRAWL_TIME = #{record.crawlTime,jdbcType=TIMESTAMP},
+      MEDIA_TYPE = #{record.mediaType,jdbcType=VARCHAR},
+      POLARITY = #{record.polarity,jdbcType=VARCHAR},
+      EXPONENT = #{record.exponent,jdbcType=VARCHAR},
+      HEAT = #{record.heat,jdbcType=VARCHAR},
+      BROWSE_COUNT = #{record.browseCount,jdbcType=DECIMAL},
+      REPLY_COUNT = #{record.replyCount,jdbcType=DECIMAL},
+      IS_COLLECTION = #{record.isCollection,jdbcType=VARCHAR},
+      MAIN_BODY_URL = #{record.mainBodyUrl,jdbcType=VARCHAR},
+      TOPIC_ID = #{record.topicId,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      MODIFY_TIME = #{record.modifyTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.c_platform.yq.bean.YqInfo">
+    update T_KL_YQ_INFO
+    <set>
+      <if test="yqId != null">
+        YQ_ID = #{yqId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="propagationId != null">
+        PROPAGATION_ID = #{propagationId,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null">
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        SUMMARY = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="imageUrlList != null">
+        IMAGE_URL_LIST = #{imageUrlList,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceSite != null">
+        SOURCE_SITE = #{sourceSite,jdbcType=VARCHAR},
+      </if>
+      <if test="originalUrl != null">
+        ORIGINAL_URL = #{originalUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseTime != null">
+        RELEASE_TIME = #{releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crawlTime != null">
+        CRAWL_TIME = #{crawlTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mediaType != null">
+        MEDIA_TYPE = #{mediaType,jdbcType=VARCHAR},
+      </if>
+      <if test="polarity != null">
+        POLARITY = #{polarity,jdbcType=VARCHAR},
+      </if>
+      <if test="exponent != null">
+        EXPONENT = #{exponent,jdbcType=VARCHAR},
+      </if>
+      <if test="heat != null">
+        HEAT = #{heat,jdbcType=VARCHAR},
+      </if>
+      <if test="browseCount != null">
+        BROWSE_COUNT = #{browseCount,jdbcType=DECIMAL},
+      </if>
+      <if test="replyCount != null">
+        REPLY_COUNT = #{replyCount,jdbcType=DECIMAL},
+      </if>
+      <if test="isCollection != null">
+        IS_COLLECTION = #{isCollection,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBodyUrl != null">
+        MAIN_BODY_URL = #{mainBodyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="topicId != null">
+        TOPIC_ID = #{topicId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="textInfo != null">
+        TEXT_INFO = #{textInfo,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.c_platform.yq.bean.YqInfo">
+    update T_KL_YQ_INFO
+    set YQ_ID = #{yqId,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=DECIMAL},
+      PROPAGATION_ID = #{propagationId,jdbcType=DECIMAL},
+      TITLE = #{title,jdbcType=VARCHAR},
+      SUMMARY = #{summary,jdbcType=VARCHAR},
+      IMAGE_URL_LIST = #{imageUrlList,jdbcType=VARCHAR},
+      SOURCE_SITE = #{sourceSite,jdbcType=VARCHAR},
+      ORIGINAL_URL = #{originalUrl,jdbcType=VARCHAR},
+      RELEASE_TIME = #{releaseTime,jdbcType=TIMESTAMP},
+      CRAWL_TIME = #{crawlTime,jdbcType=TIMESTAMP},
+      MEDIA_TYPE = #{mediaType,jdbcType=VARCHAR},
+      POLARITY = #{polarity,jdbcType=VARCHAR},
+      EXPONENT = #{exponent,jdbcType=VARCHAR},
+      HEAT = #{heat,jdbcType=VARCHAR},
+      BROWSE_COUNT = #{browseCount,jdbcType=DECIMAL},
+      REPLY_COUNT = #{replyCount,jdbcType=DECIMAL},
+      IS_COLLECTION = #{isCollection,jdbcType=VARCHAR},
+      MAIN_BODY_URL = #{mainBodyUrl,jdbcType=VARCHAR},
+      TOPIC_ID = #{topicId,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+      TEXT_INFO = #{textInfo,jdbcType=CLOB}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.c_platform.yq.bean.YqInfo">
+    update T_KL_YQ_INFO
+    set YQ_ID = #{yqId,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=DECIMAL},
+      PROPAGATION_ID = #{propagationId,jdbcType=DECIMAL},
+      TITLE = #{title,jdbcType=VARCHAR},
+      SUMMARY = #{summary,jdbcType=VARCHAR},
+      IMAGE_URL_LIST = #{imageUrlList,jdbcType=VARCHAR},
+      SOURCE_SITE = #{sourceSite,jdbcType=VARCHAR},
+      ORIGINAL_URL = #{originalUrl,jdbcType=VARCHAR},
+      RELEASE_TIME = #{releaseTime,jdbcType=TIMESTAMP},
+      CRAWL_TIME = #{crawlTime,jdbcType=TIMESTAMP},
+      MEDIA_TYPE = #{mediaType,jdbcType=VARCHAR},
+      POLARITY = #{polarity,jdbcType=VARCHAR},
+      EXPONENT = #{exponent,jdbcType=VARCHAR},
+      HEAT = #{heat,jdbcType=VARCHAR},
+      BROWSE_COUNT = #{browseCount,jdbcType=DECIMAL},
+      REPLY_COUNT = #{replyCount,jdbcType=DECIMAL},
+      IS_COLLECTION = #{isCollection,jdbcType=VARCHAR},
+      MAIN_BODY_URL = #{mainBodyUrl,jdbcType=VARCHAR},
+      TOPIC_ID = #{topicId,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <sql id="OracleDialectPrefix">
+    <if test="page != null">
+      select * from ( select row_.*, rownum rownum_ from ( 
+    </if>
+  </sql>
+  <sql id="OracleDialectSuffix">
+    <if test="page != null">
+      <![CDATA[ ) row_ ) where rownum_ > #{page.begin} and rownum_ <= #{page.end} ]]>
+    </if>
+  </sql>
+  <resultMap id="BaseResultMap" type="com.c_platform.yq.bean.YqInfo">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="YQ_ID" jdbcType="VARCHAR" property="yqId" />
+    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <result column="PROPAGATION_ID" jdbcType="DECIMAL" property="propagationId" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="SUMMARY" jdbcType="VARCHAR" property="summary" />
+    <result column="IMAGE_URL_LIST" jdbcType="VARCHAR" property="imageUrlList" />
+    <result column="SOURCE_SITE" jdbcType="VARCHAR" property="sourceSite" />
+    <result column="ORIGINAL_URL" jdbcType="VARCHAR" property="originalUrl" />
+    <result column="RELEASE_TIME" jdbcType="TIMESTAMP" property="releaseTime" />
+    <result column="CRAWL_TIME" jdbcType="TIMESTAMP" property="crawlTime" />
+    <result column="MEDIA_TYPE" jdbcType="VARCHAR" property="mediaType" />
+    <result column="POLARITY" jdbcType="VARCHAR" property="polarity" />
+    <result column="EXPONENT" jdbcType="VARCHAR" property="exponent" />
+    <result column="HEAT" jdbcType="VARCHAR" property="heat" />
+    <result column="BROWSE_COUNT" jdbcType="DECIMAL" property="browseCount" />
+    <result column="REPLY_COUNT" jdbcType="DECIMAL" property="replyCount" />
+    <result column="IS_COLLECTION" jdbcType="VARCHAR" property="isCollection" />
+    <result column="MAIN_BODY_URL" jdbcType="VARCHAR" property="mainBodyUrl" />
+    <result column="TOPIC_ID" jdbcType="VARCHAR" property="topicId" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="com.c_platform.yq.bean.YqInfo">
+    <result column="TEXT_INFO" jdbcType="CLOB" property="textInfo" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, YQ_ID, USER_ID, PROPAGATION_ID, TITLE, SUMMARY, IMAGE_URL_LIST, SOURCE_SITE, 
+    ORIGINAL_URL, RELEASE_TIME, CRAWL_TIME, MEDIA_TYPE, POLARITY, EXPONENT, HEAT, BROWSE_COUNT, 
+    REPLY_COUNT, IS_COLLECTION, MAIN_BODY_URL, TOPIC_ID, CREATE_TIME, MODIFY_TIME
+  </sql>
+  <sql id="Blob_Column_List">
+    TEXT_INFO
+  </sql>
+  <select id="selectByExampleWithBLOBs" parameterType="com.c_platform.yq.bean.YqInfoExample" resultMap="ResultMapWithBLOBs">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from T_KL_YQ_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" parameterType="com.c_platform.yq.bean.YqInfoExample" resultMap="BaseResultMap">
+    <include refid="OracleDialectPrefix" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from T_KL_YQ_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="OracleDialectSuffix" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from T_KL_YQ_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_KL_YQ_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.c_platform.yq.bean.YqInfoExample">
+    delete from T_KL_YQ_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.c_platform.yq.bean.YqInfo">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_INFO_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_INFO (ID, YQ_ID, USER_ID, 
+      PROPAGATION_ID, TITLE, SUMMARY, 
+      IMAGE_URL_LIST, SOURCE_SITE, ORIGINAL_URL, 
+      RELEASE_TIME, CRAWL_TIME, MEDIA_TYPE, 
+      POLARITY, EXPONENT, HEAT, 
+      BROWSE_COUNT, REPLY_COUNT, IS_COLLECTION, 
+      MAIN_BODY_URL, TOPIC_ID, CREATE_TIME, 
+      MODIFY_TIME, TEXT_INFO)
+    values (#{id,jdbcType=DECIMAL}, #{yqId,jdbcType=VARCHAR}, #{userId,jdbcType=DECIMAL}, 
+      #{propagationId,jdbcType=DECIMAL}, #{title,jdbcType=VARCHAR}, #{summary,jdbcType=VARCHAR}, 
+      #{imageUrlList,jdbcType=VARCHAR}, #{sourceSite,jdbcType=VARCHAR}, #{originalUrl,jdbcType=VARCHAR}, 
+      #{releaseTime,jdbcType=TIMESTAMP}, #{crawlTime,jdbcType=TIMESTAMP}, #{mediaType,jdbcType=VARCHAR}, 
+      #{polarity,jdbcType=VARCHAR}, #{exponent,jdbcType=VARCHAR}, #{heat,jdbcType=VARCHAR}, 
+      #{browseCount,jdbcType=DECIMAL}, #{replyCount,jdbcType=DECIMAL}, #{isCollection,jdbcType=VARCHAR}, 
+      #{mainBodyUrl,jdbcType=VARCHAR}, #{topicId,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{modifyTime,jdbcType=TIMESTAMP}, #{textInfo,jdbcType=CLOB})
+  </insert>
+  <insert id="insertSelective" parameterType="com.c_platform.yq.bean.YqInfo">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_INFO_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      ID,
+      <if test="yqId != null">
+        YQ_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="propagationId != null">
+        PROPAGATION_ID,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="summary != null">
+        SUMMARY,
+      </if>
+      <if test="imageUrlList != null">
+        IMAGE_URL_LIST,
+      </if>
+      <if test="sourceSite != null">
+        SOURCE_SITE,
+      </if>
+      <if test="originalUrl != null">
+        ORIGINAL_URL,
+      </if>
+      <if test="releaseTime != null">
+        RELEASE_TIME,
+      </if>
+      <if test="crawlTime != null">
+        CRAWL_TIME,
+      </if>
+      <if test="mediaType != null">
+        MEDIA_TYPE,
+      </if>
+      <if test="polarity != null">
+        POLARITY,
+      </if>
+      <if test="exponent != null">
+        EXPONENT,
+      </if>
+      <if test="heat != null">
+        HEAT,
+      </if>
+      <if test="browseCount != null">
+        BROWSE_COUNT,
+      </if>
+      <if test="replyCount != null">
+        REPLY_COUNT,
+      </if>
+      <if test="isCollection != null">
+        IS_COLLECTION,
+      </if>
+      <if test="mainBodyUrl != null">
+        MAIN_BODY_URL,
+      </if>
+      <if test="topicId != null">
+        TOPIC_ID,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="modifyTime != null">
+        MODIFY_TIME,
+      </if>
+      <if test="textInfo != null">
+        TEXT_INFO,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=DECIMAL},
+      <if test="yqId != null">
+        #{yqId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="propagationId != null">
+        #{propagationId,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="imageUrlList != null">
+        #{imageUrlList,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceSite != null">
+        #{sourceSite,jdbcType=VARCHAR},
+      </if>
+      <if test="originalUrl != null">
+        #{originalUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseTime != null">
+        #{releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crawlTime != null">
+        #{crawlTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mediaType != null">
+        #{mediaType,jdbcType=VARCHAR},
+      </if>
+      <if test="polarity != null">
+        #{polarity,jdbcType=VARCHAR},
+      </if>
+      <if test="exponent != null">
+        #{exponent,jdbcType=VARCHAR},
+      </if>
+      <if test="heat != null">
+        #{heat,jdbcType=VARCHAR},
+      </if>
+      <if test="browseCount != null">
+        #{browseCount,jdbcType=DECIMAL},
+      </if>
+      <if test="replyCount != null">
+        #{replyCount,jdbcType=DECIMAL},
+      </if>
+      <if test="isCollection != null">
+        #{isCollection,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBodyUrl != null">
+        #{mainBodyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="topicId != null">
+        #{topicId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="textInfo != null">
+        #{textInfo,jdbcType=CLOB},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.c_platform.yq.bean.YqInfoExample" resultType="java.lang.Integer">
+    select count(*) from T_KL_YQ_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update T_KL_YQ_INFO
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=DECIMAL},
+      </if>
+      <if test="record.yqId != null">
+        YQ_ID = #{record.yqId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.userId != null">
+        USER_ID = #{record.userId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.propagationId != null">
+        PROPAGATION_ID = #{record.propagationId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.title != null">
+        TITLE = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.summary != null">
+        SUMMARY = #{record.summary,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imageUrlList != null">
+        IMAGE_URL_LIST = #{record.imageUrlList,jdbcType=VARCHAR},
+      </if>
+      <if test="record.sourceSite != null">
+        SOURCE_SITE = #{record.sourceSite,jdbcType=VARCHAR},
+      </if>
+      <if test="record.originalUrl != null">
+        ORIGINAL_URL = #{record.originalUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.releaseTime != null">
+        RELEASE_TIME = #{record.releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.crawlTime != null">
+        CRAWL_TIME = #{record.crawlTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.mediaType != null">
+        MEDIA_TYPE = #{record.mediaType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.polarity != null">
+        POLARITY = #{record.polarity,jdbcType=VARCHAR},
+      </if>
+      <if test="record.exponent != null">
+        EXPONENT = #{record.exponent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.heat != null">
+        HEAT = #{record.heat,jdbcType=VARCHAR},
+      </if>
+      <if test="record.browseCount != null">
+        BROWSE_COUNT = #{record.browseCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.replyCount != null">
+        REPLY_COUNT = #{record.replyCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isCollection != null">
+        IS_COLLECTION = #{record.isCollection,jdbcType=VARCHAR},
+      </if>
+      <if test="record.mainBodyUrl != null">
+        MAIN_BODY_URL = #{record.mainBodyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.topicId != null">
+        TOPIC_ID = #{record.topicId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyTime != null">
+        MODIFY_TIME = #{record.modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.textInfo != null">
+        TEXT_INFO = #{record.textInfo,jdbcType=CLOB},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map">
+    update T_KL_YQ_INFO
+    set ID = #{record.id,jdbcType=DECIMAL},
+      YQ_ID = #{record.yqId,jdbcType=VARCHAR},
+      USER_ID = #{record.userId,jdbcType=DECIMAL},
+      PROPAGATION_ID = #{record.propagationId,jdbcType=DECIMAL},
+      TITLE = #{record.title,jdbcType=VARCHAR},
+      SUMMARY = #{record.summary,jdbcType=VARCHAR},
+      IMAGE_URL_LIST = #{record.imageUrlList,jdbcType=VARCHAR},
+      SOURCE_SITE = #{record.sourceSite,jdbcType=VARCHAR},
+      ORIGINAL_URL = #{record.originalUrl,jdbcType=VARCHAR},
+      RELEASE_TIME = #{record.releaseTime,jdbcType=TIMESTAMP},
+      CRAWL_TIME = #{record.crawlTime,jdbcType=TIMESTAMP},
+      MEDIA_TYPE = #{record.mediaType,jdbcType=VARCHAR},
+      POLARITY = #{record.polarity,jdbcType=VARCHAR},
+      EXPONENT = #{record.exponent,jdbcType=VARCHAR},
+      HEAT = #{record.heat,jdbcType=VARCHAR},
+      BROWSE_COUNT = #{record.browseCount,jdbcType=DECIMAL},
+      REPLY_COUNT = #{record.replyCount,jdbcType=DECIMAL},
+      IS_COLLECTION = #{record.isCollection,jdbcType=VARCHAR},
+      MAIN_BODY_URL = #{record.mainBodyUrl,jdbcType=VARCHAR},
+      TOPIC_ID = #{record.topicId,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      MODIFY_TIME = #{record.modifyTime,jdbcType=TIMESTAMP},
+      TEXT_INFO = #{record.textInfo,jdbcType=CLOB}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update T_KL_YQ_INFO
+    set ID = #{record.id,jdbcType=DECIMAL},
+      YQ_ID = #{record.yqId,jdbcType=VARCHAR},
+      USER_ID = #{record.userId,jdbcType=DECIMAL},
+      PROPAGATION_ID = #{record.propagationId,jdbcType=DECIMAL},
+      TITLE = #{record.title,jdbcType=VARCHAR},
+      SUMMARY = #{record.summary,jdbcType=VARCHAR},
+      IMAGE_URL_LIST = #{record.imageUrlList,jdbcType=VARCHAR},
+      SOURCE_SITE = #{record.sourceSite,jdbcType=VARCHAR},
+      ORIGINAL_URL = #{record.originalUrl,jdbcType=VARCHAR},
+      RELEASE_TIME = #{record.releaseTime,jdbcType=TIMESTAMP},
+      CRAWL_TIME = #{record.crawlTime,jdbcType=TIMESTAMP},
+      MEDIA_TYPE = #{record.mediaType,jdbcType=VARCHAR},
+      POLARITY = #{record.polarity,jdbcType=VARCHAR},
+      EXPONENT = #{record.exponent,jdbcType=VARCHAR},
+      HEAT = #{record.heat,jdbcType=VARCHAR},
+      BROWSE_COUNT = #{record.browseCount,jdbcType=DECIMAL},
+      REPLY_COUNT = #{record.replyCount,jdbcType=DECIMAL},
+      IS_COLLECTION = #{record.isCollection,jdbcType=VARCHAR},
+      MAIN_BODY_URL = #{record.mainBodyUrl,jdbcType=VARCHAR},
+      TOPIC_ID = #{record.topicId,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      MODIFY_TIME = #{record.modifyTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.c_platform.yq.bean.YqInfo">
+    update T_KL_YQ_INFO
+    <set>
+      <if test="yqId != null">
+        YQ_ID = #{yqId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null">
+        USER_ID = #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="propagationId != null">
+        PROPAGATION_ID = #{propagationId,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null">
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        SUMMARY = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="imageUrlList != null">
+        IMAGE_URL_LIST = #{imageUrlList,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceSite != null">
+        SOURCE_SITE = #{sourceSite,jdbcType=VARCHAR},
+      </if>
+      <if test="originalUrl != null">
+        ORIGINAL_URL = #{originalUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="releaseTime != null">
+        RELEASE_TIME = #{releaseTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="crawlTime != null">
+        CRAWL_TIME = #{crawlTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="mediaType != null">
+        MEDIA_TYPE = #{mediaType,jdbcType=VARCHAR},
+      </if>
+      <if test="polarity != null">
+        POLARITY = #{polarity,jdbcType=VARCHAR},
+      </if>
+      <if test="exponent != null">
+        EXPONENT = #{exponent,jdbcType=VARCHAR},
+      </if>
+      <if test="heat != null">
+        HEAT = #{heat,jdbcType=VARCHAR},
+      </if>
+      <if test="browseCount != null">
+        BROWSE_COUNT = #{browseCount,jdbcType=DECIMAL},
+      </if>
+      <if test="replyCount != null">
+        REPLY_COUNT = #{replyCount,jdbcType=DECIMAL},
+      </if>
+      <if test="isCollection != null">
+        IS_COLLECTION = #{isCollection,jdbcType=VARCHAR},
+      </if>
+      <if test="mainBodyUrl != null">
+        MAIN_BODY_URL = #{mainBodyUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="topicId != null">
+        TOPIC_ID = #{topicId,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="textInfo != null">
+        TEXT_INFO = #{textInfo,jdbcType=CLOB},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.c_platform.yq.bean.YqInfo">
+    update T_KL_YQ_INFO
+    set YQ_ID = #{yqId,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=DECIMAL},
+      PROPAGATION_ID = #{propagationId,jdbcType=DECIMAL},
+      TITLE = #{title,jdbcType=VARCHAR},
+      SUMMARY = #{summary,jdbcType=VARCHAR},
+      IMAGE_URL_LIST = #{imageUrlList,jdbcType=VARCHAR},
+      SOURCE_SITE = #{sourceSite,jdbcType=VARCHAR},
+      ORIGINAL_URL = #{originalUrl,jdbcType=VARCHAR},
+      RELEASE_TIME = #{releaseTime,jdbcType=TIMESTAMP},
+      CRAWL_TIME = #{crawlTime,jdbcType=TIMESTAMP},
+      MEDIA_TYPE = #{mediaType,jdbcType=VARCHAR},
+      POLARITY = #{polarity,jdbcType=VARCHAR},
+      EXPONENT = #{exponent,jdbcType=VARCHAR},
+      HEAT = #{heat,jdbcType=VARCHAR},
+      BROWSE_COUNT = #{browseCount,jdbcType=DECIMAL},
+      REPLY_COUNT = #{replyCount,jdbcType=DECIMAL},
+      IS_COLLECTION = #{isCollection,jdbcType=VARCHAR},
+      MAIN_BODY_URL = #{mainBodyUrl,jdbcType=VARCHAR},
+      TOPIC_ID = #{topicId,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+      TEXT_INFO = #{textInfo,jdbcType=CLOB}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.c_platform.yq.bean.YqInfo">
+    update T_KL_YQ_INFO
+    set YQ_ID = #{yqId,jdbcType=VARCHAR},
+      USER_ID = #{userId,jdbcType=DECIMAL},
+      PROPAGATION_ID = #{propagationId,jdbcType=DECIMAL},
+      TITLE = #{title,jdbcType=VARCHAR},
+      SUMMARY = #{summary,jdbcType=VARCHAR},
+      IMAGE_URL_LIST = #{imageUrlList,jdbcType=VARCHAR},
+      SOURCE_SITE = #{sourceSite,jdbcType=VARCHAR},
+      ORIGINAL_URL = #{originalUrl,jdbcType=VARCHAR},
+      RELEASE_TIME = #{releaseTime,jdbcType=TIMESTAMP},
+      CRAWL_TIME = #{crawlTime,jdbcType=TIMESTAMP},
+      MEDIA_TYPE = #{mediaType,jdbcType=VARCHAR},
+      POLARITY = #{polarity,jdbcType=VARCHAR},
+      EXPONENT = #{exponent,jdbcType=VARCHAR},
+      HEAT = #{heat,jdbcType=VARCHAR},
+      BROWSE_COUNT = #{browseCount,jdbcType=DECIMAL},
+      REPLY_COUNT = #{replyCount,jdbcType=DECIMAL},
+      IS_COLLECTION = #{isCollection,jdbcType=VARCHAR},
+      MAIN_BODY_URL = #{mainBodyUrl,jdbcType=VARCHAR},
+      TOPIC_ID = #{topicId,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <sql id="OracleDialectPrefix">
+    <if test="page != null">
+      select * from ( select row_.*, rownum rownum_ from ( 
+    </if>
+  </sql>
+  <sql id="OracleDialectSuffix">
+    <if test="page != null">
+      <![CDATA[ ) row_ ) where rownum_ > #{page.begin} and rownum_ <= #{page.end} ]]>
+    </if>
+  </sql>
+</mapper>

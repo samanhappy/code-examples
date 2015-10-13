@@ -1,0 +1,956 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.c_platform.yq.mapper.YqHotNewsMapper">
+  <resultMap id="BaseResultMap" type="com.c_platform.yq.bean.YqHotNews">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="SOURCE_ID" jdbcType="DECIMAL" property="sourceId" />
+    <result column="CHANNEL_ID" jdbcType="VARCHAR" property="channelId" />
+    <result column="OPEN_TYPE" jdbcType="DECIMAL" property="openType" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CONTENT_URL" jdbcType="VARCHAR" property="contentUrl" />
+    <result column="NEWS_URL" jdbcType="VARCHAR" property="newsUrl" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="NEWS_TYPE" jdbcType="DECIMAL" property="newsType" />
+    <result column="COMMENT_COUNT" jdbcType="DECIMAL" property="commentCount" />
+    <result column="CONTENT_SOURCE" jdbcType="VARCHAR" property="contentSource" />
+    <result column="IMAGE_PATH" jdbcType="VARCHAR" property="imagePath" />
+    <result column="BANNER_URL" jdbcType="VARCHAR" property="bannerUrl" />
+    <result column="NEGATIVE_COUNT" jdbcType="DECIMAL" property="negativeCount" />
+    <result column="NEGATIVE_ENERGY" jdbcType="DECIMAL" property="negativeEnergy" />
+    <result column="POSITIVE_COUNT" jdbcType="DECIMAL" property="positiveCount" />
+    <result column="POSITIVE_ENERGY" jdbcType="DECIMAL" property="positiveEnergy" />
+    <result column="TOTAL_ENERGY" jdbcType="DECIMAL" property="totalEnergy" />
+    <result column="IS_ENERGY" jdbcType="DECIMAL" property="isEnergy" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, SOURCE_ID, CHANNEL_ID, OPEN_TYPE, TITLE, CONTENT_URL, NEWS_URL, DESCRIPTION, 
+    NEWS_TYPE, COMMENT_COUNT, CONTENT_SOURCE, IMAGE_PATH, BANNER_URL, NEGATIVE_COUNT, 
+    NEGATIVE_ENERGY, POSITIVE_COUNT, POSITIVE_ENERGY, TOTAL_ENERGY, IS_ENERGY, CREATE_TIME, 
+    UPDATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.c_platform.yq.bean.YqHotNewsExample" resultMap="BaseResultMap">
+    <include refid="OracleDialectPrefix" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from T_KL_YQ_HOT_NEWS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="OracleDialectSuffix" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_KL_YQ_HOT_NEWS
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_KL_YQ_HOT_NEWS
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.c_platform.yq.bean.YqHotNewsExample">
+    delete from T_KL_YQ_HOT_NEWS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.c_platform.yq.bean.YqHotNews">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_HOT_NEWS_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_HOT_NEWS (ID, SOURCE_ID, CHANNEL_ID, 
+      OPEN_TYPE, TITLE, CONTENT_URL, 
+      NEWS_URL, DESCRIPTION, NEWS_TYPE, 
+      COMMENT_COUNT, CONTENT_SOURCE, IMAGE_PATH, 
+      BANNER_URL, NEGATIVE_COUNT, NEGATIVE_ENERGY, 
+      POSITIVE_COUNT, POSITIVE_ENERGY, TOTAL_ENERGY, 
+      IS_ENERGY, CREATE_TIME, UPDATE_TIME
+      )
+    values (#{id,jdbcType=DECIMAL}, #{sourceId,jdbcType=DECIMAL}, #{channelId,jdbcType=VARCHAR}, 
+      #{openType,jdbcType=DECIMAL}, #{title,jdbcType=VARCHAR}, #{contentUrl,jdbcType=VARCHAR}, 
+      #{newsUrl,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{newsType,jdbcType=DECIMAL}, 
+      #{commentCount,jdbcType=DECIMAL}, #{contentSource,jdbcType=VARCHAR}, #{imagePath,jdbcType=VARCHAR}, 
+      #{bannerUrl,jdbcType=VARCHAR}, #{negativeCount,jdbcType=DECIMAL}, #{negativeEnergy,jdbcType=DECIMAL}, 
+      #{positiveCount,jdbcType=DECIMAL}, #{positiveEnergy,jdbcType=DECIMAL}, #{totalEnergy,jdbcType=DECIMAL}, 
+      #{isEnergy,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.c_platform.yq.bean.YqHotNews">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_HOT_NEWS_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_HOT_NEWS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      ID,
+      <if test="sourceId != null">
+        SOURCE_ID,
+      </if>
+      <if test="channelId != null">
+        CHANNEL_ID,
+      </if>
+      <if test="openType != null">
+        OPEN_TYPE,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="contentUrl != null">
+        CONTENT_URL,
+      </if>
+      <if test="newsUrl != null">
+        NEWS_URL,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="newsType != null">
+        NEWS_TYPE,
+      </if>
+      <if test="commentCount != null">
+        COMMENT_COUNT,
+      </if>
+      <if test="contentSource != null">
+        CONTENT_SOURCE,
+      </if>
+      <if test="imagePath != null">
+        IMAGE_PATH,
+      </if>
+      <if test="bannerUrl != null">
+        BANNER_URL,
+      </if>
+      <if test="negativeCount != null">
+        NEGATIVE_COUNT,
+      </if>
+      <if test="negativeEnergy != null">
+        NEGATIVE_ENERGY,
+      </if>
+      <if test="positiveCount != null">
+        POSITIVE_COUNT,
+      </if>
+      <if test="positiveEnergy != null">
+        POSITIVE_ENERGY,
+      </if>
+      <if test="totalEnergy != null">
+        TOTAL_ENERGY,
+      </if>
+      <if test="isEnergy != null">
+        IS_ENERGY,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=DECIMAL},
+      <if test="sourceId != null">
+        #{sourceId,jdbcType=DECIMAL},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="openType != null">
+        #{openType,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="contentUrl != null">
+        #{contentUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="newsUrl != null">
+        #{newsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="newsType != null">
+        #{newsType,jdbcType=DECIMAL},
+      </if>
+      <if test="commentCount != null">
+        #{commentCount,jdbcType=DECIMAL},
+      </if>
+      <if test="contentSource != null">
+        #{contentSource,jdbcType=VARCHAR},
+      </if>
+      <if test="imagePath != null">
+        #{imagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="bannerUrl != null">
+        #{bannerUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="negativeCount != null">
+        #{negativeCount,jdbcType=DECIMAL},
+      </if>
+      <if test="negativeEnergy != null">
+        #{negativeEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="positiveCount != null">
+        #{positiveCount,jdbcType=DECIMAL},
+      </if>
+      <if test="positiveEnergy != null">
+        #{positiveEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="totalEnergy != null">
+        #{totalEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="isEnergy != null">
+        #{isEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.c_platform.yq.bean.YqHotNewsExample" resultType="java.lang.Integer">
+    select count(*) from T_KL_YQ_HOT_NEWS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update T_KL_YQ_HOT_NEWS
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sourceId != null">
+        SOURCE_ID = #{record.sourceId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.channelId != null">
+        CHANNEL_ID = #{record.channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.openType != null">
+        OPEN_TYPE = #{record.openType,jdbcType=DECIMAL},
+      </if>
+      <if test="record.title != null">
+        TITLE = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contentUrl != null">
+        CONTENT_URL = #{record.contentUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newsUrl != null">
+        NEWS_URL = #{record.newsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newsType != null">
+        NEWS_TYPE = #{record.newsType,jdbcType=DECIMAL},
+      </if>
+      <if test="record.commentCount != null">
+        COMMENT_COUNT = #{record.commentCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.contentSource != null">
+        CONTENT_SOURCE = #{record.contentSource,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imagePath != null">
+        IMAGE_PATH = #{record.imagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bannerUrl != null">
+        BANNER_URL = #{record.bannerUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.negativeCount != null">
+        NEGATIVE_COUNT = #{record.negativeCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.negativeEnergy != null">
+        NEGATIVE_ENERGY = #{record.negativeEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="record.positiveCount != null">
+        POSITIVE_COUNT = #{record.positiveCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.positiveEnergy != null">
+        POSITIVE_ENERGY = #{record.positiveEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalEnergy != null">
+        TOTAL_ENERGY = #{record.totalEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isEnergy != null">
+        IS_ENERGY = #{record.isEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update T_KL_YQ_HOT_NEWS
+    set ID = #{record.id,jdbcType=DECIMAL},
+      SOURCE_ID = #{record.sourceId,jdbcType=DECIMAL},
+      CHANNEL_ID = #{record.channelId,jdbcType=VARCHAR},
+      OPEN_TYPE = #{record.openType,jdbcType=DECIMAL},
+      TITLE = #{record.title,jdbcType=VARCHAR},
+      CONTENT_URL = #{record.contentUrl,jdbcType=VARCHAR},
+      NEWS_URL = #{record.newsUrl,jdbcType=VARCHAR},
+      DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      NEWS_TYPE = #{record.newsType,jdbcType=DECIMAL},
+      COMMENT_COUNT = #{record.commentCount,jdbcType=DECIMAL},
+      CONTENT_SOURCE = #{record.contentSource,jdbcType=VARCHAR},
+      IMAGE_PATH = #{record.imagePath,jdbcType=VARCHAR},
+      BANNER_URL = #{record.bannerUrl,jdbcType=VARCHAR},
+      NEGATIVE_COUNT = #{record.negativeCount,jdbcType=DECIMAL},
+      NEGATIVE_ENERGY = #{record.negativeEnergy,jdbcType=DECIMAL},
+      POSITIVE_COUNT = #{record.positiveCount,jdbcType=DECIMAL},
+      POSITIVE_ENERGY = #{record.positiveEnergy,jdbcType=DECIMAL},
+      TOTAL_ENERGY = #{record.totalEnergy,jdbcType=DECIMAL},
+      IS_ENERGY = #{record.isEnergy,jdbcType=DECIMAL},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.c_platform.yq.bean.YqHotNews">
+    update T_KL_YQ_HOT_NEWS
+    <set>
+      <if test="sourceId != null">
+        SOURCE_ID = #{sourceId,jdbcType=DECIMAL},
+      </if>
+      <if test="channelId != null">
+        CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="openType != null">
+        OPEN_TYPE = #{openType,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null">
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="contentUrl != null">
+        CONTENT_URL = #{contentUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="newsUrl != null">
+        NEWS_URL = #{newsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="newsType != null">
+        NEWS_TYPE = #{newsType,jdbcType=DECIMAL},
+      </if>
+      <if test="commentCount != null">
+        COMMENT_COUNT = #{commentCount,jdbcType=DECIMAL},
+      </if>
+      <if test="contentSource != null">
+        CONTENT_SOURCE = #{contentSource,jdbcType=VARCHAR},
+      </if>
+      <if test="imagePath != null">
+        IMAGE_PATH = #{imagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="bannerUrl != null">
+        BANNER_URL = #{bannerUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="negativeCount != null">
+        NEGATIVE_COUNT = #{negativeCount,jdbcType=DECIMAL},
+      </if>
+      <if test="negativeEnergy != null">
+        NEGATIVE_ENERGY = #{negativeEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="positiveCount != null">
+        POSITIVE_COUNT = #{positiveCount,jdbcType=DECIMAL},
+      </if>
+      <if test="positiveEnergy != null">
+        POSITIVE_ENERGY = #{positiveEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="totalEnergy != null">
+        TOTAL_ENERGY = #{totalEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="isEnergy != null">
+        IS_ENERGY = #{isEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.c_platform.yq.bean.YqHotNews">
+    update T_KL_YQ_HOT_NEWS
+    set SOURCE_ID = #{sourceId,jdbcType=DECIMAL},
+      CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+      OPEN_TYPE = #{openType,jdbcType=DECIMAL},
+      TITLE = #{title,jdbcType=VARCHAR},
+      CONTENT_URL = #{contentUrl,jdbcType=VARCHAR},
+      NEWS_URL = #{newsUrl,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      NEWS_TYPE = #{newsType,jdbcType=DECIMAL},
+      COMMENT_COUNT = #{commentCount,jdbcType=DECIMAL},
+      CONTENT_SOURCE = #{contentSource,jdbcType=VARCHAR},
+      IMAGE_PATH = #{imagePath,jdbcType=VARCHAR},
+      BANNER_URL = #{bannerUrl,jdbcType=VARCHAR},
+      NEGATIVE_COUNT = #{negativeCount,jdbcType=DECIMAL},
+      NEGATIVE_ENERGY = #{negativeEnergy,jdbcType=DECIMAL},
+      POSITIVE_COUNT = #{positiveCount,jdbcType=DECIMAL},
+      POSITIVE_ENERGY = #{positiveEnergy,jdbcType=DECIMAL},
+      TOTAL_ENERGY = #{totalEnergy,jdbcType=DECIMAL},
+      IS_ENERGY = #{isEnergy,jdbcType=DECIMAL},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <sql id="OracleDialectPrefix">
+    <if test="page != null">
+      select * from ( select row_.*, rownum rownum_ from ( 
+    </if>
+  </sql>
+  <sql id="OracleDialectSuffix">
+    <if test="page != null">
+      <![CDATA[ ) row_ ) where rownum_ > #{page.begin} and rownum_ <= #{page.end} ]]>
+    </if>
+  </sql>
+  <resultMap id="BaseResultMap" type="com.c_platform.yq.bean.YqHotNews">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="SOURCE_ID" jdbcType="DECIMAL" property="sourceId" />
+    <result column="CHANNEL_ID" jdbcType="VARCHAR" property="channelId" />
+    <result column="OPEN_TYPE" jdbcType="DECIMAL" property="openType" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="CONTENT_URL" jdbcType="VARCHAR" property="contentUrl" />
+    <result column="NEWS_URL" jdbcType="VARCHAR" property="newsUrl" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="NEWS_TYPE" jdbcType="DECIMAL" property="newsType" />
+    <result column="COMMENT_COUNT" jdbcType="DECIMAL" property="commentCount" />
+    <result column="CONTENT_SOURCE" jdbcType="VARCHAR" property="contentSource" />
+    <result column="IMAGE_PATH" jdbcType="VARCHAR" property="imagePath" />
+    <result column="BANNER_URL" jdbcType="VARCHAR" property="bannerUrl" />
+    <result column="NEGATIVE_COUNT" jdbcType="DECIMAL" property="negativeCount" />
+    <result column="NEGATIVE_ENERGY" jdbcType="DECIMAL" property="negativeEnergy" />
+    <result column="POSITIVE_COUNT" jdbcType="DECIMAL" property="positiveCount" />
+    <result column="POSITIVE_ENERGY" jdbcType="DECIMAL" property="positiveEnergy" />
+    <result column="TOTAL_ENERGY" jdbcType="DECIMAL" property="totalEnergy" />
+    <result column="IS_ENERGY" jdbcType="DECIMAL" property="isEnergy" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, SOURCE_ID, CHANNEL_ID, OPEN_TYPE, TITLE, CONTENT_URL, NEWS_URL, DESCRIPTION, 
+    NEWS_TYPE, COMMENT_COUNT, CONTENT_SOURCE, IMAGE_PATH, BANNER_URL, NEGATIVE_COUNT, 
+    NEGATIVE_ENERGY, POSITIVE_COUNT, POSITIVE_ENERGY, TOTAL_ENERGY, IS_ENERGY, CREATE_TIME, 
+    UPDATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.c_platform.yq.bean.YqHotNewsExample" resultMap="BaseResultMap">
+    <include refid="OracleDialectPrefix" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from T_KL_YQ_HOT_NEWS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="OracleDialectSuffix" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_KL_YQ_HOT_NEWS
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_KL_YQ_HOT_NEWS
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.c_platform.yq.bean.YqHotNewsExample">
+    delete from T_KL_YQ_HOT_NEWS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.c_platform.yq.bean.YqHotNews">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_HOT_NEWS_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_HOT_NEWS (ID, SOURCE_ID, CHANNEL_ID, 
+      OPEN_TYPE, TITLE, CONTENT_URL, 
+      NEWS_URL, DESCRIPTION, NEWS_TYPE, 
+      COMMENT_COUNT, CONTENT_SOURCE, IMAGE_PATH, 
+      BANNER_URL, NEGATIVE_COUNT, NEGATIVE_ENERGY, 
+      POSITIVE_COUNT, POSITIVE_ENERGY, TOTAL_ENERGY, 
+      IS_ENERGY, CREATE_TIME, UPDATE_TIME
+      )
+    values (#{id,jdbcType=DECIMAL}, #{sourceId,jdbcType=DECIMAL}, #{channelId,jdbcType=VARCHAR}, 
+      #{openType,jdbcType=DECIMAL}, #{title,jdbcType=VARCHAR}, #{contentUrl,jdbcType=VARCHAR}, 
+      #{newsUrl,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{newsType,jdbcType=DECIMAL}, 
+      #{commentCount,jdbcType=DECIMAL}, #{contentSource,jdbcType=VARCHAR}, #{imagePath,jdbcType=VARCHAR}, 
+      #{bannerUrl,jdbcType=VARCHAR}, #{negativeCount,jdbcType=DECIMAL}, #{negativeEnergy,jdbcType=DECIMAL}, 
+      #{positiveCount,jdbcType=DECIMAL}, #{positiveEnergy,jdbcType=DECIMAL}, #{totalEnergy,jdbcType=DECIMAL}, 
+      #{isEnergy,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.c_platform.yq.bean.YqHotNews">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_HOT_NEWS_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_HOT_NEWS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      ID,
+      <if test="sourceId != null">
+        SOURCE_ID,
+      </if>
+      <if test="channelId != null">
+        CHANNEL_ID,
+      </if>
+      <if test="openType != null">
+        OPEN_TYPE,
+      </if>
+      <if test="title != null">
+        TITLE,
+      </if>
+      <if test="contentUrl != null">
+        CONTENT_URL,
+      </if>
+      <if test="newsUrl != null">
+        NEWS_URL,
+      </if>
+      <if test="description != null">
+        DESCRIPTION,
+      </if>
+      <if test="newsType != null">
+        NEWS_TYPE,
+      </if>
+      <if test="commentCount != null">
+        COMMENT_COUNT,
+      </if>
+      <if test="contentSource != null">
+        CONTENT_SOURCE,
+      </if>
+      <if test="imagePath != null">
+        IMAGE_PATH,
+      </if>
+      <if test="bannerUrl != null">
+        BANNER_URL,
+      </if>
+      <if test="negativeCount != null">
+        NEGATIVE_COUNT,
+      </if>
+      <if test="negativeEnergy != null">
+        NEGATIVE_ENERGY,
+      </if>
+      <if test="positiveCount != null">
+        POSITIVE_COUNT,
+      </if>
+      <if test="positiveEnergy != null">
+        POSITIVE_ENERGY,
+      </if>
+      <if test="totalEnergy != null">
+        TOTAL_ENERGY,
+      </if>
+      <if test="isEnergy != null">
+        IS_ENERGY,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=DECIMAL},
+      <if test="sourceId != null">
+        #{sourceId,jdbcType=DECIMAL},
+      </if>
+      <if test="channelId != null">
+        #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="openType != null">
+        #{openType,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="contentUrl != null">
+        #{contentUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="newsUrl != null">
+        #{newsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="newsType != null">
+        #{newsType,jdbcType=DECIMAL},
+      </if>
+      <if test="commentCount != null">
+        #{commentCount,jdbcType=DECIMAL},
+      </if>
+      <if test="contentSource != null">
+        #{contentSource,jdbcType=VARCHAR},
+      </if>
+      <if test="imagePath != null">
+        #{imagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="bannerUrl != null">
+        #{bannerUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="negativeCount != null">
+        #{negativeCount,jdbcType=DECIMAL},
+      </if>
+      <if test="negativeEnergy != null">
+        #{negativeEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="positiveCount != null">
+        #{positiveCount,jdbcType=DECIMAL},
+      </if>
+      <if test="positiveEnergy != null">
+        #{positiveEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="totalEnergy != null">
+        #{totalEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="isEnergy != null">
+        #{isEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.c_platform.yq.bean.YqHotNewsExample" resultType="java.lang.Integer">
+    select count(*) from T_KL_YQ_HOT_NEWS
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update T_KL_YQ_HOT_NEWS
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=DECIMAL},
+      </if>
+      <if test="record.sourceId != null">
+        SOURCE_ID = #{record.sourceId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.channelId != null">
+        CHANNEL_ID = #{record.channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.openType != null">
+        OPEN_TYPE = #{record.openType,jdbcType=DECIMAL},
+      </if>
+      <if test="record.title != null">
+        TITLE = #{record.title,jdbcType=VARCHAR},
+      </if>
+      <if test="record.contentUrl != null">
+        CONTENT_URL = #{record.contentUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newsUrl != null">
+        NEWS_URL = #{record.newsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null">
+        DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.newsType != null">
+        NEWS_TYPE = #{record.newsType,jdbcType=DECIMAL},
+      </if>
+      <if test="record.commentCount != null">
+        COMMENT_COUNT = #{record.commentCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.contentSource != null">
+        CONTENT_SOURCE = #{record.contentSource,jdbcType=VARCHAR},
+      </if>
+      <if test="record.imagePath != null">
+        IMAGE_PATH = #{record.imagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bannerUrl != null">
+        BANNER_URL = #{record.bannerUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.negativeCount != null">
+        NEGATIVE_COUNT = #{record.negativeCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.negativeEnergy != null">
+        NEGATIVE_ENERGY = #{record.negativeEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="record.positiveCount != null">
+        POSITIVE_COUNT = #{record.positiveCount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.positiveEnergy != null">
+        POSITIVE_ENERGY = #{record.positiveEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="record.totalEnergy != null">
+        TOTAL_ENERGY = #{record.totalEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isEnergy != null">
+        IS_ENERGY = #{record.isEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update T_KL_YQ_HOT_NEWS
+    set ID = #{record.id,jdbcType=DECIMAL},
+      SOURCE_ID = #{record.sourceId,jdbcType=DECIMAL},
+      CHANNEL_ID = #{record.channelId,jdbcType=VARCHAR},
+      OPEN_TYPE = #{record.openType,jdbcType=DECIMAL},
+      TITLE = #{record.title,jdbcType=VARCHAR},
+      CONTENT_URL = #{record.contentUrl,jdbcType=VARCHAR},
+      NEWS_URL = #{record.newsUrl,jdbcType=VARCHAR},
+      DESCRIPTION = #{record.description,jdbcType=VARCHAR},
+      NEWS_TYPE = #{record.newsType,jdbcType=DECIMAL},
+      COMMENT_COUNT = #{record.commentCount,jdbcType=DECIMAL},
+      CONTENT_SOURCE = #{record.contentSource,jdbcType=VARCHAR},
+      IMAGE_PATH = #{record.imagePath,jdbcType=VARCHAR},
+      BANNER_URL = #{record.bannerUrl,jdbcType=VARCHAR},
+      NEGATIVE_COUNT = #{record.negativeCount,jdbcType=DECIMAL},
+      NEGATIVE_ENERGY = #{record.negativeEnergy,jdbcType=DECIMAL},
+      POSITIVE_COUNT = #{record.positiveCount,jdbcType=DECIMAL},
+      POSITIVE_ENERGY = #{record.positiveEnergy,jdbcType=DECIMAL},
+      TOTAL_ENERGY = #{record.totalEnergy,jdbcType=DECIMAL},
+      IS_ENERGY = #{record.isEnergy,jdbcType=DECIMAL},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.c_platform.yq.bean.YqHotNews">
+    update T_KL_YQ_HOT_NEWS
+    <set>
+      <if test="sourceId != null">
+        SOURCE_ID = #{sourceId,jdbcType=DECIMAL},
+      </if>
+      <if test="channelId != null">
+        CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+      </if>
+      <if test="openType != null">
+        OPEN_TYPE = #{openType,jdbcType=DECIMAL},
+      </if>
+      <if test="title != null">
+        TITLE = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="contentUrl != null">
+        CONTENT_URL = #{contentUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="newsUrl != null">
+        NEWS_URL = #{newsUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null">
+        DESCRIPTION = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="newsType != null">
+        NEWS_TYPE = #{newsType,jdbcType=DECIMAL},
+      </if>
+      <if test="commentCount != null">
+        COMMENT_COUNT = #{commentCount,jdbcType=DECIMAL},
+      </if>
+      <if test="contentSource != null">
+        CONTENT_SOURCE = #{contentSource,jdbcType=VARCHAR},
+      </if>
+      <if test="imagePath != null">
+        IMAGE_PATH = #{imagePath,jdbcType=VARCHAR},
+      </if>
+      <if test="bannerUrl != null">
+        BANNER_URL = #{bannerUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="negativeCount != null">
+        NEGATIVE_COUNT = #{negativeCount,jdbcType=DECIMAL},
+      </if>
+      <if test="negativeEnergy != null">
+        NEGATIVE_ENERGY = #{negativeEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="positiveCount != null">
+        POSITIVE_COUNT = #{positiveCount,jdbcType=DECIMAL},
+      </if>
+      <if test="positiveEnergy != null">
+        POSITIVE_ENERGY = #{positiveEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="totalEnergy != null">
+        TOTAL_ENERGY = #{totalEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="isEnergy != null">
+        IS_ENERGY = #{isEnergy,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.c_platform.yq.bean.YqHotNews">
+    update T_KL_YQ_HOT_NEWS
+    set SOURCE_ID = #{sourceId,jdbcType=DECIMAL},
+      CHANNEL_ID = #{channelId,jdbcType=VARCHAR},
+      OPEN_TYPE = #{openType,jdbcType=DECIMAL},
+      TITLE = #{title,jdbcType=VARCHAR},
+      CONTENT_URL = #{contentUrl,jdbcType=VARCHAR},
+      NEWS_URL = #{newsUrl,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
+      NEWS_TYPE = #{newsType,jdbcType=DECIMAL},
+      COMMENT_COUNT = #{commentCount,jdbcType=DECIMAL},
+      CONTENT_SOURCE = #{contentSource,jdbcType=VARCHAR},
+      IMAGE_PATH = #{imagePath,jdbcType=VARCHAR},
+      BANNER_URL = #{bannerUrl,jdbcType=VARCHAR},
+      NEGATIVE_COUNT = #{negativeCount,jdbcType=DECIMAL},
+      NEGATIVE_ENERGY = #{negativeEnergy,jdbcType=DECIMAL},
+      POSITIVE_COUNT = #{positiveCount,jdbcType=DECIMAL},
+      POSITIVE_ENERGY = #{positiveEnergy,jdbcType=DECIMAL},
+      TOTAL_ENERGY = #{totalEnergy,jdbcType=DECIMAL},
+      IS_ENERGY = #{isEnergy,jdbcType=DECIMAL},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <sql id="OracleDialectPrefix">
+    <if test="page != null">
+      select * from ( select row_.*, rownum rownum_ from ( 
+    </if>
+  </sql>
+  <sql id="OracleDialectSuffix">
+    <if test="page != null">
+      <![CDATA[ ) row_ ) where rownum_ > #{page.begin} and rownum_ <= #{page.end} ]]>
+    </if>
+  </sql>
+</mapper>

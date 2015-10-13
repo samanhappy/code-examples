@@ -1,0 +1,796 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.c_platform.yq.mapper.YqSoftwareInfoMapper">
+  <resultMap id="BaseResultMap" type="com.c_platform.yq.bean.YqSoftwareInfo">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="VER_CODE" jdbcType="DECIMAL" property="verCode" />
+    <result column="VER_NAME" jdbcType="VARCHAR" property="verName" />
+    <result column="UPDATE_URL" jdbcType="VARCHAR" property="updateUrl" />
+    <result column="FORCE" jdbcType="DECIMAL" property="force" />
+    <result column="IS_ACTIVE" jdbcType="DECIMAL" property="isActive" />
+    <result column="APK_HASH" jdbcType="VARCHAR" property="apkHash" />
+    <result column="APK_SIZE" jdbcType="DECIMAL" property="apkSize" />
+    <result column="UPGRADE_CONTENT" jdbcType="VARCHAR" property="upgradeContent" />
+    <result column="IS_ENABLE" jdbcType="DECIMAL" property="isEnable" />
+    <result column="CLIENT_TYPE" jdbcType="VARCHAR" property="clientType" />
+    <result column="UPGRADE_TIP" jdbcType="VARCHAR" property="upgradeTip" />
+    <result column="NOTIFICATION_TIP" jdbcType="VARCHAR" property="notificationTip" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="UPDATE_UID" jdbcType="DECIMAL" property="updateUid" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, VER_CODE, VER_NAME, UPDATE_URL, FORCE, IS_ACTIVE, APK_HASH, APK_SIZE, UPGRADE_CONTENT, 
+    IS_ENABLE, CLIENT_TYPE, UPGRADE_TIP, NOTIFICATION_TIP, CREATE_TIME, UPDATE_TIME, 
+    UPDATE_UID
+  </sql>
+  <select id="selectByExample" parameterType="com.c_platform.yq.bean.YqSoftwareInfoExample" resultMap="BaseResultMap">
+    <include refid="OracleDialectPrefix" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from T_KL_YQ_SOFTWARE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="OracleDialectSuffix" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_KL_YQ_SOFTWARE_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_KL_YQ_SOFTWARE_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.c_platform.yq.bean.YqSoftwareInfoExample">
+    delete from T_KL_YQ_SOFTWARE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.c_platform.yq.bean.YqSoftwareInfo">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_SOFTWARE_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_SOFTWARE_INFO (ID, VER_CODE, VER_NAME, 
+      UPDATE_URL, FORCE, IS_ACTIVE, 
+      APK_HASH, APK_SIZE, UPGRADE_CONTENT, 
+      IS_ENABLE, CLIENT_TYPE, UPGRADE_TIP, 
+      NOTIFICATION_TIP, CREATE_TIME, UPDATE_TIME, 
+      UPDATE_UID)
+    values (#{id,jdbcType=DECIMAL}, #{verCode,jdbcType=DECIMAL}, #{verName,jdbcType=VARCHAR}, 
+      #{updateUrl,jdbcType=VARCHAR}, #{force,jdbcType=DECIMAL}, #{isActive,jdbcType=DECIMAL}, 
+      #{apkHash,jdbcType=VARCHAR}, #{apkSize,jdbcType=DECIMAL}, #{upgradeContent,jdbcType=VARCHAR}, 
+      #{isEnable,jdbcType=DECIMAL}, #{clientType,jdbcType=VARCHAR}, #{upgradeTip,jdbcType=VARCHAR}, 
+      #{notificationTip,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateUid,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.c_platform.yq.bean.YqSoftwareInfo">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_SOFTWARE_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_SOFTWARE_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      ID,
+      <if test="verCode != null">
+        VER_CODE,
+      </if>
+      <if test="verName != null">
+        VER_NAME,
+      </if>
+      <if test="updateUrl != null">
+        UPDATE_URL,
+      </if>
+      <if test="force != null">
+        FORCE,
+      </if>
+      <if test="isActive != null">
+        IS_ACTIVE,
+      </if>
+      <if test="apkHash != null">
+        APK_HASH,
+      </if>
+      <if test="apkSize != null">
+        APK_SIZE,
+      </if>
+      <if test="upgradeContent != null">
+        UPGRADE_CONTENT,
+      </if>
+      <if test="isEnable != null">
+        IS_ENABLE,
+      </if>
+      <if test="clientType != null">
+        CLIENT_TYPE,
+      </if>
+      <if test="upgradeTip != null">
+        UPGRADE_TIP,
+      </if>
+      <if test="notificationTip != null">
+        NOTIFICATION_TIP,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="updateUid != null">
+        UPDATE_UID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=DECIMAL},
+      <if test="verCode != null">
+        #{verCode,jdbcType=DECIMAL},
+      </if>
+      <if test="verName != null">
+        #{verName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUrl != null">
+        #{updateUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="force != null">
+        #{force,jdbcType=DECIMAL},
+      </if>
+      <if test="isActive != null">
+        #{isActive,jdbcType=DECIMAL},
+      </if>
+      <if test="apkHash != null">
+        #{apkHash,jdbcType=VARCHAR},
+      </if>
+      <if test="apkSize != null">
+        #{apkSize,jdbcType=DECIMAL},
+      </if>
+      <if test="upgradeContent != null">
+        #{upgradeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnable != null">
+        #{isEnable,jdbcType=DECIMAL},
+      </if>
+      <if test="clientType != null">
+        #{clientType,jdbcType=VARCHAR},
+      </if>
+      <if test="upgradeTip != null">
+        #{upgradeTip,jdbcType=VARCHAR},
+      </if>
+      <if test="notificationTip != null">
+        #{notificationTip,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null">
+        #{updateUid,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.c_platform.yq.bean.YqSoftwareInfoExample" resultType="java.lang.Integer">
+    select count(*) from T_KL_YQ_SOFTWARE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update T_KL_YQ_SOFTWARE_INFO
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=DECIMAL},
+      </if>
+      <if test="record.verCode != null">
+        VER_CODE = #{record.verCode,jdbcType=DECIMAL},
+      </if>
+      <if test="record.verName != null">
+        VER_NAME = #{record.verName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateUrl != null">
+        UPDATE_URL = #{record.updateUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.force != null">
+        FORCE = #{record.force,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isActive != null">
+        IS_ACTIVE = #{record.isActive,jdbcType=DECIMAL},
+      </if>
+      <if test="record.apkHash != null">
+        APK_HASH = #{record.apkHash,jdbcType=VARCHAR},
+      </if>
+      <if test="record.apkSize != null">
+        APK_SIZE = #{record.apkSize,jdbcType=DECIMAL},
+      </if>
+      <if test="record.upgradeContent != null">
+        UPGRADE_CONTENT = #{record.upgradeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isEnable != null">
+        IS_ENABLE = #{record.isEnable,jdbcType=DECIMAL},
+      </if>
+      <if test="record.clientType != null">
+        CLIENT_TYPE = #{record.clientType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.upgradeTip != null">
+        UPGRADE_TIP = #{record.upgradeTip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.notificationTip != null">
+        NOTIFICATION_TIP = #{record.notificationTip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateUid != null">
+        UPDATE_UID = #{record.updateUid,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update T_KL_YQ_SOFTWARE_INFO
+    set ID = #{record.id,jdbcType=DECIMAL},
+      VER_CODE = #{record.verCode,jdbcType=DECIMAL},
+      VER_NAME = #{record.verName,jdbcType=VARCHAR},
+      UPDATE_URL = #{record.updateUrl,jdbcType=VARCHAR},
+      FORCE = #{record.force,jdbcType=DECIMAL},
+      IS_ACTIVE = #{record.isActive,jdbcType=DECIMAL},
+      APK_HASH = #{record.apkHash,jdbcType=VARCHAR},
+      APK_SIZE = #{record.apkSize,jdbcType=DECIMAL},
+      UPGRADE_CONTENT = #{record.upgradeContent,jdbcType=VARCHAR},
+      IS_ENABLE = #{record.isEnable,jdbcType=DECIMAL},
+      CLIENT_TYPE = #{record.clientType,jdbcType=VARCHAR},
+      UPGRADE_TIP = #{record.upgradeTip,jdbcType=VARCHAR},
+      NOTIFICATION_TIP = #{record.notificationTip,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      UPDATE_UID = #{record.updateUid,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.c_platform.yq.bean.YqSoftwareInfo">
+    update T_KL_YQ_SOFTWARE_INFO
+    <set>
+      <if test="verCode != null">
+        VER_CODE = #{verCode,jdbcType=DECIMAL},
+      </if>
+      <if test="verName != null">
+        VER_NAME = #{verName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUrl != null">
+        UPDATE_URL = #{updateUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="force != null">
+        FORCE = #{force,jdbcType=DECIMAL},
+      </if>
+      <if test="isActive != null">
+        IS_ACTIVE = #{isActive,jdbcType=DECIMAL},
+      </if>
+      <if test="apkHash != null">
+        APK_HASH = #{apkHash,jdbcType=VARCHAR},
+      </if>
+      <if test="apkSize != null">
+        APK_SIZE = #{apkSize,jdbcType=DECIMAL},
+      </if>
+      <if test="upgradeContent != null">
+        UPGRADE_CONTENT = #{upgradeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnable != null">
+        IS_ENABLE = #{isEnable,jdbcType=DECIMAL},
+      </if>
+      <if test="clientType != null">
+        CLIENT_TYPE = #{clientType,jdbcType=VARCHAR},
+      </if>
+      <if test="upgradeTip != null">
+        UPGRADE_TIP = #{upgradeTip,jdbcType=VARCHAR},
+      </if>
+      <if test="notificationTip != null">
+        NOTIFICATION_TIP = #{notificationTip,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null">
+        UPDATE_UID = #{updateUid,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.c_platform.yq.bean.YqSoftwareInfo">
+    update T_KL_YQ_SOFTWARE_INFO
+    set VER_CODE = #{verCode,jdbcType=DECIMAL},
+      VER_NAME = #{verName,jdbcType=VARCHAR},
+      UPDATE_URL = #{updateUrl,jdbcType=VARCHAR},
+      FORCE = #{force,jdbcType=DECIMAL},
+      IS_ACTIVE = #{isActive,jdbcType=DECIMAL},
+      APK_HASH = #{apkHash,jdbcType=VARCHAR},
+      APK_SIZE = #{apkSize,jdbcType=DECIMAL},
+      UPGRADE_CONTENT = #{upgradeContent,jdbcType=VARCHAR},
+      IS_ENABLE = #{isEnable,jdbcType=DECIMAL},
+      CLIENT_TYPE = #{clientType,jdbcType=VARCHAR},
+      UPGRADE_TIP = #{upgradeTip,jdbcType=VARCHAR},
+      NOTIFICATION_TIP = #{notificationTip,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_UID = #{updateUid,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <sql id="OracleDialectPrefix">
+    <if test="page != null">
+      select * from ( select row_.*, rownum rownum_ from ( 
+    </if>
+  </sql>
+  <sql id="OracleDialectSuffix">
+    <if test="page != null">
+      <![CDATA[ ) row_ ) where rownum_ > #{page.begin} and rownum_ <= #{page.end} ]]>
+    </if>
+  </sql>
+  <resultMap id="BaseResultMap" type="com.c_platform.yq.bean.YqSoftwareInfo">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="VER_CODE" jdbcType="DECIMAL" property="verCode" />
+    <result column="VER_NAME" jdbcType="VARCHAR" property="verName" />
+    <result column="UPDATE_URL" jdbcType="VARCHAR" property="updateUrl" />
+    <result column="FORCE" jdbcType="DECIMAL" property="force" />
+    <result column="IS_ACTIVE" jdbcType="DECIMAL" property="isActive" />
+    <result column="APK_HASH" jdbcType="VARCHAR" property="apkHash" />
+    <result column="APK_SIZE" jdbcType="DECIMAL" property="apkSize" />
+    <result column="UPGRADE_CONTENT" jdbcType="VARCHAR" property="upgradeContent" />
+    <result column="IS_ENABLE" jdbcType="DECIMAL" property="isEnable" />
+    <result column="CLIENT_TYPE" jdbcType="VARCHAR" property="clientType" />
+    <result column="UPGRADE_TIP" jdbcType="VARCHAR" property="upgradeTip" />
+    <result column="NOTIFICATION_TIP" jdbcType="VARCHAR" property="notificationTip" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="UPDATE_UID" jdbcType="DECIMAL" property="updateUid" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, VER_CODE, VER_NAME, UPDATE_URL, FORCE, IS_ACTIVE, APK_HASH, APK_SIZE, UPGRADE_CONTENT, 
+    IS_ENABLE, CLIENT_TYPE, UPGRADE_TIP, NOTIFICATION_TIP, CREATE_TIME, UPDATE_TIME, 
+    UPDATE_UID
+  </sql>
+  <select id="selectByExample" parameterType="com.c_platform.yq.bean.YqSoftwareInfoExample" resultMap="BaseResultMap">
+    <include refid="OracleDialectPrefix" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from T_KL_YQ_SOFTWARE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="OracleDialectSuffix" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_KL_YQ_SOFTWARE_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_KL_YQ_SOFTWARE_INFO
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.c_platform.yq.bean.YqSoftwareInfoExample">
+    delete from T_KL_YQ_SOFTWARE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.c_platform.yq.bean.YqSoftwareInfo">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_SOFTWARE_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_SOFTWARE_INFO (ID, VER_CODE, VER_NAME, 
+      UPDATE_URL, FORCE, IS_ACTIVE, 
+      APK_HASH, APK_SIZE, UPGRADE_CONTENT, 
+      IS_ENABLE, CLIENT_TYPE, UPGRADE_TIP, 
+      NOTIFICATION_TIP, CREATE_TIME, UPDATE_TIME, 
+      UPDATE_UID)
+    values (#{id,jdbcType=DECIMAL}, #{verCode,jdbcType=DECIMAL}, #{verName,jdbcType=VARCHAR}, 
+      #{updateUrl,jdbcType=VARCHAR}, #{force,jdbcType=DECIMAL}, #{isActive,jdbcType=DECIMAL}, 
+      #{apkHash,jdbcType=VARCHAR}, #{apkSize,jdbcType=DECIMAL}, #{upgradeContent,jdbcType=VARCHAR}, 
+      #{isEnable,jdbcType=DECIMAL}, #{clientType,jdbcType=VARCHAR}, #{upgradeTip,jdbcType=VARCHAR}, 
+      #{notificationTip,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateUid,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.c_platform.yq.bean.YqSoftwareInfo">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_SOFTWARE_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_SOFTWARE_INFO
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      ID,
+      <if test="verCode != null">
+        VER_CODE,
+      </if>
+      <if test="verName != null">
+        VER_NAME,
+      </if>
+      <if test="updateUrl != null">
+        UPDATE_URL,
+      </if>
+      <if test="force != null">
+        FORCE,
+      </if>
+      <if test="isActive != null">
+        IS_ACTIVE,
+      </if>
+      <if test="apkHash != null">
+        APK_HASH,
+      </if>
+      <if test="apkSize != null">
+        APK_SIZE,
+      </if>
+      <if test="upgradeContent != null">
+        UPGRADE_CONTENT,
+      </if>
+      <if test="isEnable != null">
+        IS_ENABLE,
+      </if>
+      <if test="clientType != null">
+        CLIENT_TYPE,
+      </if>
+      <if test="upgradeTip != null">
+        UPGRADE_TIP,
+      </if>
+      <if test="notificationTip != null">
+        NOTIFICATION_TIP,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="updateUid != null">
+        UPDATE_UID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=DECIMAL},
+      <if test="verCode != null">
+        #{verCode,jdbcType=DECIMAL},
+      </if>
+      <if test="verName != null">
+        #{verName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUrl != null">
+        #{updateUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="force != null">
+        #{force,jdbcType=DECIMAL},
+      </if>
+      <if test="isActive != null">
+        #{isActive,jdbcType=DECIMAL},
+      </if>
+      <if test="apkHash != null">
+        #{apkHash,jdbcType=VARCHAR},
+      </if>
+      <if test="apkSize != null">
+        #{apkSize,jdbcType=DECIMAL},
+      </if>
+      <if test="upgradeContent != null">
+        #{upgradeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnable != null">
+        #{isEnable,jdbcType=DECIMAL},
+      </if>
+      <if test="clientType != null">
+        #{clientType,jdbcType=VARCHAR},
+      </if>
+      <if test="upgradeTip != null">
+        #{upgradeTip,jdbcType=VARCHAR},
+      </if>
+      <if test="notificationTip != null">
+        #{notificationTip,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null">
+        #{updateUid,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.c_platform.yq.bean.YqSoftwareInfoExample" resultType="java.lang.Integer">
+    select count(*) from T_KL_YQ_SOFTWARE_INFO
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update T_KL_YQ_SOFTWARE_INFO
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=DECIMAL},
+      </if>
+      <if test="record.verCode != null">
+        VER_CODE = #{record.verCode,jdbcType=DECIMAL},
+      </if>
+      <if test="record.verName != null">
+        VER_NAME = #{record.verName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.updateUrl != null">
+        UPDATE_URL = #{record.updateUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="record.force != null">
+        FORCE = #{record.force,jdbcType=DECIMAL},
+      </if>
+      <if test="record.isActive != null">
+        IS_ACTIVE = #{record.isActive,jdbcType=DECIMAL},
+      </if>
+      <if test="record.apkHash != null">
+        APK_HASH = #{record.apkHash,jdbcType=VARCHAR},
+      </if>
+      <if test="record.apkSize != null">
+        APK_SIZE = #{record.apkSize,jdbcType=DECIMAL},
+      </if>
+      <if test="record.upgradeContent != null">
+        UPGRADE_CONTENT = #{record.upgradeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isEnable != null">
+        IS_ENABLE = #{record.isEnable,jdbcType=DECIMAL},
+      </if>
+      <if test="record.clientType != null">
+        CLIENT_TYPE = #{record.clientType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.upgradeTip != null">
+        UPGRADE_TIP = #{record.upgradeTip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.notificationTip != null">
+        NOTIFICATION_TIP = #{record.notificationTip,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateUid != null">
+        UPDATE_UID = #{record.updateUid,jdbcType=DECIMAL},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update T_KL_YQ_SOFTWARE_INFO
+    set ID = #{record.id,jdbcType=DECIMAL},
+      VER_CODE = #{record.verCode,jdbcType=DECIMAL},
+      VER_NAME = #{record.verName,jdbcType=VARCHAR},
+      UPDATE_URL = #{record.updateUrl,jdbcType=VARCHAR},
+      FORCE = #{record.force,jdbcType=DECIMAL},
+      IS_ACTIVE = #{record.isActive,jdbcType=DECIMAL},
+      APK_HASH = #{record.apkHash,jdbcType=VARCHAR},
+      APK_SIZE = #{record.apkSize,jdbcType=DECIMAL},
+      UPGRADE_CONTENT = #{record.upgradeContent,jdbcType=VARCHAR},
+      IS_ENABLE = #{record.isEnable,jdbcType=DECIMAL},
+      CLIENT_TYPE = #{record.clientType,jdbcType=VARCHAR},
+      UPGRADE_TIP = #{record.upgradeTip,jdbcType=VARCHAR},
+      NOTIFICATION_TIP = #{record.notificationTip,jdbcType=VARCHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      UPDATE_UID = #{record.updateUid,jdbcType=DECIMAL}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.c_platform.yq.bean.YqSoftwareInfo">
+    update T_KL_YQ_SOFTWARE_INFO
+    <set>
+      <if test="verCode != null">
+        VER_CODE = #{verCode,jdbcType=DECIMAL},
+      </if>
+      <if test="verName != null">
+        VER_NAME = #{verName,jdbcType=VARCHAR},
+      </if>
+      <if test="updateUrl != null">
+        UPDATE_URL = #{updateUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="force != null">
+        FORCE = #{force,jdbcType=DECIMAL},
+      </if>
+      <if test="isActive != null">
+        IS_ACTIVE = #{isActive,jdbcType=DECIMAL},
+      </if>
+      <if test="apkHash != null">
+        APK_HASH = #{apkHash,jdbcType=VARCHAR},
+      </if>
+      <if test="apkSize != null">
+        APK_SIZE = #{apkSize,jdbcType=DECIMAL},
+      </if>
+      <if test="upgradeContent != null">
+        UPGRADE_CONTENT = #{upgradeContent,jdbcType=VARCHAR},
+      </if>
+      <if test="isEnable != null">
+        IS_ENABLE = #{isEnable,jdbcType=DECIMAL},
+      </if>
+      <if test="clientType != null">
+        CLIENT_TYPE = #{clientType,jdbcType=VARCHAR},
+      </if>
+      <if test="upgradeTip != null">
+        UPGRADE_TIP = #{upgradeTip,jdbcType=VARCHAR},
+      </if>
+      <if test="notificationTip != null">
+        NOTIFICATION_TIP = #{notificationTip,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUid != null">
+        UPDATE_UID = #{updateUid,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.c_platform.yq.bean.YqSoftwareInfo">
+    update T_KL_YQ_SOFTWARE_INFO
+    set VER_CODE = #{verCode,jdbcType=DECIMAL},
+      VER_NAME = #{verName,jdbcType=VARCHAR},
+      UPDATE_URL = #{updateUrl,jdbcType=VARCHAR},
+      FORCE = #{force,jdbcType=DECIMAL},
+      IS_ACTIVE = #{isActive,jdbcType=DECIMAL},
+      APK_HASH = #{apkHash,jdbcType=VARCHAR},
+      APK_SIZE = #{apkSize,jdbcType=DECIMAL},
+      UPGRADE_CONTENT = #{upgradeContent,jdbcType=VARCHAR},
+      IS_ENABLE = #{isEnable,jdbcType=DECIMAL},
+      CLIENT_TYPE = #{clientType,jdbcType=VARCHAR},
+      UPGRADE_TIP = #{upgradeTip,jdbcType=VARCHAR},
+      NOTIFICATION_TIP = #{notificationTip,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_UID = #{updateUid,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <sql id="OracleDialectPrefix">
+    <if test="page != null">
+      select * from ( select row_.*, rownum rownum_ from ( 
+    </if>
+  </sql>
+  <sql id="OracleDialectSuffix">
+    <if test="page != null">
+      <![CDATA[ ) row_ ) where rownum_ > #{page.begin} and rownum_ <= #{page.end} ]]>
+    </if>
+  </sql>
+</mapper>

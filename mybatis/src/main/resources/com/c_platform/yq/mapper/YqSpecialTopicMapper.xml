@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.c_platform.yq.mapper.YqSpecialTopicMapper">
+  <resultMap id="BaseResultMap" type="com.c_platform.yq.bean.YqSpecialTopic">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="TOPIC_NAME" jdbcType="VARCHAR" property="topicName" />
+    <result column="TOPIC_ID" jdbcType="VARCHAR" property="topicId" />
+    <result column="YQ_USER_ID" jdbcType="DECIMAL" property="yqUserId" />
+    <result column="CATEGORY" jdbcType="DECIMAL" property="category" />
+    <result column="KEYWORDS" jdbcType="VARCHAR" property="keywords" />
+    <result column="PRIORITY" jdbcType="DECIMAL" property="priority" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, TOPIC_NAME, TOPIC_ID, YQ_USER_ID, CATEGORY, KEYWORDS, PRIORITY, CREATE_TIME, 
+    MODIFY_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.c_platform.yq.bean.YqSpecialTopicExample" resultMap="BaseResultMap">
+    <include refid="OracleDialectPrefix" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from T_KL_YQ_SPECIAL_TOPIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="OracleDialectSuffix" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_KL_YQ_SPECIAL_TOPIC
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_KL_YQ_SPECIAL_TOPIC
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.c_platform.yq.bean.YqSpecialTopicExample">
+    delete from T_KL_YQ_SPECIAL_TOPIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.c_platform.yq.bean.YqSpecialTopic">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_SPECIAL_TOPIC_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_SPECIAL_TOPIC (ID, TOPIC_NAME, TOPIC_ID, 
+      YQ_USER_ID, CATEGORY, KEYWORDS, 
+      PRIORITY, CREATE_TIME, MODIFY_TIME
+      )
+    values (#{id,jdbcType=DECIMAL}, #{topicName,jdbcType=VARCHAR}, #{topicId,jdbcType=VARCHAR}, 
+      #{yqUserId,jdbcType=DECIMAL}, #{category,jdbcType=DECIMAL}, #{keywords,jdbcType=VARCHAR}, 
+      #{priority,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.c_platform.yq.bean.YqSpecialTopic">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_SPECIAL_TOPIC_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_SPECIAL_TOPIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      ID,
+      <if test="topicName != null">
+        TOPIC_NAME,
+      </if>
+      <if test="topicId != null">
+        TOPIC_ID,
+      </if>
+      <if test="yqUserId != null">
+        YQ_USER_ID,
+      </if>
+      <if test="category != null">
+        CATEGORY,
+      </if>
+      <if test="keywords != null">
+        KEYWORDS,
+      </if>
+      <if test="priority != null">
+        PRIORITY,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="modifyTime != null">
+        MODIFY_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=DECIMAL},
+      <if test="topicName != null">
+        #{topicName,jdbcType=VARCHAR},
+      </if>
+      <if test="topicId != null">
+        #{topicId,jdbcType=VARCHAR},
+      </if>
+      <if test="yqUserId != null">
+        #{yqUserId,jdbcType=DECIMAL},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=DECIMAL},
+      </if>
+      <if test="keywords != null">
+        #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.c_platform.yq.bean.YqSpecialTopicExample" resultType="java.lang.Integer">
+    select count(*) from T_KL_YQ_SPECIAL_TOPIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update T_KL_YQ_SPECIAL_TOPIC
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=DECIMAL},
+      </if>
+      <if test="record.topicName != null">
+        TOPIC_NAME = #{record.topicName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.topicId != null">
+        TOPIC_ID = #{record.topicId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yqUserId != null">
+        YQ_USER_ID = #{record.yqUserId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.category != null">
+        CATEGORY = #{record.category,jdbcType=DECIMAL},
+      </if>
+      <if test="record.keywords != null">
+        KEYWORDS = #{record.keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="record.priority != null">
+        PRIORITY = #{record.priority,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyTime != null">
+        MODIFY_TIME = #{record.modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update T_KL_YQ_SPECIAL_TOPIC
+    set ID = #{record.id,jdbcType=DECIMAL},
+      TOPIC_NAME = #{record.topicName,jdbcType=VARCHAR},
+      TOPIC_ID = #{record.topicId,jdbcType=VARCHAR},
+      YQ_USER_ID = #{record.yqUserId,jdbcType=DECIMAL},
+      CATEGORY = #{record.category,jdbcType=DECIMAL},
+      KEYWORDS = #{record.keywords,jdbcType=VARCHAR},
+      PRIORITY = #{record.priority,jdbcType=DECIMAL},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      MODIFY_TIME = #{record.modifyTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.c_platform.yq.bean.YqSpecialTopic">
+    update T_KL_YQ_SPECIAL_TOPIC
+    <set>
+      <if test="topicName != null">
+        TOPIC_NAME = #{topicName,jdbcType=VARCHAR},
+      </if>
+      <if test="topicId != null">
+        TOPIC_ID = #{topicId,jdbcType=VARCHAR},
+      </if>
+      <if test="yqUserId != null">
+        YQ_USER_ID = #{yqUserId,jdbcType=DECIMAL},
+      </if>
+      <if test="category != null">
+        CATEGORY = #{category,jdbcType=DECIMAL},
+      </if>
+      <if test="keywords != null">
+        KEYWORDS = #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        PRIORITY = #{priority,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.c_platform.yq.bean.YqSpecialTopic">
+    update T_KL_YQ_SPECIAL_TOPIC
+    set TOPIC_NAME = #{topicName,jdbcType=VARCHAR},
+      TOPIC_ID = #{topicId,jdbcType=VARCHAR},
+      YQ_USER_ID = #{yqUserId,jdbcType=DECIMAL},
+      CATEGORY = #{category,jdbcType=DECIMAL},
+      KEYWORDS = #{keywords,jdbcType=VARCHAR},
+      PRIORITY = #{priority,jdbcType=DECIMAL},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <sql id="OracleDialectPrefix">
+    <if test="page != null">
+      select * from ( select row_.*, rownum rownum_ from ( 
+    </if>
+  </sql>
+  <sql id="OracleDialectSuffix">
+    <if test="page != null">
+      <![CDATA[ ) row_ ) where rownum_ > #{page.begin} and rownum_ <= #{page.end} ]]>
+    </if>
+  </sql>
+  <resultMap id="BaseResultMap" type="com.c_platform.yq.bean.YqSpecialTopic">
+    <id column="ID" jdbcType="DECIMAL" property="id" />
+    <result column="TOPIC_NAME" jdbcType="VARCHAR" property="topicName" />
+    <result column="TOPIC_ID" jdbcType="VARCHAR" property="topicId" />
+    <result column="YQ_USER_ID" jdbcType="DECIMAL" property="yqUserId" />
+    <result column="CATEGORY" jdbcType="DECIMAL" property="category" />
+    <result column="KEYWORDS" jdbcType="VARCHAR" property="keywords" />
+    <result column="PRIORITY" jdbcType="DECIMAL" property="priority" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="MODIFY_TIME" jdbcType="TIMESTAMP" property="modifyTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    ID, TOPIC_NAME, TOPIC_ID, YQ_USER_ID, CATEGORY, KEYWORDS, PRIORITY, CREATE_TIME, 
+    MODIFY_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.c_platform.yq.bean.YqSpecialTopicExample" resultMap="BaseResultMap">
+    <include refid="OracleDialectPrefix" />
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from T_KL_YQ_SPECIAL_TOPIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <include refid="OracleDialectSuffix" />
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from T_KL_YQ_SPECIAL_TOPIC
+    where ID = #{id,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from T_KL_YQ_SPECIAL_TOPIC
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.c_platform.yq.bean.YqSpecialTopicExample">
+    delete from T_KL_YQ_SPECIAL_TOPIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.c_platform.yq.bean.YqSpecialTopic">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_SPECIAL_TOPIC_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_SPECIAL_TOPIC (ID, TOPIC_NAME, TOPIC_ID, 
+      YQ_USER_ID, CATEGORY, KEYWORDS, 
+      PRIORITY, CREATE_TIME, MODIFY_TIME
+      )
+    values (#{id,jdbcType=DECIMAL}, #{topicName,jdbcType=VARCHAR}, #{topicId,jdbcType=VARCHAR}, 
+      #{yqUserId,jdbcType=DECIMAL}, #{category,jdbcType=DECIMAL}, #{keywords,jdbcType=VARCHAR}, 
+      #{priority,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, #{modifyTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.c_platform.yq.bean.YqSpecialTopic">
+    <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.Long">
+      select SEQ_KL_YQ_SPECIAL_TOPIC_ID.NEXTVAL AS ID from dual
+    </selectKey>
+    insert into T_KL_YQ_SPECIAL_TOPIC
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      ID,
+      <if test="topicName != null">
+        TOPIC_NAME,
+      </if>
+      <if test="topicId != null">
+        TOPIC_ID,
+      </if>
+      <if test="yqUserId != null">
+        YQ_USER_ID,
+      </if>
+      <if test="category != null">
+        CATEGORY,
+      </if>
+      <if test="keywords != null">
+        KEYWORDS,
+      </if>
+      <if test="priority != null">
+        PRIORITY,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="modifyTime != null">
+        MODIFY_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      #{id,jdbcType=DECIMAL},
+      <if test="topicName != null">
+        #{topicName,jdbcType=VARCHAR},
+      </if>
+      <if test="topicId != null">
+        #{topicId,jdbcType=VARCHAR},
+      </if>
+      <if test="yqUserId != null">
+        #{yqUserId,jdbcType=DECIMAL},
+      </if>
+      <if test="category != null">
+        #{category,jdbcType=DECIMAL},
+      </if>
+      <if test="keywords != null">
+        #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.c_platform.yq.bean.YqSpecialTopicExample" resultType="java.lang.Integer">
+    select count(*) from T_KL_YQ_SPECIAL_TOPIC
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update T_KL_YQ_SPECIAL_TOPIC
+    <set>
+      <if test="record.id != null">
+        ID = #{record.id,jdbcType=DECIMAL},
+      </if>
+      <if test="record.topicName != null">
+        TOPIC_NAME = #{record.topicName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.topicId != null">
+        TOPIC_ID = #{record.topicId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.yqUserId != null">
+        YQ_USER_ID = #{record.yqUserId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.category != null">
+        CATEGORY = #{record.category,jdbcType=DECIMAL},
+      </if>
+      <if test="record.keywords != null">
+        KEYWORDS = #{record.keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="record.priority != null">
+        PRIORITY = #{record.priority,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.modifyTime != null">
+        MODIFY_TIME = #{record.modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update T_KL_YQ_SPECIAL_TOPIC
+    set ID = #{record.id,jdbcType=DECIMAL},
+      TOPIC_NAME = #{record.topicName,jdbcType=VARCHAR},
+      TOPIC_ID = #{record.topicId,jdbcType=VARCHAR},
+      YQ_USER_ID = #{record.yqUserId,jdbcType=DECIMAL},
+      CATEGORY = #{record.category,jdbcType=DECIMAL},
+      KEYWORDS = #{record.keywords,jdbcType=VARCHAR},
+      PRIORITY = #{record.priority,jdbcType=DECIMAL},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      MODIFY_TIME = #{record.modifyTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.c_platform.yq.bean.YqSpecialTopic">
+    update T_KL_YQ_SPECIAL_TOPIC
+    <set>
+      <if test="topicName != null">
+        TOPIC_NAME = #{topicName,jdbcType=VARCHAR},
+      </if>
+      <if test="topicId != null">
+        TOPIC_ID = #{topicId,jdbcType=VARCHAR},
+      </if>
+      <if test="yqUserId != null">
+        YQ_USER_ID = #{yqUserId,jdbcType=DECIMAL},
+      </if>
+      <if test="category != null">
+        CATEGORY = #{category,jdbcType=DECIMAL},
+      </if>
+      <if test="keywords != null">
+        KEYWORDS = #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="priority != null">
+        PRIORITY = #{priority,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyTime != null">
+        MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.c_platform.yq.bean.YqSpecialTopic">
+    update T_KL_YQ_SPECIAL_TOPIC
+    set TOPIC_NAME = #{topicName,jdbcType=VARCHAR},
+      TOPIC_ID = #{topicId,jdbcType=VARCHAR},
+      YQ_USER_ID = #{yqUserId,jdbcType=DECIMAL},
+      CATEGORY = #{category,jdbcType=DECIMAL},
+      KEYWORDS = #{keywords,jdbcType=VARCHAR},
+      PRIORITY = #{priority,jdbcType=DECIMAL},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      MODIFY_TIME = #{modifyTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <sql id="OracleDialectPrefix">
+    <if test="page != null">
+      select * from ( select row_.*, rownum rownum_ from ( 
+    </if>
+  </sql>
+  <sql id="OracleDialectSuffix">
+    <if test="page != null">
+      <![CDATA[ ) row_ ) where rownum_ > #{page.begin} and rownum_ <= #{page.end} ]]>
+    </if>
+  </sql>
+</mapper>
