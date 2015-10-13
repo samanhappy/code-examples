@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="test.mapper.YqInfoMapper" >
+  <resultMap id="BaseResultMap" type="test.model.YqInfo" >
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="YQ_ID" property="yqId" jdbcType="VARCHAR" />
+    <result column="USER_ID" property="userId" jdbcType="DECIMAL" />
+    <result column="PROPAGATION_ID" property="propagationId" jdbcType="DECIMAL" />
+    <result column="TITLE" property="title" jdbcType="VARCHAR" />
+    <result column="SUMMARY" property="summary" jdbcType="VARCHAR" />
+    <result column="IMAGE_URL_LIST" property="imageUrlList" jdbcType="VARCHAR" />
+    <result column="SOURCE_SITE" property="sourceSite" jdbcType="VARCHAR" />
+    <result column="ORIGINAL_URL" property="originalUrl" jdbcType="VARCHAR" />
+    <result column="RELEASE_TIME" property="releaseTime" jdbcType="TIMESTAMP" />
+    <result column="CRAWL_TIME" property="crawlTime" jdbcType="TIMESTAMP" />
+    <result column="MEDIA_TYPE" property="mediaType" jdbcType="VARCHAR" />
+    <result column="POLARITY" property="polarity" jdbcType="VARCHAR" />
+    <result column="EXPONENT" property="exponent" jdbcType="VARCHAR" />
+    <result column="HEAT" property="heat" jdbcType="VARCHAR" />
+    <result column="BROWSE_COUNT" property="browseCount" jdbcType="DECIMAL" />
+    <result column="REPLY_COUNT" property="replyCount" jdbcType="DECIMAL" />
+    <result column="IS_COLLECTION" property="isCollection" jdbcType="VARCHAR" />
+    <result column="MAIN_BODY_URL" property="mainBodyUrl" jdbcType="VARCHAR" />
+    <result column="TOPIC_ID" property="topicId" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="MODIFY_TIME" property="modifyTime" jdbcType="TIMESTAMP" />
+    <result column="TEXT_INFO" property="textInfo" jdbcType="CLOB" />
+  </resultMap>
+</mapper>
