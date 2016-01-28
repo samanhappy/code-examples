@@ -26,5 +26,6 @@
     <module>mybatis</module>
     <module>util</module>
     <module>httpunit</module>
+    <module>quartz</module>
   </modules>
 </project>
