@@ -27,5 +27,7 @@
     <module>util</module>
     <module>httpunit</module>
     <module>quartz</module>
+    <module>jersey</module>
+    <module>jersey-web</module>
   </modules>
 </project>
