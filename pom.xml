@@ -29,5 +29,6 @@
     <module>quartz</module>
     <module>jersey</module>
     <module>jersey-web</module>
+    <module>netty</module>
   </modules>
 </project>
