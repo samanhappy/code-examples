@@ -30,5 +30,6 @@
     <module>jersey</module>
     <module>jersey-web</module>
     <module>netty</module>
+    <module>mybatis-common-mapper</module>
   </modules>
 </project>
