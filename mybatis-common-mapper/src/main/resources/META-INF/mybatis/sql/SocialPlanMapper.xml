@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dsy.dao.salary.mapper.SocialPlanMapper">
+  <resultMap id="BaseResultMap" type="com.dsy.dao.domain.salary.SocialPlan">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="corporate_id" jdbcType="INTEGER" property="corporateId" />
+    <result column="corporate_name" jdbcType="VARCHAR" property="corporateName" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="city_id" jdbcType="INTEGER" property="cityId" />
+    <result column="city_name" jdbcType="VARCHAR" property="cityName" />
+    <result column="ylao_is_pay" jdbcType="TINYINT" property="ylaoIsPay" />
+    <result column="ylao_max_base" jdbcType="INTEGER" property="ylaoMaxBase" />
+    <result column="ylao_min_base" jdbcType="INTEGER" property="ylaoMinBase" />
+    <result column="ylao_enterprise_proportion" jdbcType="REAL" property="ylaoEnterpriseProportion" />
+    <result column="ylao_personal_proportion" jdbcType="REAL" property="ylaoPersonalProportion" />
+    <result column="yliao_is_pay" jdbcType="TINYINT" property="yliaoIsPay" />
+    <result column="yliao_max_base" jdbcType="INTEGER" property="yliaoMaxBase" />
+    <result column="yliao_min_base" jdbcType="INTEGER" property="yliaoMinBase" />
+    <result column="yliao_enterprise_proportion" jdbcType="REAL" property="yliaoEnterpriseProportion" />
+    <result column="yliao_personal_proportion" jdbcType="REAL" property="yliaoPersonalProportion" />
+    <result column="sye_is_pay" jdbcType="TINYINT" property="syeIsPay" />
+    <result column="sye_max_base" jdbcType="INTEGER" property="syeMaxBase" />
+    <result column="sye_min_base" jdbcType="INTEGER" property="syeMinBase" />
+    <result column="sye_enterprise_proportion" jdbcType="REAL" property="syeEnterpriseProportion" />
+    <result column="sye_personal_proportion" jdbcType="REAL" property="syePersonalProportion" />
+    <result column="gs_is_pay" jdbcType="TINYINT" property="gsIsPay" />
+    <result column="gs_max_base" jdbcType="INTEGER" property="gsMaxBase" />
+    <result column="gs_min_base" jdbcType="INTEGER" property="gsMinBase" />
+    <result column="gs_enterprise_proportion" jdbcType="REAL" property="gsEnterpriseProportion" />
+    <result column="gs_personal_proportion" jdbcType="REAL" property="gsPersonalProportion" />
+    <result column="syu_is_pay" jdbcType="TINYINT" property="syuIsPay" />
+    <result column="syu_max_base" jdbcType="INTEGER" property="syuMaxBase" />
+    <result column="syu_min_base" jdbcType="INTEGER" property="syuMinBase" />
+    <result column="syu_enterprise_proportion" jdbcType="REAL" property="syuEnterpriseProportion" />
+    <result column="syu_personal_proportion" jdbcType="REAL" property="syuPersonalProportion" />
+    <result column="zf_is_pay" jdbcType="TINYINT" property="zfIsPay" />
+    <result column="zf_max_base" jdbcType="INTEGER" property="zfMaxBase" />
+    <result column="zf_min_base" jdbcType="INTEGER" property="zfMinBase" />
+    <result column="zf_enterprise_proportion" jdbcType="REAL" property="zfEnterpriseProportion" />
+    <result column="zf_personal_proportion" jdbcType="REAL" property="zfPersonalProportion" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+</mapper>

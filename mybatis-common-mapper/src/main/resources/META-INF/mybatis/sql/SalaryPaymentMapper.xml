@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dsy.dao.salary.mapper.SalaryPaymentMapper">
+  <resultMap id="BaseResultMap" type="com.dsy.dao.domain.salary.SalaryPayment">
+    <!--
+      WARNING - @mbggenerated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="corporate_id" jdbcType="INTEGER" property="corporateId" />
+    <result column="department_id" jdbcType="INTEGER" property="departmentId" />
+    <result column="department_name" jdbcType="VARCHAR" property="departmentName" />
+    <result column="plan_id" jdbcType="INTEGER" property="planId" />
+    <result column="plan_name" jdbcType="VARCHAR" property="planName" />
+    <result column="social_id" jdbcType="INTEGER" property="socialId" />
+    <result column="social_name" jdbcType="VARCHAR" property="socialName" />
+    <result column="year" jdbcType="SMALLINT" property="year" />
+    <result column="month" jdbcType="TINYINT" property="month" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="payslip_setting" jdbcType="VARCHAR" property="payslipSetting" />
+    <result column="employee_count" jdbcType="INTEGER" property="employeeCount" />
+    <result column="payment_sum" jdbcType="DOUBLE" property="paymentSum" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+  </resultMap>
+</mapper>

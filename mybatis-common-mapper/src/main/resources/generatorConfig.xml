@@ -18,17 +18,54 @@
 			password="cy!(*$123">
 		</jdbcConnection>
 
-		<javaModelGenerator targetPackage="test.model"
+		<javaTypeResolver type="org.mybatis.generator.util.MyJavaTypeResolver">
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.dsy.dao.domain.salary"
 			targetProject="D:\workspace\code-examples\mybatis-common-mapper\src\main\java" />
 
-		<sqlMapGenerator targetPackage="mapper"
+		<sqlMapGenerator targetPackage="META-INF.mybatis.sql"
 			targetProject="D:\workspace\code-examples\mybatis-common-mapper\src\main\resources" />
 
-		<javaClientGenerator targetPackage="test.mapper"
+		<javaClientGenerator targetPackage="com.dsy.dao.salary.mapper"
 			targetProject="D:\workspace\code-examples\mybatis-common-mapper\src\main\java" type="XMLMAPPER" />
 
-		<table tableName="t_salary_item">
+		<table tableName="t_salary_employee_payment" domainObjectName="SalaryEmployeePayment" >
 			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
 		</table>
+		
+		<table tableName="t_salary_item" domainObjectName="SalaryItem" >
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
+		
+		<table tableName="t_salary_payment" domainObjectName="SalaryPayment" >
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
+		
+		<table tableName="t_salary_plan" domainObjectName="SalaryPlan" >
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
+		
+		<table tableName="t_salary_plan_item" domainObjectName="SalaryPlanItem" >
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
+		
+		<table tableName="t_social_citydata" domainObjectName="SocialCitydata" >
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
+		
+		<table tableName="t_social_employee_payment" domainObjectName="SocialEmployeePayment" >
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
+		
+		<table tableName="t_social_payment" domainObjectName="SocialPayment" >
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
+		
+		<table tableName="t_social_plan" domainObjectName="SocialPlan" >
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
+		
 	</context>
 </generatorConfiguration>
