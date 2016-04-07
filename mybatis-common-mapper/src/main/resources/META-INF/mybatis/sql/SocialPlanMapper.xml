@@ -7,7 +7,8 @@
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="corporate_id" jdbcType="INTEGER" property="corporateId" />
-    <result column="corporate_name" jdbcType="VARCHAR" property="corporateName" />
+    <result column="department_id" jdbcType="INTEGER" property="departmentId" />
+    <result column="department_name" jdbcType="VARCHAR" property="departmentName" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="city_id" jdbcType="INTEGER" property="cityId" />
     <result column="city_name" jdbcType="VARCHAR" property="cityName" />

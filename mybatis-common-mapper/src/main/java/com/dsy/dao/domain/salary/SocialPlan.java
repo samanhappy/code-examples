@@ -19,10 +19,16 @@ public class SocialPlan {
     private Integer corporateId;
 
     /**
-     * 单位名称
+     * 部门id
      */
-    @Column(name = "corporate_name")
-    private String corporateName;
+    @Column(name = "department_id")
+    private Integer departmentId;
+
+    /**
+     * 部门名称
+     */
+    @Column(name = "department_name")
+    private String departmentName;
 
     /**
      * 社保方案名称
@@ -263,21 +269,39 @@ public class SocialPlan {
     }
 
     /**
-     * 获取单位名称
+     * 获取部门id
      *
-     * @return corporate_name - 单位名称
+     * @return department_id - 部门id
      */
-    public String getCorporateName() {
-        return corporateName;
+    public Integer getDepartmentId() {
+        return departmentId;
     }
 
     /**
-     * 设置单位名称
+     * 设置部门id
      *
-     * @param corporateName 单位名称
+     * @param departmentId 部门id
      */
-    public void setCorporateName(String corporateName) {
-        this.corporateName = corporateName;
+    public void setDepartmentId(Integer departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    /**
+     * 获取部门名称
+     *
+     * @return department_name - 部门名称
+     */
+    public String getDepartmentName() {
+        return departmentName;
+    }
+
+    /**
+     * 设置部门名称
+     *
+     * @param departmentName 部门名称
+     */
+    public void setDepartmentName(String departmentName) {
+        this.departmentName = departmentName;
     }
 
     /**
