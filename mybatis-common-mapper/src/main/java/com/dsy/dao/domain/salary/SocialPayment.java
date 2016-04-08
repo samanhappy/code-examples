@@ -28,28 +28,16 @@ public class SocialPayment {
     private Integer corporateId;
 
     /**
-     * 社保结算年
+     * 社保结算年月
      */
-    @Column(name = "sb_year")
-    private Integer sbYear;
+    @Column(name = "social_year_month")
+    private Integer socialYearMonth;
 
     /**
-     * 社保结算月
+     * 公积金结算年月
      */
-    @Column(name = "sb_month")
-    private Integer sbMonth;
-
-    /**
-     * 公积金结算月
-     */
-    @Column(name = "gjj_year")
-    private Integer gjjYear;
-
-    /**
-     * 公积金结算月
-     */
-    @Column(name = "gjj_month")
-    private Integer gjjMonth;
+    @Column(name = "fund_year_month")
+    private Integer fundYearMonth;
 
     /**
      * 结算名称
@@ -67,6 +55,11 @@ public class SocialPayment {
      */
     @Column(name = "payment_sum")
     private Double paymentSum;
+
+    /**
+     * 更新时间
+     */
+    private Date createtime;
 
     /**
      * 更新时间
@@ -142,75 +135,39 @@ public class SocialPayment {
     }
 
     /**
-     * 获取社保结算年
+     * 获取社保结算年月
      *
-     * @return sb_year - 社保结算年
+     * @return social_year_month - 社保结算年月
      */
-    public Integer getSbYear() {
-        return sbYear;
+    public Integer getSocialYearMonth() {
+        return socialYearMonth;
     }
 
     /**
-     * 设置社保结算年
+     * 设置社保结算年月
      *
-     * @param sbYear 社保结算年
+     * @param socialYearMonth 社保结算年月
      */
-    public void setSbYear(Integer sbYear) {
-        this.sbYear = sbYear;
+    public void setSocialYearMonth(Integer socialYearMonth) {
+        this.socialYearMonth = socialYearMonth;
     }
 
     /**
-     * 获取社保结算月
+     * 获取公积金结算年月
      *
-     * @return sb_month - 社保结算月
+     * @return fund_year_month - 公积金结算年月
      */
-    public Integer getSbMonth() {
-        return sbMonth;
+    public Integer getFundYearMonth() {
+        return fundYearMonth;
     }
 
     /**
-     * 设置社保结算月
+     * 设置公积金结算年月
      *
-     * @param sbMonth 社保结算月
+     * @param fundYearMonth 公积金结算年月
      */
-    public void setSbMonth(Integer sbMonth) {
-        this.sbMonth = sbMonth;
-    }
-
-    /**
-     * 获取公积金结算月
-     *
-     * @return gjj_year - 公积金结算月
-     */
-    public Integer getGjjYear() {
-        return gjjYear;
-    }
-
-    /**
-     * 设置公积金结算月
-     *
-     * @param gjjYear 公积金结算月
-     */
-    public void setGjjYear(Integer gjjYear) {
-        this.gjjYear = gjjYear;
-    }
-
-    /**
-     * 获取公积金结算月
-     *
-     * @return gjj_month - 公积金结算月
-     */
-    public Integer getGjjMonth() {
-        return gjjMonth;
-    }
-
-    /**
-     * 设置公积金结算月
-     *
-     * @param gjjMonth 公积金结算月
-     */
-    public void setGjjMonth(Integer gjjMonth) {
-        this.gjjMonth = gjjMonth;
+    public void setFundYearMonth(Integer fundYearMonth) {
+        this.fundYearMonth = fundYearMonth;
     }
 
     /**
@@ -265,6 +222,24 @@ public class SocialPayment {
      */
     public void setPaymentSum(Double paymentSum) {
         this.paymentSum = paymentSum;
+    }
+
+    /**
+     * 获取更新时间
+     *
+     * @return createtime - 更新时间
+     */
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    /**
+     * 设置更新时间
+     *
+     * @param createtime 更新时间
+     */
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
     /**

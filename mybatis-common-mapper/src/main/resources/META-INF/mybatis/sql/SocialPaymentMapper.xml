@@ -9,13 +9,12 @@
     <result column="social_id" jdbcType="INTEGER" property="socialId" />
     <result column="social_name" jdbcType="VARCHAR" property="socialName" />
     <result column="corporate_id" jdbcType="INTEGER" property="corporateId" />
-    <result column="sb_year" jdbcType="SMALLINT" property="sbYear" />
-    <result column="sb_month" jdbcType="TINYINT" property="sbMonth" />
-    <result column="gjj_year" jdbcType="SMALLINT" property="gjjYear" />
-    <result column="gjj_month" jdbcType="TINYINT" property="gjjMonth" />
+    <result column="social_year_month" jdbcType="INTEGER" property="socialYearMonth" />
+    <result column="fund_year_month" jdbcType="INTEGER" property="fundYearMonth" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="employee_count" jdbcType="INTEGER" property="employeeCount" />
     <result column="payment_sum" jdbcType="DOUBLE" property="paymentSum" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
     <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
   </resultMap>
 </mapper>

@@ -59,13 +59,13 @@
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
 <!-- 		</table> -->
 		
-<!-- 		<table tableName="t_social_payment" domainObjectName="SocialPayment" > -->
-<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
-<!-- 		</table> -->
-		
-		<table tableName="t_social_plan" domainObjectName="SocialPlan" >
+		<table tableName="t_social_payment" domainObjectName="SocialPayment" >
 			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
 		</table>
+		
+<!-- 		<table tableName="t_social_plan" domainObjectName="SocialPlan" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
 		
 	</context>
 </generatorConfiguration>
