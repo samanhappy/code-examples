@@ -23,6 +23,8 @@ public class TestMapper extends AbstractJUnit4SpringContextTests
 {
     @Autowired
     TSalaryItemMapper mapper;
+    
+    
 
     @Test
     public void testInsertAndDelete()
