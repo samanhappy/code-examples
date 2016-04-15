@@ -7,13 +7,33 @@
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="payment_id" jdbcType="INTEGER" property="paymentId" />
-    <result column="employee_id" jdbcType="INTEGER" property="employeeId" />
-    <result column="employee_no" jdbcType="INTEGER" property="employeeNo" />
-    <result column="employee_name" jdbcType="VARCHAR" property="employeeName" />
     <result column="corporate_id" jdbcType="INTEGER" property="corporateId" />
     <result column="department_id" jdbcType="INTEGER" property="departmentId" />
-    <result column="department_name" jdbcType="VARCHAR" property="departmentName" />
-    <result column="payment_detail" jdbcType="VARCHAR" property="paymentDetail" />
+    <result column="employee_id" jdbcType="INTEGER" property="employeeId" />
+    <result column="employee_name" jdbcType="VARCHAR" property="employeeName" />
+    <result column="city_id" jdbcType="INTEGER" property="cityId" />
+    <result column="city_name" jdbcType="VARCHAR" property="cityName" />
+    <result column="social_year_month" jdbcType="INTEGER" property="socialYearMonth" />
+    <result column="fund_year_month" jdbcType="INTEGER" property="fundYearMonth" />
+    <result column="id_no" jdbcType="VARCHAR" property="idNo" />
+    <result column="social_security_no" jdbcType="VARCHAR" property="socialSecurityNo" />
+    <result column="house_fund_no" jdbcType="VARCHAR" property="houseFundNo" />
+    <result column="social_security_base" jdbcType="REAL" property="socialSecurityBase" />
+    <result column="house_fund_base" jdbcType="REAL" property="houseFundBase" />
+    <result column="ylao_enterprise_payment" jdbcType="REAL" property="ylaoEnterprisePayment" />
+    <result column="ylao_personal_payment" jdbcType="REAL" property="ylaoPersonalPayment" />
+    <result column="yliao_enterprise_payment" jdbcType="REAL" property="yliaoEnterprisePayment" />
+    <result column="yliao_personal_payment" jdbcType="REAL" property="yliaoPersonalPayment" />
+    <result column="sye_enterprise_payment" jdbcType="REAL" property="syeEnterprisePayment" />
+    <result column="sye_personal_payment" jdbcType="REAL" property="syePersonalPayment" />
+    <result column="gs_enterprise_payment" jdbcType="REAL" property="gsEnterprisePayment" />
+    <result column="gs_personal_payment" jdbcType="REAL" property="gsPersonalPayment" />
+    <result column="syu_enterprise_payment" jdbcType="REAL" property="syuEnterprisePayment" />
+    <result column="syu_personal_payment" jdbcType="REAL" property="syuPersonalPayment" />
+    <result column="zf_enterprise_payment" jdbcType="REAL" property="zfEnterprisePayment" />
+    <result column="zf_personal_payment" jdbcType="REAL" property="zfPersonalPayment" />
+    <result column="enterprise_payment_sum" jdbcType="REAL" property="enterprisePaymentSum" />
+    <result column="personal_payment_sum" jdbcType="REAL" property="personalPaymentSum" />
     <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
   </resultMap>
 </mapper>
