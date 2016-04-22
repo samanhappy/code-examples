@@ -1,5 +1,6 @@
 package com.dsy.dao.domain.salary;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -48,10 +49,16 @@ public class SocialPlan {
     private String cityName;
 
     /**
-     * 养老保险是否缴费 1是 2否
+     * 社保最高基数
      */
-    @Column(name = "ylao_is_pay")
-    private Integer ylaoIsPay;
+    @Column(name = "social_security_max_base")
+    private Integer socialSecurityMaxBase;
+
+    /**
+     * 社保最低基数
+     */
+    @Column(name = "social_security_min_base")
+    private Integer socialSecurityMinBase;
 
     /**
      * 养老保险最高基数
@@ -69,19 +76,13 @@ public class SocialPlan {
      * 养老保险企业比例
      */
     @Column(name = "ylao_enterprise_proportion")
-    private Float ylaoEnterpriseProportion;
+    private BigDecimal ylaoEnterpriseProportion;
 
     /**
      * 养老保险个人比例
      */
     @Column(name = "ylao_personal_proportion")
-    private Float ylaoPersonalProportion;
-
-    /**
-     * 医疗保险是否缴费 1是 2否
-     */
-    @Column(name = "yliao_is_pay")
-    private Integer yliaoIsPay;
+    private BigDecimal ylaoPersonalProportion;
 
     /**
      * 医疗保险最高基数
@@ -99,19 +100,13 @@ public class SocialPlan {
      * 医疗保险企业比例
      */
     @Column(name = "yliao_enterprise_proportion")
-    private Float yliaoEnterpriseProportion;
+    private BigDecimal yliaoEnterpriseProportion;
 
     /**
      * 医疗保险个人比例
      */
     @Column(name = "yliao_personal_proportion")
-    private Float yliaoPersonalProportion;
-
-    /**
-     * 失业保险是否缴费 1是 2否
-     */
-    @Column(name = "sye_is_pay")
-    private Integer syeIsPay;
+    private BigDecimal yliaoPersonalProportion;
 
     /**
      * 失业保险最高基数
@@ -129,19 +124,13 @@ public class SocialPlan {
      * 失业保险企业比例
      */
     @Column(name = "sye_enterprise_proportion")
-    private Float syeEnterpriseProportion;
+    private BigDecimal syeEnterpriseProportion;
 
     /**
      * 失业保险个人比例
      */
     @Column(name = "sye_personal_proportion")
-    private Float syePersonalProportion;
-
-    /**
-     * 工伤保险是否缴费 1是 2否
-     */
-    @Column(name = "gs_is_pay")
-    private Integer gsIsPay;
+    private BigDecimal syePersonalProportion;
 
     /**
      * 工伤保险最高基数
@@ -159,19 +148,13 @@ public class SocialPlan {
      * 工伤保险企业比例
      */
     @Column(name = "gs_enterprise_proportion")
-    private Float gsEnterpriseProportion;
+    private BigDecimal gsEnterpriseProportion;
 
     /**
      * 工伤保险个人比例
      */
     @Column(name = "gs_personal_proportion")
-    private Float gsPersonalProportion;
-
-    /**
-     * 生育保险是否缴费 1是 2否
-     */
-    @Column(name = "syu_is_pay")
-    private Integer syuIsPay;
+    private BigDecimal gsPersonalProportion;
 
     /**
      * 生育保险最高基数
@@ -189,43 +172,37 @@ public class SocialPlan {
      * 生育保险企业比例
      */
     @Column(name = "syu_enterprise_proportion")
-    private Float syuEnterpriseProportion;
+    private BigDecimal syuEnterpriseProportion;
 
     /**
      * 生育保险个人比例
      */
     @Column(name = "syu_personal_proportion")
-    private Float syuPersonalProportion;
+    private BigDecimal syuPersonalProportion;
 
     /**
-     * 住房保险是否缴费 1是 2否
-     */
-    @Column(name = "zf_is_pay")
-    private Integer zfIsPay;
-
-    /**
-     * 住房保险最高基数
+     * 住房公积金最高基数
      */
     @Column(name = "zf_max_base")
     private Integer zfMaxBase;
 
     /**
-     * 住房保险最低基数
+     * 住房公积金最低基数
      */
     @Column(name = "zf_min_base")
     private Integer zfMinBase;
 
     /**
-     * 住房保险企业比例
+     * 住房公积金企业比例
      */
     @Column(name = "zf_enterprise_proportion")
-    private Float zfEnterpriseProportion;
+    private BigDecimal zfEnterpriseProportion;
 
     /**
-     * 住房保险个人比例
+     * 住房公积金个人比例
      */
     @Column(name = "zf_personal_proportion")
-    private Float zfPersonalProportion;
+    private BigDecimal zfPersonalProportion;
 
     /**
      * 更新时间
@@ -359,21 +336,39 @@ public class SocialPlan {
     }
 
     /**
-     * 获取养老保险是否缴费 1是 2否
+     * 获取社保最高基数
      *
-     * @return ylao_is_pay - 养老保险是否缴费 1是 2否
+     * @return social_security_max_base - 社保最高基数
      */
-    public Integer getYlaoIsPay() {
-        return ylaoIsPay;
+    public Integer getSocialSecurityMaxBase() {
+        return socialSecurityMaxBase;
     }
 
     /**
-     * 设置养老保险是否缴费 1是 2否
+     * 设置社保最高基数
      *
-     * @param ylaoIsPay 养老保险是否缴费 1是 2否
+     * @param socialSecurityMaxBase 社保最高基数
      */
-    public void setYlaoIsPay(Integer ylaoIsPay) {
-        this.ylaoIsPay = ylaoIsPay;
+    public void setSocialSecurityMaxBase(Integer socialSecurityMaxBase) {
+        this.socialSecurityMaxBase = socialSecurityMaxBase;
+    }
+
+    /**
+     * 获取社保最低基数
+     *
+     * @return social_security_min_base - 社保最低基数
+     */
+    public Integer getSocialSecurityMinBase() {
+        return socialSecurityMinBase;
+    }
+
+    /**
+     * 设置社保最低基数
+     *
+     * @param socialSecurityMinBase 社保最低基数
+     */
+    public void setSocialSecurityMinBase(Integer socialSecurityMinBase) {
+        this.socialSecurityMinBase = socialSecurityMinBase;
     }
 
     /**
@@ -417,7 +412,7 @@ public class SocialPlan {
      *
      * @return ylao_enterprise_proportion - 养老保险企业比例
      */
-    public Float getYlaoEnterpriseProportion() {
+    public BigDecimal getYlaoEnterpriseProportion() {
         return ylaoEnterpriseProportion;
     }
 
@@ -426,7 +421,7 @@ public class SocialPlan {
      *
      * @param ylaoEnterpriseProportion 养老保险企业比例
      */
-    public void setYlaoEnterpriseProportion(Float ylaoEnterpriseProportion) {
+    public void setYlaoEnterpriseProportion(BigDecimal ylaoEnterpriseProportion) {
         this.ylaoEnterpriseProportion = ylaoEnterpriseProportion;
     }
 
@@ -435,7 +430,7 @@ public class SocialPlan {
      *
      * @return ylao_personal_proportion - 养老保险个人比例
      */
-    public Float getYlaoPersonalProportion() {
+    public BigDecimal getYlaoPersonalProportion() {
         return ylaoPersonalProportion;
     }
 
@@ -444,26 +439,8 @@ public class SocialPlan {
      *
      * @param ylaoPersonalProportion 养老保险个人比例
      */
-    public void setYlaoPersonalProportion(Float ylaoPersonalProportion) {
+    public void setYlaoPersonalProportion(BigDecimal ylaoPersonalProportion) {
         this.ylaoPersonalProportion = ylaoPersonalProportion;
-    }
-
-    /**
-     * 获取医疗保险是否缴费 1是 2否
-     *
-     * @return yliao_is_pay - 医疗保险是否缴费 1是 2否
-     */
-    public Integer getYliaoIsPay() {
-        return yliaoIsPay;
-    }
-
-    /**
-     * 设置医疗保险是否缴费 1是 2否
-     *
-     * @param yliaoIsPay 医疗保险是否缴费 1是 2否
-     */
-    public void setYliaoIsPay(Integer yliaoIsPay) {
-        this.yliaoIsPay = yliaoIsPay;
     }
 
     /**
@@ -507,7 +484,7 @@ public class SocialPlan {
      *
      * @return yliao_enterprise_proportion - 医疗保险企业比例
      */
-    public Float getYliaoEnterpriseProportion() {
+    public BigDecimal getYliaoEnterpriseProportion() {
         return yliaoEnterpriseProportion;
     }
 
@@ -516,7 +493,7 @@ public class SocialPlan {
      *
      * @param yliaoEnterpriseProportion 医疗保险企业比例
      */
-    public void setYliaoEnterpriseProportion(Float yliaoEnterpriseProportion) {
+    public void setYliaoEnterpriseProportion(BigDecimal yliaoEnterpriseProportion) {
         this.yliaoEnterpriseProportion = yliaoEnterpriseProportion;
     }
 
@@ -525,7 +502,7 @@ public class SocialPlan {
      *
      * @return yliao_personal_proportion - 医疗保险个人比例
      */
-    public Float getYliaoPersonalProportion() {
+    public BigDecimal getYliaoPersonalProportion() {
         return yliaoPersonalProportion;
     }
 
@@ -534,26 +511,8 @@ public class SocialPlan {
      *
      * @param yliaoPersonalProportion 医疗保险个人比例
      */
-    public void setYliaoPersonalProportion(Float yliaoPersonalProportion) {
+    public void setYliaoPersonalProportion(BigDecimal yliaoPersonalProportion) {
         this.yliaoPersonalProportion = yliaoPersonalProportion;
-    }
-
-    /**
-     * 获取失业保险是否缴费 1是 2否
-     *
-     * @return sye_is_pay - 失业保险是否缴费 1是 2否
-     */
-    public Integer getSyeIsPay() {
-        return syeIsPay;
-    }
-
-    /**
-     * 设置失业保险是否缴费 1是 2否
-     *
-     * @param syeIsPay 失业保险是否缴费 1是 2否
-     */
-    public void setSyeIsPay(Integer syeIsPay) {
-        this.syeIsPay = syeIsPay;
     }
 
     /**
@@ -597,7 +556,7 @@ public class SocialPlan {
      *
      * @return sye_enterprise_proportion - 失业保险企业比例
      */
-    public Float getSyeEnterpriseProportion() {
+    public BigDecimal getSyeEnterpriseProportion() {
         return syeEnterpriseProportion;
     }
 
@@ -606,7 +565,7 @@ public class SocialPlan {
      *
      * @param syeEnterpriseProportion 失业保险企业比例
      */
-    public void setSyeEnterpriseProportion(Float syeEnterpriseProportion) {
+    public void setSyeEnterpriseProportion(BigDecimal syeEnterpriseProportion) {
         this.syeEnterpriseProportion = syeEnterpriseProportion;
     }
 
@@ -615,7 +574,7 @@ public class SocialPlan {
      *
      * @return sye_personal_proportion - 失业保险个人比例
      */
-    public Float getSyePersonalProportion() {
+    public BigDecimal getSyePersonalProportion() {
         return syePersonalProportion;
     }
 
@@ -624,26 +583,8 @@ public class SocialPlan {
      *
      * @param syePersonalProportion 失业保险个人比例
      */
-    public void setSyePersonalProportion(Float syePersonalProportion) {
+    public void setSyePersonalProportion(BigDecimal syePersonalProportion) {
         this.syePersonalProportion = syePersonalProportion;
-    }
-
-    /**
-     * 获取工伤保险是否缴费 1是 2否
-     *
-     * @return gs_is_pay - 工伤保险是否缴费 1是 2否
-     */
-    public Integer getGsIsPay() {
-        return gsIsPay;
-    }
-
-    /**
-     * 设置工伤保险是否缴费 1是 2否
-     *
-     * @param gsIsPay 工伤保险是否缴费 1是 2否
-     */
-    public void setGsIsPay(Integer gsIsPay) {
-        this.gsIsPay = gsIsPay;
     }
 
     /**
@@ -687,7 +628,7 @@ public class SocialPlan {
      *
      * @return gs_enterprise_proportion - 工伤保险企业比例
      */
-    public Float getGsEnterpriseProportion() {
+    public BigDecimal getGsEnterpriseProportion() {
         return gsEnterpriseProportion;
     }
 
@@ -696,7 +637,7 @@ public class SocialPlan {
      *
      * @param gsEnterpriseProportion 工伤保险企业比例
      */
-    public void setGsEnterpriseProportion(Float gsEnterpriseProportion) {
+    public void setGsEnterpriseProportion(BigDecimal gsEnterpriseProportion) {
         this.gsEnterpriseProportion = gsEnterpriseProportion;
     }
 
@@ -705,7 +646,7 @@ public class SocialPlan {
      *
      * @return gs_personal_proportion - 工伤保险个人比例
      */
-    public Float getGsPersonalProportion() {
+    public BigDecimal getGsPersonalProportion() {
         return gsPersonalProportion;
     }
 
@@ -714,26 +655,8 @@ public class SocialPlan {
      *
      * @param gsPersonalProportion 工伤保险个人比例
      */
-    public void setGsPersonalProportion(Float gsPersonalProportion) {
+    public void setGsPersonalProportion(BigDecimal gsPersonalProportion) {
         this.gsPersonalProportion = gsPersonalProportion;
-    }
-
-    /**
-     * 获取生育保险是否缴费 1是 2否
-     *
-     * @return syu_is_pay - 生育保险是否缴费 1是 2否
-     */
-    public Integer getSyuIsPay() {
-        return syuIsPay;
-    }
-
-    /**
-     * 设置生育保险是否缴费 1是 2否
-     *
-     * @param syuIsPay 生育保险是否缴费 1是 2否
-     */
-    public void setSyuIsPay(Integer syuIsPay) {
-        this.syuIsPay = syuIsPay;
     }
 
     /**
@@ -777,7 +700,7 @@ public class SocialPlan {
      *
      * @return syu_enterprise_proportion - 生育保险企业比例
      */
-    public Float getSyuEnterpriseProportion() {
+    public BigDecimal getSyuEnterpriseProportion() {
         return syuEnterpriseProportion;
     }
 
@@ -786,7 +709,7 @@ public class SocialPlan {
      *
      * @param syuEnterpriseProportion 生育保险企业比例
      */
-    public void setSyuEnterpriseProportion(Float syuEnterpriseProportion) {
+    public void setSyuEnterpriseProportion(BigDecimal syuEnterpriseProportion) {
         this.syuEnterpriseProportion = syuEnterpriseProportion;
     }
 
@@ -795,7 +718,7 @@ public class SocialPlan {
      *
      * @return syu_personal_proportion - 生育保险个人比例
      */
-    public Float getSyuPersonalProportion() {
+    public BigDecimal getSyuPersonalProportion() {
         return syuPersonalProportion;
     }
 
@@ -804,97 +727,79 @@ public class SocialPlan {
      *
      * @param syuPersonalProportion 生育保险个人比例
      */
-    public void setSyuPersonalProportion(Float syuPersonalProportion) {
+    public void setSyuPersonalProportion(BigDecimal syuPersonalProportion) {
         this.syuPersonalProportion = syuPersonalProportion;
     }
 
     /**
-     * 获取住房保险是否缴费 1是 2否
+     * 获取住房公积金最高基数
      *
-     * @return zf_is_pay - 住房保险是否缴费 1是 2否
-     */
-    public Integer getZfIsPay() {
-        return zfIsPay;
-    }
-
-    /**
-     * 设置住房保险是否缴费 1是 2否
-     *
-     * @param zfIsPay 住房保险是否缴费 1是 2否
-     */
-    public void setZfIsPay(Integer zfIsPay) {
-        this.zfIsPay = zfIsPay;
-    }
-
-    /**
-     * 获取住房保险最高基数
-     *
-     * @return zf_max_base - 住房保险最高基数
+     * @return zf_max_base - 住房公积金最高基数
      */
     public Integer getZfMaxBase() {
         return zfMaxBase;
     }
 
     /**
-     * 设置住房保险最高基数
+     * 设置住房公积金最高基数
      *
-     * @param zfMaxBase 住房保险最高基数
+     * @param zfMaxBase 住房公积金最高基数
      */
     public void setZfMaxBase(Integer zfMaxBase) {
         this.zfMaxBase = zfMaxBase;
     }
 
     /**
-     * 获取住房保险最低基数
+     * 获取住房公积金最低基数
      *
-     * @return zf_min_base - 住房保险最低基数
+     * @return zf_min_base - 住房公积金最低基数
      */
     public Integer getZfMinBase() {
         return zfMinBase;
     }
 
     /**
-     * 设置住房保险最低基数
+     * 设置住房公积金最低基数
      *
-     * @param zfMinBase 住房保险最低基数
+     * @param zfMinBase 住房公积金最低基数
      */
     public void setZfMinBase(Integer zfMinBase) {
         this.zfMinBase = zfMinBase;
     }
 
     /**
-     * 获取住房保险企业比例
+     * 获取住房公积金企业比例
      *
-     * @return zf_enterprise_proportion - 住房保险企业比例
+     * @return zf_enterprise_proportion - 住房公积金企业比例
      */
-    public Float getZfEnterpriseProportion() {
+    public BigDecimal getZfEnterpriseProportion() {
         return zfEnterpriseProportion;
     }
 
     /**
-     * 设置住房保险企业比例
+     * 设置住房公积金企业比例
      *
-     * @param zfEnterpriseProportion 住房保险企业比例
+     * @param zfEnterpriseProportion 住房公积金企业比例
      */
-    public void setZfEnterpriseProportion(Float zfEnterpriseProportion) {
+    public void setZfEnterpriseProportion(BigDecimal zfEnterpriseProportion) {
         this.zfEnterpriseProportion = zfEnterpriseProportion;
     }
 
     /**
-     * 获取住房保险个人比例
+     * 获取住房公积金个人比例
      *
-     * @return zf_personal_proportion - 住房保险个人比例
+     * @return zf_personal_proportion - 住房公积金个人比例
      */
-    public Float getZfPersonalProportion() {
+    public BigDecimal getZfPersonalProportion() {
         return zfPersonalProportion;
     }
 
     /**
-     * 设置住房保险个人比例
+     * 设置住房公积金个人比例
      *
-     * @param zfPersonalProportion 住房保险个人比例
+     * @param zfPersonalProportion 住房公积金个人比例
      */
-    public void setZfPersonalProportion(Float zfPersonalProportion) {
+    public void setZfPersonalProportion(BigDecimal zfPersonalProportion) {
         this.zfPersonalProportion = zfPersonalProportion;
     }
 

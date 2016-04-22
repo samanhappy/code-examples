@@ -1,5 +1,6 @@
 package org.mybatis.generator.util;
 
+import java.math.BigDecimal;
 import java.sql.Types;
 
 import org.mybatis.generator.api.IntrospectedColumn;
@@ -19,6 +20,8 @@ public class MyJavaTypeResolver extends JavaTypeResolverDefaultImpl
             switch (introspectedColumn.getJdbcType())
             {
                 case Types.DECIMAL:
+                    answer = new FullyQualifiedJavaType(BigDecimal.class.getName());
+                    break;
                 case Types.NUMERIC:
                     if (introspectedColumn.getScale() > 0)
                     {

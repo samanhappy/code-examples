@@ -18,22 +18,22 @@
     <result column="id_no" jdbcType="VARCHAR" property="idNo" />
     <result column="social_security_no" jdbcType="VARCHAR" property="socialSecurityNo" />
     <result column="house_fund_no" jdbcType="VARCHAR" property="houseFundNo" />
-    <result column="social_security_base" jdbcType="REAL" property="socialSecurityBase" />
-    <result column="house_fund_base" jdbcType="REAL" property="houseFundBase" />
-    <result column="ylao_enterprise_payment" jdbcType="REAL" property="ylaoEnterprisePayment" />
-    <result column="ylao_personal_payment" jdbcType="REAL" property="ylaoPersonalPayment" />
-    <result column="yliao_enterprise_payment" jdbcType="REAL" property="yliaoEnterprisePayment" />
-    <result column="yliao_personal_payment" jdbcType="REAL" property="yliaoPersonalPayment" />
-    <result column="sye_enterprise_payment" jdbcType="REAL" property="syeEnterprisePayment" />
-    <result column="sye_personal_payment" jdbcType="REAL" property="syePersonalPayment" />
-    <result column="gs_enterprise_payment" jdbcType="REAL" property="gsEnterprisePayment" />
-    <result column="gs_personal_payment" jdbcType="REAL" property="gsPersonalPayment" />
-    <result column="syu_enterprise_payment" jdbcType="REAL" property="syuEnterprisePayment" />
-    <result column="syu_personal_payment" jdbcType="REAL" property="syuPersonalPayment" />
-    <result column="zf_enterprise_payment" jdbcType="REAL" property="zfEnterprisePayment" />
-    <result column="zf_personal_payment" jdbcType="REAL" property="zfPersonalPayment" />
-    <result column="enterprise_payment_sum" jdbcType="REAL" property="enterprisePaymentSum" />
-    <result column="personal_payment_sum" jdbcType="REAL" property="personalPaymentSum" />
+    <result column="social_security_base" jdbcType="INTEGER" property="socialSecurityBase" />
+    <result column="house_fund_base" jdbcType="INTEGER" property="houseFundBase" />
+    <result column="ylao_enterprise_payment" jdbcType="DECIMAL" property="ylaoEnterprisePayment" />
+    <result column="ylao_personal_payment" jdbcType="DECIMAL" property="ylaoPersonalPayment" />
+    <result column="yliao_enterprise_payment" jdbcType="DECIMAL" property="yliaoEnterprisePayment" />
+    <result column="yliao_personal_payment" jdbcType="DECIMAL" property="yliaoPersonalPayment" />
+    <result column="sye_enterprise_payment" jdbcType="DECIMAL" property="syeEnterprisePayment" />
+    <result column="sye_personal_payment" jdbcType="DECIMAL" property="syePersonalPayment" />
+    <result column="gs_enterprise_payment" jdbcType="DECIMAL" property="gsEnterprisePayment" />
+    <result column="gs_personal_payment" jdbcType="DECIMAL" property="gsPersonalPayment" />
+    <result column="syu_enterprise_payment" jdbcType="DECIMAL" property="syuEnterprisePayment" />
+    <result column="syu_personal_payment" jdbcType="DECIMAL" property="syuPersonalPayment" />
+    <result column="zf_enterprise_payment" jdbcType="DECIMAL" property="zfEnterprisePayment" />
+    <result column="zf_personal_payment" jdbcType="DECIMAL" property="zfPersonalPayment" />
+    <result column="enterprise_payment_sum" jdbcType="DECIMAL" property="enterprisePaymentSum" />
+    <result column="personal_payment_sum" jdbcType="DECIMAL" property="personalPaymentSum" />
     <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
   </resultMap>
 </mapper>

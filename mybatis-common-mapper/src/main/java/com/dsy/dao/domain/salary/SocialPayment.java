@@ -1,5 +1,6 @@
 package com.dsy.dao.domain.salary;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -8,6 +9,11 @@ public class SocialPayment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    /**
+     * 结算名称
+     */
+    private String name;
 
     /**
      * 社保方案ID
@@ -40,11 +46,6 @@ public class SocialPayment {
     private Integer fundYearMonth;
 
     /**
-     * 结算名称
-     */
-    private String name;
-
-    /**
      * 员工人数
      */
     @Column(name = "employee_count")
@@ -54,7 +55,7 @@ public class SocialPayment {
      * 结算总额
      */
     @Column(name = "payment_sum")
-    private Double paymentSum;
+    private BigDecimal paymentSum;
 
     /**
      * 更新时间
@@ -78,6 +79,24 @@ public class SocialPayment {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    /**
+     * 获取结算名称
+     *
+     * @return name - 结算名称
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * 设置结算名称
+     *
+     * @param name 结算名称
+     */
+    public void setName(String name) {
+        this.name = name;
     }
 
     /**
@@ -171,24 +190,6 @@ public class SocialPayment {
     }
 
     /**
-     * 获取结算名称
-     *
-     * @return name - 结算名称
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * 设置结算名称
-     *
-     * @param name 结算名称
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    /**
      * 获取员工人数
      *
      * @return employee_count - 员工人数
@@ -211,7 +212,7 @@ public class SocialPayment {
      *
      * @return payment_sum - 结算总额
      */
-    public Double getPaymentSum() {
+    public BigDecimal getPaymentSum() {
         return paymentSum;
     }
 
@@ -220,7 +221,7 @@ public class SocialPayment {
      *
      * @param paymentSum 结算总额
      */
-    public void setPaymentSum(Double paymentSum) {
+    public void setPaymentSum(BigDecimal paymentSum) {
         this.paymentSum = paymentSum;
     }
 

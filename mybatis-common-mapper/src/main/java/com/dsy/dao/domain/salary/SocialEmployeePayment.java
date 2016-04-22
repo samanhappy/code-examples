@@ -1,5 +1,6 @@
 package com.dsy.dao.domain.salary;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -85,97 +86,97 @@ public class SocialEmployeePayment {
      * 社保缴费基数
      */
     @Column(name = "social_security_base")
-    private Float socialSecurityBase;
+    private Integer socialSecurityBase;
 
     /**
      * 公积金缴费基数
      */
     @Column(name = "house_fund_base")
-    private Float houseFundBase;
+    private Integer houseFundBase;
 
     /**
      * 养老保险企业支付
      */
     @Column(name = "ylao_enterprise_payment")
-    private Float ylaoEnterprisePayment;
+    private BigDecimal ylaoEnterprisePayment;
 
     /**
      * 养老保险个人支付
      */
     @Column(name = "ylao_personal_payment")
-    private Float ylaoPersonalPayment;
+    private BigDecimal ylaoPersonalPayment;
 
     /**
      * 医疗保险企业支付
      */
     @Column(name = "yliao_enterprise_payment")
-    private Float yliaoEnterprisePayment;
+    private BigDecimal yliaoEnterprisePayment;
 
     /**
      * 医疗保险个人支付
      */
     @Column(name = "yliao_personal_payment")
-    private Float yliaoPersonalPayment;
+    private BigDecimal yliaoPersonalPayment;
 
     /**
      * 失业保险企业支付
      */
     @Column(name = "sye_enterprise_payment")
-    private Float syeEnterprisePayment;
+    private BigDecimal syeEnterprisePayment;
 
     /**
      * 失业保险个人支付
      */
     @Column(name = "sye_personal_payment")
-    private Float syePersonalPayment;
+    private BigDecimal syePersonalPayment;
 
     /**
      * 工伤保险企业支付
      */
     @Column(name = "gs_enterprise_payment")
-    private Float gsEnterprisePayment;
+    private BigDecimal gsEnterprisePayment;
 
     /**
      * 工伤保险个人支付
      */
     @Column(name = "gs_personal_payment")
-    private Float gsPersonalPayment;
+    private BigDecimal gsPersonalPayment;
 
     /**
      * 生育保险企业支付
      */
     @Column(name = "syu_enterprise_payment")
-    private Float syuEnterprisePayment;
+    private BigDecimal syuEnterprisePayment;
 
     /**
      * 生育保险个人支付
      */
     @Column(name = "syu_personal_payment")
-    private Float syuPersonalPayment;
+    private BigDecimal syuPersonalPayment;
 
     /**
      * 住房保险企业支付
      */
     @Column(name = "zf_enterprise_payment")
-    private Float zfEnterprisePayment;
+    private BigDecimal zfEnterprisePayment;
 
     /**
      * 住房保险个人支付
      */
     @Column(name = "zf_personal_payment")
-    private Float zfPersonalPayment;
+    private BigDecimal zfPersonalPayment;
 
     /**
      * 企业支付总额
      */
     @Column(name = "enterprise_payment_sum")
-    private Float enterprisePaymentSum;
+    private BigDecimal enterprisePaymentSum;
 
     /**
      * 个人支付总额
      */
     @Column(name = "personal_payment_sum")
-    private Float personalPaymentSum;
+    private BigDecimal personalPaymentSum;
 
     /**
      * 更新时间
@@ -417,7 +418,7 @@ public class SocialEmployeePayment {
      *
      * @return social_security_base - 社保缴费基数
      */
-    public Float getSocialSecurityBase() {
+    public Integer getSocialSecurityBase() {
         return socialSecurityBase;
     }
 
@@ -426,7 +427,7 @@ public class SocialEmployeePayment {
      *
      * @param socialSecurityBase 社保缴费基数
      */
-    public void setSocialSecurityBase(Float socialSecurityBase) {
+    public void setSocialSecurityBase(Integer socialSecurityBase) {
         this.socialSecurityBase = socialSecurityBase;
     }
 
@@ -435,7 +436,7 @@ public class SocialEmployeePayment {
      *
      * @return house_fund_base - 公积金缴费基数
      */
-    public Float getHouseFundBase() {
+    public Integer getHouseFundBase() {
         return houseFundBase;
     }
 
@@ -444,7 +445,7 @@ public class SocialEmployeePayment {
      *
      * @param houseFundBase 公积金缴费基数
      */
-    public void setHouseFundBase(Float houseFundBase) {
+    public void setHouseFundBase(Integer houseFundBase) {
         this.houseFundBase = houseFundBase;
     }
 
@@ -453,7 +454,7 @@ public class SocialEmployeePayment {
      *
      * @return ylao_enterprise_payment - 养老保险企业支付
      */
-    public Float getYlaoEnterprisePayment() {
+    public BigDecimal getYlaoEnterprisePayment() {
         return ylaoEnterprisePayment;
     }
 
@@ -462,7 +463,7 @@ public class SocialEmployeePayment {
      *
      * @param ylaoEnterprisePayment 养老保险企业支付
      */
-    public void setYlaoEnterprisePayment(Float ylaoEnterprisePayment) {
+    public void setYlaoEnterprisePayment(BigDecimal ylaoEnterprisePayment) {
         this.ylaoEnterprisePayment = ylaoEnterprisePayment;
     }
 
@@ -471,7 +472,7 @@ public class SocialEmployeePayment {
      *
      * @return ylao_personal_payment - 养老保险个人支付
      */
-    public Float getYlaoPersonalPayment() {
+    public BigDecimal getYlaoPersonalPayment() {
         return ylaoPersonalPayment;
     }
 
@@ -480,7 +481,7 @@ public class SocialEmployeePayment {
      *
      * @param ylaoPersonalPayment 养老保险个人支付
      */
-    public void setYlaoPersonalPayment(Float ylaoPersonalPayment) {
+    public void setYlaoPersonalPayment(BigDecimal ylaoPersonalPayment) {
         this.ylaoPersonalPayment = ylaoPersonalPayment;
     }
 
@@ -489,7 +490,7 @@ public class SocialEmployeePayment {
      *
      * @return yliao_enterprise_payment - 医疗保险企业支付
      */
-    public Float getYliaoEnterprisePayment() {
+    public BigDecimal getYliaoEnterprisePayment() {
         return yliaoEnterprisePayment;
     }
 
@@ -498,7 +499,7 @@ public class SocialEmployeePayment {
      *
      * @param yliaoEnterprisePayment 医疗保险企业支付
      */
-    public void setYliaoEnterprisePayment(Float yliaoEnterprisePayment) {
+    public void setYliaoEnterprisePayment(BigDecimal yliaoEnterprisePayment) {
         this.yliaoEnterprisePayment = yliaoEnterprisePayment;
     }
 
@@ -507,7 +508,7 @@ public class SocialEmployeePayment {
      *
      * @return yliao_personal_payment - 医疗保险个人支付
      */
-    public Float getYliaoPersonalPayment() {
+    public BigDecimal getYliaoPersonalPayment() {
         return yliaoPersonalPayment;
     }
 
@@ -516,7 +517,7 @@ public class SocialEmployeePayment {
      *
      * @param yliaoPersonalPayment 医疗保险个人支付
      */
-    public void setYliaoPersonalPayment(Float yliaoPersonalPayment) {
+    public void setYliaoPersonalPayment(BigDecimal yliaoPersonalPayment) {
         this.yliaoPersonalPayment = yliaoPersonalPayment;
     }
 
@@ -525,7 +526,7 @@ public class SocialEmployeePayment {
      *
      * @return sye_enterprise_payment - 失业保险企业支付
      */
-    public Float getSyeEnterprisePayment() {
+    public BigDecimal getSyeEnterprisePayment() {
         return syeEnterprisePayment;
     }
 
@@ -534,7 +535,7 @@ public class SocialEmployeePayment {
      *
      * @param syeEnterprisePayment 失业保险企业支付
      */
-    public void setSyeEnterprisePayment(Float syeEnterprisePayment) {
+    public void setSyeEnterprisePayment(BigDecimal syeEnterprisePayment) {
         this.syeEnterprisePayment = syeEnterprisePayment;
     }
 
@@ -543,7 +544,7 @@ public class SocialEmployeePayment {
      *
      * @return sye_personal_payment - 失业保险个人支付
      */
-    public Float getSyePersonalPayment() {
+    public BigDecimal getSyePersonalPayment() {
         return syePersonalPayment;
     }
 
@@ -552,7 +553,7 @@ public class SocialEmployeePayment {
      *
      * @param syePersonalPayment 失业保险个人支付
      */
-    public void setSyePersonalPayment(Float syePersonalPayment) {
+    public void setSyePersonalPayment(BigDecimal syePersonalPayment) {
         this.syePersonalPayment = syePersonalPayment;
     }
 
@@ -561,7 +562,7 @@ public class SocialEmployeePayment {
      *
      * @return gs_enterprise_payment - 工伤保险企业支付
      */
-    public Float getGsEnterprisePayment() {
+    public BigDecimal getGsEnterprisePayment() {
         return gsEnterprisePayment;
     }
 
@@ -570,7 +571,7 @@ public class SocialEmployeePayment {
      *
      * @param gsEnterprisePayment 工伤保险企业支付
      */
-    public void setGsEnterprisePayment(Float gsEnterprisePayment) {
+    public void setGsEnterprisePayment(BigDecimal gsEnterprisePayment) {
         this.gsEnterprisePayment = gsEnterprisePayment;
     }
 
@@ -579,7 +580,7 @@ public class SocialEmployeePayment {
      *
      * @return gs_personal_payment - 工伤保险个人支付
      */
-    public Float getGsPersonalPayment() {
+    public BigDecimal getGsPersonalPayment() {
         return gsPersonalPayment;
     }
 
@@ -588,7 +589,7 @@ public class SocialEmployeePayment {
      *
      * @param gsPersonalPayment 工伤保险个人支付
      */
-    public void setGsPersonalPayment(Float gsPersonalPayment) {
+    public void setGsPersonalPayment(BigDecimal gsPersonalPayment) {
         this.gsPersonalPayment = gsPersonalPayment;
     }
 
@@ -597,7 +598,7 @@ public class SocialEmployeePayment {
      *
      * @return syu_enterprise_payment - 生育保险企业支付
      */
-    public Float getSyuEnterprisePayment() {
+    public BigDecimal getSyuEnterprisePayment() {
         return syuEnterprisePayment;
     }
 
@@ -606,7 +607,7 @@ public class SocialEmployeePayment {
      *
      * @param syuEnterprisePayment 生育保险企业支付
      */
-    public void setSyuEnterprisePayment(Float syuEnterprisePayment) {
+    public void setSyuEnterprisePayment(BigDecimal syuEnterprisePayment) {
         this.syuEnterprisePayment = syuEnterprisePayment;
     }
 
@@ -615,7 +616,7 @@ public class SocialEmployeePayment {
      *
      * @return syu_personal_payment - 生育保险个人支付
      */
-    public Float getSyuPersonalPayment() {
+    public BigDecimal getSyuPersonalPayment() {
         return syuPersonalPayment;
     }
 
@@ -624,7 +625,7 @@ public class SocialEmployeePayment {
      *
      * @param syuPersonalPayment 生育保险个人支付
      */
-    public void setSyuPersonalPayment(Float syuPersonalPayment) {
+    public void setSyuPersonalPayment(BigDecimal syuPersonalPayment) {
         this.syuPersonalPayment = syuPersonalPayment;
     }
 
@@ -633,7 +634,7 @@ public class SocialEmployeePayment {
      *
      * @return zf_enterprise_payment - 住房保险企业支付
      */
-    public Float getZfEnterprisePayment() {
+    public BigDecimal getZfEnterprisePayment() {
         return zfEnterprisePayment;
     }
 
@@ -642,7 +643,7 @@ public class SocialEmployeePayment {
      *
      * @param zfEnterprisePayment 住房保险企业支付
      */
-    public void setZfEnterprisePayment(Float zfEnterprisePayment) {
+    public void setZfEnterprisePayment(BigDecimal zfEnterprisePayment) {
         this.zfEnterprisePayment = zfEnterprisePayment;
     }
 
@@ -651,7 +652,7 @@ public class SocialEmployeePayment {
      *
      * @return zf_personal_payment - 住房保险个人支付
      */
-    public Float getZfPersonalPayment() {
+    public BigDecimal getZfPersonalPayment() {
         return zfPersonalPayment;
     }
 
@@ -660,7 +661,7 @@ public class SocialEmployeePayment {
      *
      * @param zfPersonalPayment 住房保险个人支付
      */
-    public void setZfPersonalPayment(Float zfPersonalPayment) {
+    public void setZfPersonalPayment(BigDecimal zfPersonalPayment) {
         this.zfPersonalPayment = zfPersonalPayment;
     }
 
@@ -669,7 +670,7 @@ public class SocialEmployeePayment {
      *
      * @return enterprise_payment_sum - 企业支付总额
      */
-    public Float getEnterprisePaymentSum() {
+    public BigDecimal getEnterprisePaymentSum() {
         return enterprisePaymentSum;
     }
 
@@ -678,7 +679,7 @@ public class SocialEmployeePayment {
      *
      * @param enterprisePaymentSum 企业支付总额
      */
-    public void setEnterprisePaymentSum(Float enterprisePaymentSum) {
+    public void setEnterprisePaymentSum(BigDecimal enterprisePaymentSum) {
         this.enterprisePaymentSum = enterprisePaymentSum;
     }
 
@@ -687,7 +688,7 @@ public class SocialEmployeePayment {
      *
      * @return personal_payment_sum - 个人支付总额
      */
-    public Float getPersonalPaymentSum() {
+    public BigDecimal getPersonalPaymentSum() {
         return personalPaymentSum;
     }
 
@@ -696,7 +697,7 @@ public class SocialEmployeePayment {
      *
      * @param personalPaymentSum 个人支付总额
      */
-    public void setPersonalPaymentSum(Float personalPaymentSum) {
+    public void setPersonalPaymentSum(BigDecimal personalPaymentSum) {
         this.personalPaymentSum = personalPaymentSum;
     }
 

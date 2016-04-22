@@ -1,5 +1,6 @@
 package com.dsy.dao.domain.salary;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -85,7 +86,7 @@ public class SalaryPayment {
      * 结算总额
      */
     @Column(name = "payment_sum")
-    private Double paymentSum;
+    private BigDecimal paymentSum;
 
     /**
      * 更新时间
@@ -331,7 +332,7 @@ public class SalaryPayment {
      *
      * @return payment_sum - 结算总额
      */
-    public Double getPaymentSum() {
+    public BigDecimal getPaymentSum() {
         return paymentSum;
     }
 
@@ -340,7 +341,7 @@ public class SalaryPayment {
      *
      * @param paymentSum 结算总额
      */
-    public void setPaymentSum(Double paymentSum) {
+    public void setPaymentSum(BigDecimal paymentSum) {
         this.paymentSum = paymentSum;
     }
 
