@@ -39,9 +39,9 @@
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
 <!-- 		</table> -->
 		
-		<table tableName="t_salary_payment" domainObjectName="SalaryPayment" >
-			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
-		</table>
+<!-- 		<table tableName="t_salary_payment" domainObjectName="SalaryPayment" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
 		
 <!-- 		<table tableName="t_salary_plan" domainObjectName="SalaryPlan" > -->
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
@@ -51,21 +51,21 @@
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
 <!-- 		</table> -->
 		
-		<table tableName="t_social_citydata" domainObjectName="SocialCitydata" >
-			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
-		</table>
+<!-- 		<table tableName="t_social_citydata" domainObjectName="SocialCitydata" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
 		
 		<table tableName="t_social_employee_payment" domainObjectName="SocialEmployeePayment" >
 			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
 		</table>
 		
-		<table tableName="t_social_payment" domainObjectName="SocialPayment" >
-			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
-		</table>
+<!-- 		<table tableName="t_social_payment" domainObjectName="SocialPayment" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
 		
-		<table tableName="t_social_plan" domainObjectName="SocialPlan" >
-			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
-		</table>
+<!-- 		<table tableName="t_social_plan" domainObjectName="SocialPlan" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
 		
 	</context>
 </generatorConfiguration>

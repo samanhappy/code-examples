@@ -14,7 +14,8 @@
     <result column="fund_year_month" jdbcType="INTEGER" property="fundYearMonth" />
     <result column="employee_count" jdbcType="INTEGER" property="employeeCount" />
     <result column="payment_sum" jdbcType="DECIMAL" property="paymentSum" />
-    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
-    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
 </mapper>

@@ -167,6 +167,18 @@ public class SocialEmployeePayment {
     private BigDecimal zfPersonalPayment;
 
     /**
+     * 社保企业支付合计
+     */
+    @Column(name = "social_enterprise_payment_sum")
+    private BigDecimal socialEnterprisePaymentSum;
+
+    /**
+     * 社保个人支付合计
+     */
+    @Column(name = "social_personal_payment_sum")
+    private BigDecimal socialPersonalPaymentSum;
+
+    /**
      * 企业支付总额
      */
     @Column(name = "enterprise_payment_sum")
@@ -663,6 +675,42 @@ public class SocialEmployeePayment {
      */
     public void setZfPersonalPayment(BigDecimal zfPersonalPayment) {
         this.zfPersonalPayment = zfPersonalPayment;
+    }
+
+    /**
+     * 获取社保企业支付合计
+     *
+     * @return social_enterprise_payment_sum - 社保企业支付合计
+     */
+    public BigDecimal getSocialEnterprisePaymentSum() {
+        return socialEnterprisePaymentSum;
+    }
+
+    /**
+     * 设置社保企业支付合计
+     *
+     * @param socialEnterprisePaymentSum 社保企业支付合计
+     */
+    public void setSocialEnterprisePaymentSum(BigDecimal socialEnterprisePaymentSum) {
+        this.socialEnterprisePaymentSum = socialEnterprisePaymentSum;
+    }
+
+    /**
+     * 获取社保个人支付合计
+     *
+     * @return social_personal_payment_sum - 社保个人支付合计
+     */
+    public BigDecimal getSocialPersonalPaymentSum() {
+        return socialPersonalPaymentSum;
+    }
+
+    /**
+     * 设置社保个人支付合计
+     *
+     * @param socialPersonalPaymentSum 社保个人支付合计
+     */
+    public void setSocialPersonalPaymentSum(BigDecimal socialPersonalPaymentSum) {
+        this.socialPersonalPaymentSum = socialPersonalPaymentSum;
     }
 
     /**

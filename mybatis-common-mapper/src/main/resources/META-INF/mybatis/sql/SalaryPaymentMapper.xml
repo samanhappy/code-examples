@@ -13,12 +13,16 @@
     <result column="plan_name" jdbcType="VARCHAR" property="planName" />
     <result column="social_id" jdbcType="INTEGER" property="socialId" />
     <result column="social_name" jdbcType="VARCHAR" property="socialName" />
-    <result column="year" jdbcType="SMALLINT" property="year" />
-    <result column="month" jdbcType="TINYINT" property="month" />
+    <result column="salary_year_month" jdbcType="INTEGER" property="salaryYearMonth" />
+    <result column="social_year_month" jdbcType="INTEGER" property="socialYearMonth" />
+    <result column="fund_year_month" jdbcType="INTEGER" property="fundYearMonth" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="pay_status" jdbcType="TINYINT" property="payStatus" />
     <result column="payslip_setting" jdbcType="VARCHAR" property="payslipSetting" />
     <result column="employee_count" jdbcType="INTEGER" property="employeeCount" />
     <result column="payment_sum" jdbcType="DECIMAL" property="paymentSum" />
-    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="create_user" jdbcType="VARCHAR" property="createUser" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
   </resultMap>
 </mapper>

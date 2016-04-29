@@ -16,6 +16,12 @@ public class SalaryEmployeePayment {
     private Integer paymentId;
 
     /**
+     * 薪资结算年月
+     */
+    @Column(name = "salary_year_month")
+    private Integer salaryYearMonth;
+
+    /**
      * 员工ID
      */
     @Column(name = "employee_id")
@@ -92,6 +98,24 @@ public class SalaryEmployeePayment {
      */
     public void setPaymentId(Integer paymentId) {
         this.paymentId = paymentId;
+    }
+
+    /**
+     * 获取薪资结算年月
+     *
+     * @return salary_year_month - 薪资结算年月
+     */
+    public Integer getSalaryYearMonth() {
+        return salaryYearMonth;
+    }
+
+    /**
+     * 设置薪资结算年月
+     *
+     * @param salaryYearMonth 薪资结算年月
+     */
+    public void setSalaryYearMonth(Integer salaryYearMonth) {
+        this.salaryYearMonth = salaryYearMonth;
     }
 
     /**

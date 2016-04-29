@@ -32,6 +32,8 @@
     <result column="syu_personal_payment" jdbcType="DECIMAL" property="syuPersonalPayment" />
     <result column="zf_enterprise_payment" jdbcType="DECIMAL" property="zfEnterprisePayment" />
     <result column="zf_personal_payment" jdbcType="DECIMAL" property="zfPersonalPayment" />
+    <result column="social_enterprise_payment_sum" jdbcType="DECIMAL" property="socialEnterprisePaymentSum" />
+    <result column="social_personal_payment_sum" jdbcType="DECIMAL" property="socialPersonalPaymentSum" />
     <result column="enterprise_payment_sum" jdbcType="DECIMAL" property="enterprisePaymentSum" />
     <result column="personal_payment_sum" jdbcType="DECIMAL" property="personalPaymentSum" />
     <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />

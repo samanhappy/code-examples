@@ -56,19 +56,33 @@ public class SalaryPayment {
     private String socialName;
 
     /**
-     * 结算年
+     * 薪资结算年月
      */
-    private Integer year;
+    @Column(name = "salary_year_month")
+    private Integer salaryYearMonth;
 
     /**
-     * 结算月
+     * 社保结算年月
      */
-    private Integer month;
+    @Column(name = "social_year_month")
+    private Integer socialYearMonth;
+
+    /**
+     * 公积金结算年月
+     */
+    @Column(name = "fund_year_month")
+    private Integer fundYearMonth;
 
     /**
      * 结算名称
      */
     private String name;
+
+    /**
+     * 发放状态 1待发 2已发
+     */
+    @Column(name = "pay_status")
+    private Integer payStatus;
 
     /**
      * 工资条设置
@@ -89,9 +103,22 @@ public class SalaryPayment {
     private BigDecimal paymentSum;
 
     /**
+     * 创建人
+     */
+    @Column(name = "create_user")
+    private String createUser;
+
+    /**
+     * 创建时间
+     */
+    @Column(name = "create_time")
+    private Date createTime;
+
+    /**
      * 更新时间
      */
-    private Date updatetime;
+    @Column(name = "update_time")
+    private Date updateTime;
 
     /**
      * 获取主键
@@ -238,39 +265,57 @@ public class SalaryPayment {
     }
 
     /**
-     * 获取结算年
+     * 获取薪资结算年月
      *
-     * @return year - 结算年
+     * @return salary_year_month - 薪资结算年月
      */
-    public Integer getYear() {
-        return year;
+    public Integer getSalaryYearMonth() {
+        return salaryYearMonth;
     }
 
     /**
-     * 设置结算年
+     * 设置薪资结算年月
      *
-     * @param year 结算年
+     * @param salaryYearMonth 薪资结算年月
      */
-    public void setYear(Integer year) {
-        this.year = year;
+    public void setSalaryYearMonth(Integer salaryYearMonth) {
+        this.salaryYearMonth = salaryYearMonth;
     }
 
     /**
-     * 获取结算月
+     * 获取社保结算年月
      *
-     * @return month - 结算月
+     * @return social_year_month - 社保结算年月
      */
-    public Integer getMonth() {
-        return month;
+    public Integer getSocialYearMonth() {
+        return socialYearMonth;
     }
 
     /**
-     * 设置结算月
+     * 设置社保结算年月
      *
-     * @param month 结算月
+     * @param socialYearMonth 社保结算年月
      */
-    public void setMonth(Integer month) {
-        this.month = month;
+    public void setSocialYearMonth(Integer socialYearMonth) {
+        this.socialYearMonth = socialYearMonth;
+    }
+
+    /**
+     * 获取公积金结算年月
+     *
+     * @return fund_year_month - 公积金结算年月
+     */
+    public Integer getFundYearMonth() {
+        return fundYearMonth;
+    }
+
+    /**
+     * 设置公积金结算年月
+     *
+     * @param fundYearMonth 公积金结算年月
+     */
+    public void setFundYearMonth(Integer fundYearMonth) {
+        this.fundYearMonth = fundYearMonth;
     }
 
     /**
@@ -289,6 +334,24 @@ public class SalaryPayment {
      */
     public void setName(String name) {
         this.name = name;
+    }
+
+    /**
+     * 获取发放状态 1待发 2已发
+     *
+     * @return pay_status - 发放状态 1待发 2已发
+     */
+    public Integer getPayStatus() {
+        return payStatus;
+    }
+
+    /**
+     * 设置发放状态 1待发 2已发
+     *
+     * @param payStatus 发放状态 1待发 2已发
+     */
+    public void setPayStatus(Integer payStatus) {
+        this.payStatus = payStatus;
     }
 
     /**
@@ -346,20 +409,56 @@ public class SalaryPayment {
     }
 
     /**
+     * 获取创建人
+     *
+     * @return create_user - 创建人
+     */
+    public String getCreateUser() {
+        return createUser;
+    }
+
+    /**
+     * 设置创建人
+     *
+     * @param createUser 创建人
+     */
+    public void setCreateUser(String createUser) {
+        this.createUser = createUser;
+    }
+
+    /**
+     * 获取创建时间
+     *
+     * @return create_time - 创建时间
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * 设置创建时间
+     *
+     * @param createTime 创建时间
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    /**
      * 获取更新时间
      *
-     * @return updatetime - 更新时间
+     * @return update_time - 更新时间
      */
-    public Date getUpdatetime() {
-        return updatetime;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
     /**
      * 设置更新时间
      *
-     * @param updatetime 更新时间
+     * @param updateTime 更新时间
      */
-    public void setUpdatetime(Date updatetime) {
-        this.updatetime = updatetime;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }

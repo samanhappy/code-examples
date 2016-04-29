@@ -7,6 +7,7 @@
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="payment_id" jdbcType="INTEGER" property="paymentId" />
+    <result column="salary_year_month" jdbcType="INTEGER" property="salaryYearMonth" />
     <result column="employee_id" jdbcType="INTEGER" property="employeeId" />
     <result column="employee_no" jdbcType="INTEGER" property="employeeNo" />
     <result column="employee_name" jdbcType="VARCHAR" property="employeeName" />

@@ -58,14 +58,22 @@ public class SocialPayment {
     private BigDecimal paymentSum;
 
     /**
-     * 更新时间
+     * 创建人
      */
-    private Date createtime;
+    @Column(name = "create_user")
+    private String createUser;
+
+    /**
+     * 创建时间
+     */
+    @Column(name = "create_time")
+    private Date createTime;
 
     /**
      * 更新时间
      */
-    private Date updatetime;
+    @Column(name = "update_time")
+    private Date updateTime;
 
     /**
      * @return id
@@ -226,38 +234,56 @@ public class SocialPayment {
     }
 
     /**
+     * 获取创建人
+     *
+     * @return create_user - 创建人
+     */
+    public String getCreateUser() {
+        return createUser;
+    }
+
+    /**
+     * 设置创建人
+     *
+     * @param createUser 创建人
+     */
+    public void setCreateUser(String createUser) {
+        this.createUser = createUser;
+    }
+
+    /**
+     * 获取创建时间
+     *
+     * @return create_time - 创建时间
+     */
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    /**
+     * 设置创建时间
+     *
+     * @param createTime 创建时间
+     */
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    /**
      * 获取更新时间
      *
-     * @return createtime - 更新时间
+     * @return update_time - 更新时间
      */
-    public Date getCreatetime() {
-        return createtime;
+    public Date getUpdateTime() {
+        return updateTime;
     }
 
     /**
      * 设置更新时间
      *
-     * @param createtime 更新时间
+     * @param updateTime 更新时间
      */
-    public void setCreatetime(Date createtime) {
-        this.createtime = createtime;
-    }
-
-    /**
-     * 获取更新时间
-     *
-     * @return updatetime - 更新时间
-     */
-    public Date getUpdatetime() {
-        return updatetime;
-    }
-
-    /**
-     * 设置更新时间
-     *
-     * @param updatetime 更新时间
-     */
-    public void setUpdatetime(Date updatetime) {
-        this.updatetime = updatetime;
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }
