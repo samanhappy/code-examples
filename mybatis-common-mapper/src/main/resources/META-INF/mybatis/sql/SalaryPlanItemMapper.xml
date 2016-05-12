@@ -9,6 +9,8 @@
     <result column="plan_id" jdbcType="INTEGER" property="planId" />
     <result column="item_id" jdbcType="INTEGER" property="itemId" />
     <result column="expression" jdbcType="VARCHAR" property="expression" />
+    <result column="function" jdbcType="VARCHAR" property="function" />
+    <result column="params" jdbcType="VARCHAR" property="params" />
     <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
   </resultMap>
 </mapper>

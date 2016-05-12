@@ -1,5 +1,6 @@
 package com.dsy.dao.domain.salary;
 
+import java.math.BigDecimal;
 import java.util.Date;
 import javax.persistence.*;
 
@@ -40,6 +41,12 @@ public class SalaryEmployeePayment {
     private String employeeName;
 
     /**
+     * 身份证号
+     */
+    @Column(name = "id_no")
+    private String idNo;
+
+    /**
      * 企业ID
      */
     @Column(name = "corporate_id")
@@ -56,6 +63,42 @@ public class SalaryEmployeePayment {
      */
     @Column(name = "department_name")
     private String departmentName;
+
+    /**
+     * 社保结算年月
+     */
+    @Column(name = "social_year_month")
+    private Integer socialYearMonth;
+
+    /**
+     * 公积金结算年月
+     */
+    @Column(name = "fund_year_month")
+    private Integer fundYearMonth;
+
+    /**
+     * 社保缴费基数
+     */
+    @Column(name = "social_security_base")
+    private Integer socialSecurityBase;
+
+    /**
+     * 公积金缴费基数
+     */
+    @Column(name = "house_fund_base")
+    private Integer houseFundBase;
+
+    /**
+     * 住房保险个人支付
+     */
+    @Column(name = "zf_personal_payment")
+    private BigDecimal zfPersonalPayment;
+
+    /**
+     * 社保个人支付合计
+     */
+    @Column(name = "social_personal_payment_sum")
+    private BigDecimal socialPersonalPaymentSum;
 
     /**
      * 结算明细，JSON格式字符串
@@ -173,6 +216,24 @@ public class SalaryEmployeePayment {
     }
 
     /**
+     * 获取身份证号
+     *
+     * @return id_no - 身份证号
+     */
+    public String getIdNo() {
+        return idNo;
+    }
+
+    /**
+     * 设置身份证号
+     *
+     * @param idNo 身份证号
+     */
+    public void setIdNo(String idNo) {
+        this.idNo = idNo;
+    }
+
+    /**
      * 获取企业ID
      *
      * @return corporate_id - 企业ID
@@ -224,6 +285,114 @@ public class SalaryEmployeePayment {
      */
     public void setDepartmentName(String departmentName) {
         this.departmentName = departmentName;
+    }
+
+    /**
+     * 获取社保结算年月
+     *
+     * @return social_year_month - 社保结算年月
+     */
+    public Integer getSocialYearMonth() {
+        return socialYearMonth;
+    }
+
+    /**
+     * 设置社保结算年月
+     *
+     * @param socialYearMonth 社保结算年月
+     */
+    public void setSocialYearMonth(Integer socialYearMonth) {
+        this.socialYearMonth = socialYearMonth;
+    }
+
+    /**
+     * 获取公积金结算年月
+     *
+     * @return fund_year_month - 公积金结算年月
+     */
+    public Integer getFundYearMonth() {
+        return fundYearMonth;
+    }
+
+    /**
+     * 设置公积金结算年月
+     *
+     * @param fundYearMonth 公积金结算年月
+     */
+    public void setFundYearMonth(Integer fundYearMonth) {
+        this.fundYearMonth = fundYearMonth;
+    }
+
+    /**
+     * 获取社保缴费基数
+     *
+     * @return social_security_base - 社保缴费基数
+     */
+    public Integer getSocialSecurityBase() {
+        return socialSecurityBase;
+    }
+
+    /**
+     * 设置社保缴费基数
+     *
+     * @param socialSecurityBase 社保缴费基数
+     */
+    public void setSocialSecurityBase(Integer socialSecurityBase) {
+        this.socialSecurityBase = socialSecurityBase;
+    }
+
+    /**
+     * 获取公积金缴费基数
+     *
+     * @return house_fund_base - 公积金缴费基数
+     */
+    public Integer getHouseFundBase() {
+        return houseFundBase;
+    }
+
+    /**
+     * 设置公积金缴费基数
+     *
+     * @param houseFundBase 公积金缴费基数
+     */
+    public void setHouseFundBase(Integer houseFundBase) {
+        this.houseFundBase = houseFundBase;
+    }
+
+    /**
+     * 获取住房保险个人支付
+     *
+     * @return zf_personal_payment - 住房保险个人支付
+     */
+    public BigDecimal getZfPersonalPayment() {
+        return zfPersonalPayment;
+    }
+
+    /**
+     * 设置住房保险个人支付
+     *
+     * @param zfPersonalPayment 住房保险个人支付
+     */
+    public void setZfPersonalPayment(BigDecimal zfPersonalPayment) {
+        this.zfPersonalPayment = zfPersonalPayment;
+    }
+
+    /**
+     * 获取社保个人支付合计
+     *
+     * @return social_personal_payment_sum - 社保个人支付合计
+     */
+    public BigDecimal getSocialPersonalPaymentSum() {
+        return socialPersonalPaymentSum;
+    }
+
+    /**
+     * 设置社保个人支付合计
+     *
+     * @param socialPersonalPaymentSum 社保个人支付合计
+     */
+    public void setSocialPersonalPaymentSum(BigDecimal socialPersonalPaymentSum) {
+        this.socialPersonalPaymentSum = socialPersonalPaymentSum;
     }
 
     /**

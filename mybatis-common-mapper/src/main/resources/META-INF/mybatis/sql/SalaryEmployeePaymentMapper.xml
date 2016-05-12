@@ -11,9 +11,16 @@
     <result column="employee_id" jdbcType="INTEGER" property="employeeId" />
     <result column="employee_no" jdbcType="INTEGER" property="employeeNo" />
     <result column="employee_name" jdbcType="VARCHAR" property="employeeName" />
+    <result column="id_no" jdbcType="VARCHAR" property="idNo" />
     <result column="corporate_id" jdbcType="INTEGER" property="corporateId" />
     <result column="department_id" jdbcType="INTEGER" property="departmentId" />
     <result column="department_name" jdbcType="VARCHAR" property="departmentName" />
+    <result column="social_year_month" jdbcType="INTEGER" property="socialYearMonth" />
+    <result column="fund_year_month" jdbcType="INTEGER" property="fundYearMonth" />
+    <result column="social_security_base" jdbcType="INTEGER" property="socialSecurityBase" />
+    <result column="house_fund_base" jdbcType="INTEGER" property="houseFundBase" />
+    <result column="zf_personal_payment" jdbcType="DECIMAL" property="zfPersonalPayment" />
+    <result column="social_personal_payment_sum" jdbcType="DECIMAL" property="socialPersonalPaymentSum" />
     <result column="payment_detail" jdbcType="VARCHAR" property="paymentDetail" />
     <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
   </resultMap>

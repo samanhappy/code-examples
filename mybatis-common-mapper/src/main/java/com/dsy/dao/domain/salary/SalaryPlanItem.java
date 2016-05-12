@@ -30,6 +30,16 @@ public class SalaryPlanItem {
     private String expression;
 
     /**
+     * 薪资项目计算函数
+     */
+    private String function;
+
+    /**
+     * 薪资项目计算参数
+     */
+    private String params;
+
+    /**
      * 更新时间
      */
     private Date updatetime;
@@ -104,6 +114,42 @@ public class SalaryPlanItem {
      */
     public void setExpression(String expression) {
         this.expression = expression;
+    }
+
+    /**
+     * 获取薪资项目计算函数
+     *
+     * @return function - 薪资项目计算函数
+     */
+    public String getFunction() {
+        return function;
+    }
+
+    /**
+     * 设置薪资项目计算函数
+     *
+     * @param function 薪资项目计算函数
+     */
+    public void setFunction(String function) {
+        this.function = function;
+    }
+
+    /**
+     * 获取薪资项目计算参数
+     *
+     * @return params - 薪资项目计算参数
+     */
+    public String getParams() {
+        return params;
+    }
+
+    /**
+     * 设置薪资项目计算参数
+     *
+     * @param params 薪资项目计算参数
+     */
+    public void setParams(String params) {
+        this.params = params;
     }
 
     /**
