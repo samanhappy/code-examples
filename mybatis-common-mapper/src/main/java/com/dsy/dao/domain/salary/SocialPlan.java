@@ -52,25 +52,25 @@ public class SocialPlan {
      * 社保最高基数
      */
     @Column(name = "social_security_max_base")
-    private Integer socialSecurityMaxBase;
+    private BigDecimal socialSecurityMaxBase;
 
     /**
      * 社保最低基数
      */
     @Column(name = "social_security_min_base")
-    private Integer socialSecurityMinBase;
+    private BigDecimal socialSecurityMinBase;
 
     /**
      * 养老保险最高基数
      */
     @Column(name = "ylao_max_base")
-    private Integer ylaoMaxBase;
+    private BigDecimal ylaoMaxBase;
 
     /**
      * 养老保险最低基数
      */
     @Column(name = "ylao_min_base")
-    private Integer ylaoMinBase;
+    private BigDecimal ylaoMinBase;
 
     /**
      * 养老保险企业比例
@@ -88,13 +88,13 @@ public class SocialPlan {
      * 医疗保险最高基数
      */
     @Column(name = "yliao_max_base")
-    private Integer yliaoMaxBase;
+    private BigDecimal yliaoMaxBase;
 
     /**
      * 医疗保险最低基数
      */
     @Column(name = "yliao_min_base")
-    private Integer yliaoMinBase;
+    private BigDecimal yliaoMinBase;
 
     /**
      * 医疗保险企业比例
@@ -112,13 +112,13 @@ public class SocialPlan {
      * 失业保险最高基数
      */
     @Column(name = "sye_max_base")
-    private Integer syeMaxBase;
+    private BigDecimal syeMaxBase;
 
     /**
      * 失业保险最低基数
      */
     @Column(name = "sye_min_base")
-    private Integer syeMinBase;
+    private BigDecimal syeMinBase;
 
     /**
      * 失业保险企业比例
@@ -136,13 +136,13 @@ public class SocialPlan {
      * 工伤保险最高基数
      */
     @Column(name = "gs_max_base")
-    private Integer gsMaxBase;
+    private BigDecimal gsMaxBase;
 
     /**
      * 工伤保险最低基数
      */
     @Column(name = "gs_min_base")
-    private Integer gsMinBase;
+    private BigDecimal gsMinBase;
 
     /**
      * 工伤保险企业比例
@@ -160,13 +160,13 @@ public class SocialPlan {
      * 生育保险最高基数
      */
     @Column(name = "syu_max_base")
-    private Integer syuMaxBase;
+    private BigDecimal syuMaxBase;
 
     /**
      * 生育保险最低基数
      */
     @Column(name = "syu_min_base")
-    private Integer syuMinBase;
+    private BigDecimal syuMinBase;
 
     /**
      * 生育保险企业比例
@@ -184,13 +184,13 @@ public class SocialPlan {
      * 住房公积金最高基数
      */
     @Column(name = "zf_max_base")
-    private Integer zfMaxBase;
+    private BigDecimal zfMaxBase;
 
     /**
      * 住房公积金最低基数
      */
     @Column(name = "zf_min_base")
-    private Integer zfMinBase;
+    private BigDecimal zfMinBase;
 
     /**
      * 住房公积金企业比例
@@ -340,7 +340,7 @@ public class SocialPlan {
      *
      * @return social_security_max_base - 社保最高基数
      */
-    public Integer getSocialSecurityMaxBase() {
+    public BigDecimal getSocialSecurityMaxBase() {
         return socialSecurityMaxBase;
     }
 
@@ -349,7 +349,7 @@ public class SocialPlan {
      *
      * @param socialSecurityMaxBase 社保最高基数
      */
-    public void setSocialSecurityMaxBase(Integer socialSecurityMaxBase) {
+    public void setSocialSecurityMaxBase(BigDecimal socialSecurityMaxBase) {
         this.socialSecurityMaxBase = socialSecurityMaxBase;
     }
 
@@ -358,7 +358,7 @@ public class SocialPlan {
      *
      * @return social_security_min_base - 社保最低基数
      */
-    public Integer getSocialSecurityMinBase() {
+    public BigDecimal getSocialSecurityMinBase() {
         return socialSecurityMinBase;
     }
 
@@ -367,7 +367,7 @@ public class SocialPlan {
      *
      * @param socialSecurityMinBase 社保最低基数
      */
-    public void setSocialSecurityMinBase(Integer socialSecurityMinBase) {
+    public void setSocialSecurityMinBase(BigDecimal socialSecurityMinBase) {
         this.socialSecurityMinBase = socialSecurityMinBase;
     }
 
@@ -376,7 +376,7 @@ public class SocialPlan {
      *
      * @return ylao_max_base - 养老保险最高基数
      */
-    public Integer getYlaoMaxBase() {
+    public BigDecimal getYlaoMaxBase() {
         return ylaoMaxBase;
     }
 
@@ -385,7 +385,7 @@ public class SocialPlan {
      *
      * @param ylaoMaxBase 养老保险最高基数
      */
-    public void setYlaoMaxBase(Integer ylaoMaxBase) {
+    public void setYlaoMaxBase(BigDecimal ylaoMaxBase) {
         this.ylaoMaxBase = ylaoMaxBase;
     }
 
@@ -394,7 +394,7 @@ public class SocialPlan {
      *
      * @return ylao_min_base - 养老保险最低基数
      */
-    public Integer getYlaoMinBase() {
+    public BigDecimal getYlaoMinBase() {
         return ylaoMinBase;
     }
 
@@ -403,7 +403,7 @@ public class SocialPlan {
      *
      * @param ylaoMinBase 养老保险最低基数
      */
-    public void setYlaoMinBase(Integer ylaoMinBase) {
+    public void setYlaoMinBase(BigDecimal ylaoMinBase) {
         this.ylaoMinBase = ylaoMinBase;
     }
 
@@ -448,7 +448,7 @@ public class SocialPlan {
      *
      * @return yliao_max_base - 医疗保险最高基数
      */
-    public Integer getYliaoMaxBase() {
+    public BigDecimal getYliaoMaxBase() {
         return yliaoMaxBase;
     }
 
@@ -457,7 +457,7 @@ public class SocialPlan {
      *
      * @param yliaoMaxBase 医疗保险最高基数
      */
-    public void setYliaoMaxBase(Integer yliaoMaxBase) {
+    public void setYliaoMaxBase(BigDecimal yliaoMaxBase) {
         this.yliaoMaxBase = yliaoMaxBase;
     }
 
@@ -466,7 +466,7 @@ public class SocialPlan {
      *
      * @return yliao_min_base - 医疗保险最低基数
      */
-    public Integer getYliaoMinBase() {
+    public BigDecimal getYliaoMinBase() {
         return yliaoMinBase;
     }
 
@@ -475,7 +475,7 @@ public class SocialPlan {
      *
      * @param yliaoMinBase 医疗保险最低基数
      */
-    public void setYliaoMinBase(Integer yliaoMinBase) {
+    public void setYliaoMinBase(BigDecimal yliaoMinBase) {
         this.yliaoMinBase = yliaoMinBase;
     }
 
@@ -520,7 +520,7 @@ public class SocialPlan {
      *
      * @return sye_max_base - 失业保险最高基数
      */
-    public Integer getSyeMaxBase() {
+    public BigDecimal getSyeMaxBase() {
         return syeMaxBase;
     }
 
@@ -529,7 +529,7 @@ public class SocialPlan {
      *
      * @param syeMaxBase 失业保险最高基数
      */
-    public void setSyeMaxBase(Integer syeMaxBase) {
+    public void setSyeMaxBase(BigDecimal syeMaxBase) {
         this.syeMaxBase = syeMaxBase;
     }
 
@@ -538,7 +538,7 @@ public class SocialPlan {
      *
      * @return sye_min_base - 失业保险最低基数
      */
-    public Integer getSyeMinBase() {
+    public BigDecimal getSyeMinBase() {
         return syeMinBase;
     }
 
@@ -547,7 +547,7 @@ public class SocialPlan {
      *
      * @param syeMinBase 失业保险最低基数
      */
-    public void setSyeMinBase(Integer syeMinBase) {
+    public void setSyeMinBase(BigDecimal syeMinBase) {
         this.syeMinBase = syeMinBase;
     }
 
@@ -592,7 +592,7 @@ public class SocialPlan {
      *
      * @return gs_max_base - 工伤保险最高基数
      */
-    public Integer getGsMaxBase() {
+    public BigDecimal getGsMaxBase() {
         return gsMaxBase;
     }
 
@@ -601,7 +601,7 @@ public class SocialPlan {
      *
      * @param gsMaxBase 工伤保险最高基数
      */
-    public void setGsMaxBase(Integer gsMaxBase) {
+    public void setGsMaxBase(BigDecimal gsMaxBase) {
         this.gsMaxBase = gsMaxBase;
     }
 
@@ -610,7 +610,7 @@ public class SocialPlan {
      *
      * @return gs_min_base - 工伤保险最低基数
      */
-    public Integer getGsMinBase() {
+    public BigDecimal getGsMinBase() {
         return gsMinBase;
     }
 
@@ -619,7 +619,7 @@ public class SocialPlan {
      *
      * @param gsMinBase 工伤保险最低基数
      */
-    public void setGsMinBase(Integer gsMinBase) {
+    public void setGsMinBase(BigDecimal gsMinBase) {
         this.gsMinBase = gsMinBase;
     }
 
@@ -664,7 +664,7 @@ public class SocialPlan {
      *
      * @return syu_max_base - 生育保险最高基数
      */
-    public Integer getSyuMaxBase() {
+    public BigDecimal getSyuMaxBase() {
         return syuMaxBase;
     }
 
@@ -673,7 +673,7 @@ public class SocialPlan {
      *
      * @param syuMaxBase 生育保险最高基数
      */
-    public void setSyuMaxBase(Integer syuMaxBase) {
+    public void setSyuMaxBase(BigDecimal syuMaxBase) {
         this.syuMaxBase = syuMaxBase;
     }
 
@@ -682,7 +682,7 @@ public class SocialPlan {
      *
      * @return syu_min_base - 生育保险最低基数
      */
-    public Integer getSyuMinBase() {
+    public BigDecimal getSyuMinBase() {
         return syuMinBase;
     }
 
@@ -691,7 +691,7 @@ public class SocialPlan {
      *
      * @param syuMinBase 生育保险最低基数
      */
-    public void setSyuMinBase(Integer syuMinBase) {
+    public void setSyuMinBase(BigDecimal syuMinBase) {
         this.syuMinBase = syuMinBase;
     }
 
@@ -736,7 +736,7 @@ public class SocialPlan {
      *
      * @return zf_max_base - 住房公积金最高基数
      */
-    public Integer getZfMaxBase() {
+    public BigDecimal getZfMaxBase() {
         return zfMaxBase;
     }
 
@@ -745,7 +745,7 @@ public class SocialPlan {
      *
      * @param zfMaxBase 住房公积金最高基数
      */
-    public void setZfMaxBase(Integer zfMaxBase) {
+    public void setZfMaxBase(BigDecimal zfMaxBase) {
         this.zfMaxBase = zfMaxBase;
     }
 
@@ -754,7 +754,7 @@ public class SocialPlan {
      *
      * @return zf_min_base - 住房公积金最低基数
      */
-    public Integer getZfMinBase() {
+    public BigDecimal getZfMinBase() {
         return zfMinBase;
     }
 
@@ -763,7 +763,7 @@ public class SocialPlan {
      *
      * @param zfMinBase 住房公积金最低基数
      */
-    public void setZfMinBase(Integer zfMinBase) {
+    public void setZfMinBase(BigDecimal zfMinBase) {
         this.zfMinBase = zfMinBase;
     }
 

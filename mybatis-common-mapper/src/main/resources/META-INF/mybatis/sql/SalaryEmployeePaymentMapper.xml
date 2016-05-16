@@ -17,11 +17,27 @@
     <result column="department_name" jdbcType="VARCHAR" property="departmentName" />
     <result column="social_year_month" jdbcType="INTEGER" property="socialYearMonth" />
     <result column="fund_year_month" jdbcType="INTEGER" property="fundYearMonth" />
-    <result column="social_security_base" jdbcType="INTEGER" property="socialSecurityBase" />
-    <result column="house_fund_base" jdbcType="INTEGER" property="houseFundBase" />
+    <result column="salary_base" jdbcType="DECIMAL" property="salaryBase" />
+    <result column="social_security_base" jdbcType="DECIMAL" property="socialSecurityBase" />
+    <result column="house_fund_base" jdbcType="DECIMAL" property="houseFundBase" />
+    <result column="ylao_enterprise_payment" jdbcType="DECIMAL" property="ylaoEnterprisePayment" />
+    <result column="ylao_personal_payment" jdbcType="DECIMAL" property="ylaoPersonalPayment" />
+    <result column="yliao_enterprise_payment" jdbcType="DECIMAL" property="yliaoEnterprisePayment" />
+    <result column="yliao_personal_payment" jdbcType="DECIMAL" property="yliaoPersonalPayment" />
+    <result column="sye_enterprise_payment" jdbcType="DECIMAL" property="syeEnterprisePayment" />
+    <result column="sye_personal_payment" jdbcType="DECIMAL" property="syePersonalPayment" />
+    <result column="gs_enterprise_payment" jdbcType="DECIMAL" property="gsEnterprisePayment" />
+    <result column="gs_personal_payment" jdbcType="DECIMAL" property="gsPersonalPayment" />
+    <result column="syu_enterprise_payment" jdbcType="DECIMAL" property="syuEnterprisePayment" />
+    <result column="syu_personal_payment" jdbcType="DECIMAL" property="syuPersonalPayment" />
+    <result column="zf_enterprise_payment" jdbcType="DECIMAL" property="zfEnterprisePayment" />
     <result column="zf_personal_payment" jdbcType="DECIMAL" property="zfPersonalPayment" />
+    <result column="social_enterprise_payment_sum" jdbcType="DECIMAL" property="socialEnterprisePaymentSum" />
     <result column="social_personal_payment_sum" jdbcType="DECIMAL" property="socialPersonalPaymentSum" />
     <result column="payment_detail" jdbcType="VARCHAR" property="paymentDetail" />
+    <result column="personal_tax_sum" jdbcType="DECIMAL" property="personalTaxSum" />
+    <result column="personal_salary_sum" jdbcType="DECIMAL" property="personalSalarySum" />
+    <result column="enterprise_payment_sum" jdbcType="DECIMAL" property="enterprisePaymentSum" />
     <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
   </resultMap>
 </mapper>

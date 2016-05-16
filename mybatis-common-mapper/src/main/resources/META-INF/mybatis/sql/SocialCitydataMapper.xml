@@ -7,30 +7,30 @@
     -->
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="social_security_max_base" jdbcType="INTEGER" property="socialSecurityMaxBase" />
-    <result column="social_security_min_base" jdbcType="INTEGER" property="socialSecurityMinBase" />
-    <result column="ylao_max_base" jdbcType="INTEGER" property="ylaoMaxBase" />
-    <result column="ylao_min_base" jdbcType="INTEGER" property="ylaoMinBase" />
+    <result column="social_security_max_base" jdbcType="DECIMAL" property="socialSecurityMaxBase" />
+    <result column="social_security_min_base" jdbcType="DECIMAL" property="socialSecurityMinBase" />
+    <result column="ylao_max_base" jdbcType="DECIMAL" property="ylaoMaxBase" />
+    <result column="ylao_min_base" jdbcType="DECIMAL" property="ylaoMinBase" />
     <result column="ylao_enterprise_proportion" jdbcType="DECIMAL" property="ylaoEnterpriseProportion" />
     <result column="ylao_personal_proportion" jdbcType="DECIMAL" property="ylaoPersonalProportion" />
-    <result column="yliao_max_base" jdbcType="INTEGER" property="yliaoMaxBase" />
-    <result column="yliao_min_base" jdbcType="INTEGER" property="yliaoMinBase" />
+    <result column="yliao_max_base" jdbcType="DECIMAL" property="yliaoMaxBase" />
+    <result column="yliao_min_base" jdbcType="DECIMAL" property="yliaoMinBase" />
     <result column="yliao_enterprise_proportion" jdbcType="DECIMAL" property="yliaoEnterpriseProportion" />
     <result column="yliao_personal_proportion" jdbcType="DECIMAL" property="yliaoPersonalProportion" />
-    <result column="sye_max_base" jdbcType="INTEGER" property="syeMaxBase" />
-    <result column="sye_min_base" jdbcType="INTEGER" property="syeMinBase" />
+    <result column="sye_max_base" jdbcType="DECIMAL" property="syeMaxBase" />
+    <result column="sye_min_base" jdbcType="DECIMAL" property="syeMinBase" />
     <result column="sye_enterprise_proportion" jdbcType="DECIMAL" property="syeEnterpriseProportion" />
     <result column="sye_personal_proportion" jdbcType="DECIMAL" property="syePersonalProportion" />
-    <result column="gs_max_base" jdbcType="INTEGER" property="gsMaxBase" />
-    <result column="gs_min_base" jdbcType="INTEGER" property="gsMinBase" />
+    <result column="gs_max_base" jdbcType="DECIMAL" property="gsMaxBase" />
+    <result column="gs_min_base" jdbcType="DECIMAL" property="gsMinBase" />
     <result column="gs_enterprise_proportion" jdbcType="DECIMAL" property="gsEnterpriseProportion" />
     <result column="gs_personal_proportion" jdbcType="DECIMAL" property="gsPersonalProportion" />
-    <result column="syu_max_base" jdbcType="INTEGER" property="syuMaxBase" />
-    <result column="syu_min_base" jdbcType="INTEGER" property="syuMinBase" />
+    <result column="syu_max_base" jdbcType="DECIMAL" property="syuMaxBase" />
+    <result column="syu_min_base" jdbcType="DECIMAL" property="syuMinBase" />
     <result column="syu_enterprise_proportion" jdbcType="DECIMAL" property="syuEnterpriseProportion" />
     <result column="syu_personal_proportion" jdbcType="DECIMAL" property="syuPersonalProportion" />
-    <result column="zf_max_base" jdbcType="INTEGER" property="zfMaxBase" />
-    <result column="zf_min_base" jdbcType="INTEGER" property="zfMinBase" />
+    <result column="zf_max_base" jdbcType="DECIMAL" property="zfMaxBase" />
+    <result column="zf_min_base" jdbcType="DECIMAL" property="zfMinBase" />
     <result column="zf_enterprise_proportion" jdbcType="DECIMAL" property="zfEnterpriseProportion" />
     <result column="zf_personal_proportion" jdbcType="DECIMAL" property="zfPersonalProportion" />
     <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />

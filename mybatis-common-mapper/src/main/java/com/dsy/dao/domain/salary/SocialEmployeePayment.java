@@ -86,13 +86,13 @@ public class SocialEmployeePayment {
      * 社保缴费基数
      */
     @Column(name = "social_security_base")
-    private Integer socialSecurityBase;
+    private BigDecimal socialSecurityBase;
 
     /**
      * 公积金缴费基数
      */
     @Column(name = "house_fund_base")
-    private Integer houseFundBase;
+    private BigDecimal houseFundBase;
 
     /**
      * 养老保险企业支付
@@ -430,7 +430,7 @@ public class SocialEmployeePayment {
      *
      * @return social_security_base - 社保缴费基数
      */
-    public Integer getSocialSecurityBase() {
+    public BigDecimal getSocialSecurityBase() {
         return socialSecurityBase;
     }
 
@@ -439,7 +439,7 @@ public class SocialEmployeePayment {
      *
      * @param socialSecurityBase 社保缴费基数
      */
-    public void setSocialSecurityBase(Integer socialSecurityBase) {
+    public void setSocialSecurityBase(BigDecimal socialSecurityBase) {
         this.socialSecurityBase = socialSecurityBase;
     }
 
@@ -448,7 +448,7 @@ public class SocialEmployeePayment {
      *
      * @return house_fund_base - 公积金缴费基数
      */
-    public Integer getHouseFundBase() {
+    public BigDecimal getHouseFundBase() {
         return houseFundBase;
     }
 
@@ -457,7 +457,7 @@ public class SocialEmployeePayment {
      *
      * @param houseFundBase 公积金缴费基数
      */
-    public void setHouseFundBase(Integer houseFundBase) {
+    public void setHouseFundBase(BigDecimal houseFundBase) {
         this.houseFundBase = houseFundBase;
     }
 
