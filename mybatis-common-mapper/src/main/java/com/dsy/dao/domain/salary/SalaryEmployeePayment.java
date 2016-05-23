@@ -29,16 +29,16 @@ public class SalaryEmployeePayment {
     private Integer employeeId;
 
     /**
-     * 员工编号
-     */
-    @Column(name = "employee_no")
-    private Integer employeeNo;
-
-    /**
      * 员工姓名
      */
     @Column(name = "employee_name")
     private String employeeName;
+
+    /**
+     * 员工编号
+     */
+    @Column(name = "employee_no")
+    private String employeeNo;
 
     /**
      * 身份证号
@@ -276,24 +276,6 @@ public class SalaryEmployeePayment {
     }
 
     /**
-     * 获取员工编号
-     *
-     * @return employee_no - 员工编号
-     */
-    public Integer getEmployeeNo() {
-        return employeeNo;
-    }
-
-    /**
-     * 设置员工编号
-     *
-     * @param employeeNo 员工编号
-     */
-    public void setEmployeeNo(Integer employeeNo) {
-        this.employeeNo = employeeNo;
-    }
-
-    /**
      * 获取员工姓名
      *
      * @return employee_name - 员工姓名
@@ -309,6 +291,24 @@ public class SalaryEmployeePayment {
      */
     public void setEmployeeName(String employeeName) {
         this.employeeName = employeeName;
+    }
+
+    /**
+     * 获取员工编号
+     *
+     * @return employee_no - 员工编号
+     */
+    public String getEmployeeNo() {
+        return employeeNo;
+    }
+
+    /**
+     * 设置员工编号
+     *
+     * @param employeeNo 员工编号
+     */
+    public void setEmployeeNo(String employeeNo) {
+        this.employeeNo = employeeNo;
     }
 
     /**

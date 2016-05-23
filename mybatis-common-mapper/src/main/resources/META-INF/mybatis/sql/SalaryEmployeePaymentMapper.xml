@@ -9,8 +9,8 @@
     <result column="payment_id" jdbcType="INTEGER" property="paymentId" />
     <result column="salary_year_month" jdbcType="INTEGER" property="salaryYearMonth" />
     <result column="employee_id" jdbcType="INTEGER" property="employeeId" />
-    <result column="employee_no" jdbcType="INTEGER" property="employeeNo" />
     <result column="employee_name" jdbcType="VARCHAR" property="employeeName" />
+    <result column="employee_no" jdbcType="VARCHAR" property="employeeNo" />
     <result column="id_no" jdbcType="VARCHAR" property="idNo" />
     <result column="corporate_id" jdbcType="INTEGER" property="corporateId" />
     <result column="department_id" jdbcType="INTEGER" property="departmentId" />
