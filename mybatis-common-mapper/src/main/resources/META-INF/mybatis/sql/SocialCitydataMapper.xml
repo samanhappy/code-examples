@@ -29,6 +29,8 @@
     <result column="syu_min_base" jdbcType="DECIMAL" property="syuMinBase" />
     <result column="syu_enterprise_proportion" jdbcType="DECIMAL" property="syuEnterpriseProportion" />
     <result column="syu_personal_proportion" jdbcType="DECIMAL" property="syuPersonalProportion" />
+    <result column="db_enterprise_payment" jdbcType="DECIMAL" property="dbEnterprisePayment" />
+    <result column="db_personal_payment" jdbcType="DECIMAL" property="dbPersonalPayment" />
     <result column="zf_max_base" jdbcType="DECIMAL" property="zfMaxBase" />
     <result column="zf_min_base" jdbcType="DECIMAL" property="zfMinBase" />
     <result column="zf_enterprise_proportion" jdbcType="DECIMAL" property="zfEnterpriseProportion" />

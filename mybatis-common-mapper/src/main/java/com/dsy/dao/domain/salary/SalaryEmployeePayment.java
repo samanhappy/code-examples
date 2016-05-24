@@ -155,6 +155,18 @@ public class SalaryEmployeePayment {
     private BigDecimal syuPersonalPayment;
 
     /**
+     * 大病保险企业支付
+     */
+    @Column(name = "db_enterprise_payment")
+    private BigDecimal dbEnterprisePayment;
+
+    /**
+     * 大病保险个人支付
+     */
+    @Column(name = "db_personal_payment")
+    private BigDecimal dbPersonalPayment;
+
+    /**
      * 住房保险企业支付
      */
     @Column(name = "zf_enterprise_payment")
@@ -651,6 +663,42 @@ public class SalaryEmployeePayment {
      */
     public void setSyuPersonalPayment(BigDecimal syuPersonalPayment) {
         this.syuPersonalPayment = syuPersonalPayment;
+    }
+
+    /**
+     * 获取大病保险企业支付
+     *
+     * @return db_enterprise_payment - 大病保险企业支付
+     */
+    public BigDecimal getDbEnterprisePayment() {
+        return dbEnterprisePayment;
+    }
+
+    /**
+     * 设置大病保险企业支付
+     *
+     * @param dbEnterprisePayment 大病保险企业支付
+     */
+    public void setDbEnterprisePayment(BigDecimal dbEnterprisePayment) {
+        this.dbEnterprisePayment = dbEnterprisePayment;
+    }
+
+    /**
+     * 获取大病保险个人支付
+     *
+     * @return db_personal_payment - 大病保险个人支付
+     */
+    public BigDecimal getDbPersonalPayment() {
+        return dbPersonalPayment;
+    }
+
+    /**
+     * 设置大病保险个人支付
+     *
+     * @param dbPersonalPayment 大病保险个人支付
+     */
+    public void setDbPersonalPayment(BigDecimal dbPersonalPayment) {
+        this.dbPersonalPayment = dbPersonalPayment;
     }
 
     /**

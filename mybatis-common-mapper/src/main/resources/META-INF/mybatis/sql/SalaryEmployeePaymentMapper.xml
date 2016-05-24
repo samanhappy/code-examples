@@ -30,6 +30,8 @@
     <result column="gs_personal_payment" jdbcType="DECIMAL" property="gsPersonalPayment" />
     <result column="syu_enterprise_payment" jdbcType="DECIMAL" property="syuEnterprisePayment" />
     <result column="syu_personal_payment" jdbcType="DECIMAL" property="syuPersonalPayment" />
+    <result column="db_enterprise_payment" jdbcType="DECIMAL" property="dbEnterprisePayment" />
+    <result column="db_personal_payment" jdbcType="DECIMAL" property="dbPersonalPayment" />
     <result column="zf_enterprise_payment" jdbcType="DECIMAL" property="zfEnterprisePayment" />
     <result column="zf_personal_payment" jdbcType="DECIMAL" property="zfPersonalPayment" />
     <result column="social_enterprise_payment_sum" jdbcType="DECIMAL" property="socialEnterprisePaymentSum" />

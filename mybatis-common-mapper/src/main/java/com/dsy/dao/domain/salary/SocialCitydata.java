@@ -151,6 +151,18 @@ public class SocialCitydata {
     private BigDecimal syuPersonalProportion;
 
     /**
+     * 大病保险企业支付
+     */
+    @Column(name = "db_enterprise_payment")
+    private BigDecimal dbEnterprisePayment;
+
+    /**
+     * 大病保险个人支付
+     */
+    @Column(name = "db_personal_payment")
+    private BigDecimal dbPersonalPayment;
+
+    /**
      * 住房公积金最高基数
      */
     @Column(name = "zf_max_base")
@@ -609,6 +621,42 @@ public class SocialCitydata {
      */
     public void setSyuPersonalProportion(BigDecimal syuPersonalProportion) {
         this.syuPersonalProportion = syuPersonalProportion;
+    }
+
+    /**
+     * 获取大病保险企业支付
+     *
+     * @return db_enterprise_payment - 大病保险企业支付
+     */
+    public BigDecimal getDbEnterprisePayment() {
+        return dbEnterprisePayment;
+    }
+
+    /**
+     * 设置大病保险企业支付
+     *
+     * @param dbEnterprisePayment 大病保险企业支付
+     */
+    public void setDbEnterprisePayment(BigDecimal dbEnterprisePayment) {
+        this.dbEnterprisePayment = dbEnterprisePayment;
+    }
+
+    /**
+     * 获取大病保险个人支付
+     *
+     * @return db_personal_payment - 大病保险个人支付
+     */
+    public BigDecimal getDbPersonalPayment() {
+        return dbPersonalPayment;
+    }
+
+    /**
+     * 设置大病保险个人支付
+     *
+     * @param dbPersonalPayment 大病保险个人支付
+     */
+    public void setDbPersonalPayment(BigDecimal dbPersonalPayment) {
+        this.dbPersonalPayment = dbPersonalPayment;
     }
 
     /**
