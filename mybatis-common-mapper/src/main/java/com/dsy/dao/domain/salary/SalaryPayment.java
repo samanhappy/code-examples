@@ -79,7 +79,13 @@ public class SalaryPayment {
     private String name;
 
     /**
-     * 发放状态 1待发 2已发
+     * 确认状态 1待确认 2已确认
+     */
+    @Column(name = "confirm_status")
+    private Integer confirmStatus;
+
+    /**
+     * 发放状态 1待发放 2已发放
      */
     @Column(name = "pay_status")
     private Integer payStatus;
@@ -337,18 +343,36 @@ public class SalaryPayment {
     }
 
     /**
-     * 获取发放状态 1待发 2已发
+     * 获取确认状态 1待确认 2已确认
      *
-     * @return pay_status - 发放状态 1待发 2已发
+     * @return confirm_status - 确认状态 1待确认 2已确认
+     */
+    public Integer getConfirmStatus() {
+        return confirmStatus;
+    }
+
+    /**
+     * 设置确认状态 1待确认 2已确认
+     *
+     * @param confirmStatus 确认状态 1待确认 2已确认
+     */
+    public void setConfirmStatus(Integer confirmStatus) {
+        this.confirmStatus = confirmStatus;
+    }
+
+    /**
+     * 获取发放状态 1待发放 2已发放
+     *
+     * @return pay_status - 发放状态 1待发放 2已发放
      */
     public Integer getPayStatus() {
         return payStatus;
     }
 
     /**
-     * 设置发放状态 1待发 2已发
+     * 设置发放状态 1待发放 2已发放
      *
-     * @param payStatus 发放状态 1待发 2已发
+     * @param payStatus 发放状态 1待发放 2已发放
      */
     public void setPayStatus(Integer payStatus) {
         this.payStatus = payStatus;

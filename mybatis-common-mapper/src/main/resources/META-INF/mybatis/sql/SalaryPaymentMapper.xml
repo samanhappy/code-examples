@@ -17,6 +17,7 @@
     <result column="social_year_month" jdbcType="INTEGER" property="socialYearMonth" />
     <result column="fund_year_month" jdbcType="INTEGER" property="fundYearMonth" />
     <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="confirm_status" jdbcType="TINYINT" property="confirmStatus" />
     <result column="pay_status" jdbcType="TINYINT" property="payStatus" />
     <result column="payslip_setting" jdbcType="VARCHAR" property="payslipSetting" />
     <result column="employee_count" jdbcType="INTEGER" property="employeeCount" />
