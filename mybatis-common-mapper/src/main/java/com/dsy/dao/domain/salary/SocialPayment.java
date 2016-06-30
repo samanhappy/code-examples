@@ -34,16 +34,10 @@ public class SocialPayment {
     private Integer corporateId;
 
     /**
-     * 社保结算年月
+     * 社保公积金结算年月
      */
-    @Column(name = "social_year_month")
-    private Integer socialYearMonth;
-
-    /**
-     * 公积金结算年月
-     */
-    @Column(name = "fund_year_month")
-    private Integer fundYearMonth;
+    @Column(name = "social_fund_year_month")
+    private Integer socialFundYearMonth;
 
     /**
      * 员工人数
@@ -162,39 +156,21 @@ public class SocialPayment {
     }
 
     /**
-     * 获取社保结算年月
+     * 获取社保公积金结算年月
      *
-     * @return social_year_month - 社保结算年月
+     * @return social_fund_year_month - 社保公积金结算年月
      */
-    public Integer getSocialYearMonth() {
-        return socialYearMonth;
+    public Integer getSocialFundYearMonth() {
+        return socialFundYearMonth;
     }
 
     /**
-     * 设置社保结算年月
+     * 设置社保公积金结算年月
      *
-     * @param socialYearMonth 社保结算年月
+     * @param socialFundYearMonth 社保公积金结算年月
      */
-    public void setSocialYearMonth(Integer socialYearMonth) {
-        this.socialYearMonth = socialYearMonth;
-    }
-
-    /**
-     * 获取公积金结算年月
-     *
-     * @return fund_year_month - 公积金结算年月
-     */
-    public Integer getFundYearMonth() {
-        return fundYearMonth;
-    }
-
-    /**
-     * 设置公积金结算年月
-     *
-     * @param fundYearMonth 公积金结算年月
-     */
-    public void setFundYearMonth(Integer fundYearMonth) {
-        this.fundYearMonth = fundYearMonth;
+    public void setSocialFundYearMonth(Integer socialFundYearMonth) {
+        this.socialFundYearMonth = socialFundYearMonth;
     }
 
     /**

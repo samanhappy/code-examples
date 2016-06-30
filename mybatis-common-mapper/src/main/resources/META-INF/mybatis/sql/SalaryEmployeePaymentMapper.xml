@@ -15,8 +15,7 @@
     <result column="corporate_id" jdbcType="INTEGER" property="corporateId" />
     <result column="department_id" jdbcType="INTEGER" property="departmentId" />
     <result column="department_name" jdbcType="VARCHAR" property="departmentName" />
-    <result column="social_year_month" jdbcType="INTEGER" property="socialYearMonth" />
-    <result column="fund_year_month" jdbcType="INTEGER" property="fundYearMonth" />
+    <result column="social_fund_year_month" jdbcType="INTEGER" property="socialFundYearMonth" />
     <result column="salary_base" jdbcType="DECIMAL" property="salaryBase" />
     <result column="social_security_base" jdbcType="DECIMAL" property="socialSecurityBase" />
     <result column="house_fund_base" jdbcType="DECIMAL" property="houseFundBase" />

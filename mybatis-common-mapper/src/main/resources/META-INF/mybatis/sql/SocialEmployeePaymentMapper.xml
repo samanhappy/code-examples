@@ -13,8 +13,7 @@
     <result column="employee_name" jdbcType="VARCHAR" property="employeeName" />
     <result column="city_id" jdbcType="INTEGER" property="cityId" />
     <result column="city_name" jdbcType="VARCHAR" property="cityName" />
-    <result column="social_year_month" jdbcType="INTEGER" property="socialYearMonth" />
-    <result column="fund_year_month" jdbcType="INTEGER" property="fundYearMonth" />
+    <result column="social_fund_year_month" jdbcType="INTEGER" property="socialFundYearMonth" />
     <result column="id_no" jdbcType="VARCHAR" property="idNo" />
     <result column="social_security_no" jdbcType="VARCHAR" property="socialSecurityNo" />
     <result column="house_fund_no" jdbcType="VARCHAR" property="houseFundNo" />

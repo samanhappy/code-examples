@@ -11,11 +11,8 @@
     <result column="department_name" jdbcType="VARCHAR" property="departmentName" />
     <result column="plan_id" jdbcType="INTEGER" property="planId" />
     <result column="plan_name" jdbcType="VARCHAR" property="planName" />
-    <result column="social_id" jdbcType="INTEGER" property="socialId" />
-    <result column="social_name" jdbcType="VARCHAR" property="socialName" />
     <result column="salary_year_month" jdbcType="INTEGER" property="salaryYearMonth" />
-    <result column="social_year_month" jdbcType="INTEGER" property="socialYearMonth" />
-    <result column="fund_year_month" jdbcType="INTEGER" property="fundYearMonth" />
+    <result column="social_fund_year_month" jdbcType="INTEGER" property="socialFundYearMonth" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="confirm_status" jdbcType="TINYINT" property="confirmStatus" />
     <result column="pay_status" jdbcType="TINYINT" property="payStatus" />

@@ -10,8 +10,7 @@
     <result column="social_id" jdbcType="INTEGER" property="socialId" />
     <result column="social_name" jdbcType="VARCHAR" property="socialName" />
     <result column="corporate_id" jdbcType="INTEGER" property="corporateId" />
-    <result column="social_year_month" jdbcType="INTEGER" property="socialYearMonth" />
-    <result column="fund_year_month" jdbcType="INTEGER" property="fundYearMonth" />
+    <result column="social_fund_year_month" jdbcType="INTEGER" property="socialFundYearMonth" />
     <result column="employee_count" jdbcType="INTEGER" property="employeeCount" />
     <result column="payment_sum" jdbcType="DECIMAL" property="paymentSum" />
     <result column="create_user" jdbcType="VARCHAR" property="createUser" />

@@ -44,34 +44,16 @@ public class SalaryPayment {
     private String planName;
 
     /**
-     * 社保方案ID
-     */
-    @Column(name = "social_id")
-    private Integer socialId;
-
-    /**
-     * 社保方案名称
-     */
-    @Column(name = "social_name")
-    private String socialName;
-
-    /**
      * 薪资结算年月
      */
     @Column(name = "salary_year_month")
     private Integer salaryYearMonth;
 
     /**
-     * 社保结算年月
+     * 社保公积金结算年月
      */
-    @Column(name = "social_year_month")
-    private Integer socialYearMonth;
-
-    /**
-     * 公积金结算年月
-     */
-    @Column(name = "fund_year_month")
-    private Integer fundYearMonth;
+    @Column(name = "social_fund_year_month")
+    private Integer socialFundYearMonth;
 
     /**
      * 结算名称
@@ -235,42 +217,6 @@ public class SalaryPayment {
     }
 
     /**
-     * 获取社保方案ID
-     *
-     * @return social_id - 社保方案ID
-     */
-    public Integer getSocialId() {
-        return socialId;
-    }
-
-    /**
-     * 设置社保方案ID
-     *
-     * @param socialId 社保方案ID
-     */
-    public void setSocialId(Integer socialId) {
-        this.socialId = socialId;
-    }
-
-    /**
-     * 获取社保方案名称
-     *
-     * @return social_name - 社保方案名称
-     */
-    public String getSocialName() {
-        return socialName;
-    }
-
-    /**
-     * 设置社保方案名称
-     *
-     * @param socialName 社保方案名称
-     */
-    public void setSocialName(String socialName) {
-        this.socialName = socialName;
-    }
-
-    /**
      * 获取薪资结算年月
      *
      * @return salary_year_month - 薪资结算年月
@@ -289,39 +235,21 @@ public class SalaryPayment {
     }
 
     /**
-     * 获取社保结算年月
+     * 获取社保公积金结算年月
      *
-     * @return social_year_month - 社保结算年月
+     * @return social_fund_year_month - 社保公积金结算年月
      */
-    public Integer getSocialYearMonth() {
-        return socialYearMonth;
+    public Integer getSocialFundYearMonth() {
+        return socialFundYearMonth;
     }
 
     /**
-     * 设置社保结算年月
+     * 设置社保公积金结算年月
      *
-     * @param socialYearMonth 社保结算年月
+     * @param socialFundYearMonth 社保公积金结算年月
      */
-    public void setSocialYearMonth(Integer socialYearMonth) {
-        this.socialYearMonth = socialYearMonth;
-    }
-
-    /**
-     * 获取公积金结算年月
-     *
-     * @return fund_year_month - 公积金结算年月
-     */
-    public Integer getFundYearMonth() {
-        return fundYearMonth;
-    }
-
-    /**
-     * 设置公积金结算年月
-     *
-     * @param fundYearMonth 公积金结算年月
-     */
-    public void setFundYearMonth(Integer fundYearMonth) {
-        this.fundYearMonth = fundYearMonth;
+    public void setSocialFundYearMonth(Integer socialFundYearMonth) {
+        this.socialFundYearMonth = socialFundYearMonth;
     }
 
     /**

@@ -14,8 +14,8 @@
 		</plugin>
 
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://121.40.172.130:3306/suying" userId="root"
-			password="cy!(*$123">
+			connectionURL="jdbc:mysql://114.55.27.196:3306/suying" userId="root"
+			password="suying!@!">
 		</jdbcConnection>
 
 		<javaTypeResolver type="org.mybatis.generator.util.MyJavaTypeResolver">
@@ -39,9 +39,9 @@
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
 <!-- 		</table> -->
 		
-		<table tableName="t_salary_payment" domainObjectName="SalaryPayment" >
-			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
-		</table>
+<!-- 		<table tableName="t_salary_payment" domainObjectName="SalaryPayment" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
 		
 <!-- 		<table tableName="t_salary_plan" domainObjectName="SalaryPlan" > -->
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
@@ -59,9 +59,9 @@
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
 <!-- 		</table> -->
 		
-<!-- 		<table tableName="t_social_payment" domainObjectName="SocialPayment" > -->
-<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
-<!-- 		</table> -->
+		<table tableName="t_social_payment" domainObjectName="SocialPayment" >
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
 		
 <!-- 		<table tableName="t_social_plan" domainObjectName="SocialPlan" > -->
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
