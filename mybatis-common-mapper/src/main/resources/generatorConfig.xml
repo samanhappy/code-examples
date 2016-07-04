@@ -31,9 +31,9 @@
 		<javaClientGenerator targetPackage="com.dsy.dao.salary.mapper"
 			targetProject="D:\workspace\code-examples\mybatis-common-mapper\src\main\java" type="XMLMAPPER" />
 
-<!-- 		<table tableName="t_salary_employee_payment" domainObjectName="SalaryEmployeePayment" > -->
-<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
-<!-- 		</table> -->
+		<table tableName="t_salary_employee_payment" domainObjectName="SalaryEmployeePayment" >
+			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
+		</table>
 		
 <!-- 		<table tableName="t_salary_item" domainObjectName="SalaryItem" > -->
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
@@ -55,13 +55,13 @@
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
 <!-- 		</table> -->
 		
-<!-- 		<table tableName="t_social_employee_payment" domainObjectName="SocialEmployeePayment" > -->
-<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
-<!-- 		</table> -->
-		
-		<table tableName="t_social_payment" domainObjectName="SocialPayment" >
+		<table tableName="t_social_employee_payment" domainObjectName="SocialEmployeePayment" >
 			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
 		</table>
+		
+<!-- 		<table tableName="t_social_payment" domainObjectName="SocialPayment" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
 		
 <!-- 		<table tableName="t_social_plan" domainObjectName="SocialPlan" > -->
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->

@@ -13,7 +13,7 @@ public class SalaryItem {
     private Integer id;
 
     /**
-     * 企业id
+     * 企业id，id为0的表示系统定义薪资项目
      */
     @Column(name = "corporate_id")
     private Integer corporateId;
@@ -41,6 +41,12 @@ public class SalaryItem {
      */
     @Column(name = "is_tax")
     private Integer isTax;
+
+    /**
+     * 是否可编辑 1是 2否
+     */
+    @Column(name = "is_edit")
+    private Integer isEdit;
 
     /**
      * 状态 1启用 2不启用
@@ -71,18 +77,18 @@ public class SalaryItem {
     }
 
     /**
-     * 获取企业id
+     * 获取企业id，id为0的表示系统定义薪资项目
      *
-     * @return corporate_id - 企业id
+     * @return corporate_id - 企业id，id为0的表示系统定义薪资项目
      */
     public Integer getCorporateId() {
         return corporateId;
     }
 
     /**
-     * 设置企业id
+     * 设置企业id，id为0的表示系统定义薪资项目
      *
-     * @param corporateId 企业id
+     * @param corporateId 企业id，id为0的表示系统定义薪资项目
      */
     public void setCorporateId(Integer corporateId) {
         this.corporateId = corporateId;
@@ -158,6 +164,24 @@ public class SalaryItem {
      */
     public void setIsTax(Integer isTax) {
         this.isTax = isTax;
+    }
+
+    /**
+     * 获取是否可编辑 1是 2否
+     *
+     * @return is_edit - 是否可编辑 1是 2否
+     */
+    public Integer getIsEdit() {
+        return isEdit;
+    }
+
+    /**
+     * 设置是否可编辑 1是 2否
+     *
+     * @param isEdit 是否可编辑 1是 2否
+     */
+    public void setIsEdit(Integer isEdit) {
+        this.isEdit = isEdit;
     }
 
     /**

@@ -25,6 +25,11 @@ public class SalaryPlanItem {
     private Integer itemId;
 
     /**
+     * 排序号
+     */
+    private Integer sort;
+
+    /**
      * 薪资项目计算公式
      */
     private String expression;
@@ -96,6 +101,24 @@ public class SalaryPlanItem {
      */
     public void setItemId(Integer itemId) {
         this.itemId = itemId;
+    }
+
+    /**
+     * 获取排序号
+     *
+     * @return sort - 排序号
+     */
+    public Integer getSort() {
+        return sort;
+    }
+
+    /**
+     * 设置排序号
+     *
+     * @param sort 排序号
+     */
+    public void setSort(Integer sort) {
+        this.sort = sort;
     }
 
     /**

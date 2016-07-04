@@ -37,6 +37,10 @@
     <result column="social_personal_payment_sum" jdbcType="DECIMAL" property="socialPersonalPaymentSum" />
     <result column="enterprise_payment_sum" jdbcType="DECIMAL" property="enterprisePaymentSum" />
     <result column="personal_payment_sum" jdbcType="DECIMAL" property="personalPaymentSum" />
+    <result column="add_pay_start_year_month" jdbcType="INTEGER" property="addPayStartYearMonth" />
+    <result column="add_pay_end_year_month" jdbcType="INTEGER" property="addPayEndYearMonth" />
+    <result column="add_enterprise_payment_sum" jdbcType="DECIMAL" property="addEnterprisePaymentSum" />
+    <result column="add_personal_payment_sum" jdbcType="DECIMAL" property="addPersonalPaymentSum" />
     <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
   </resultMap>
 </mapper>

@@ -11,6 +11,7 @@
     <result column="salary_type" jdbcType="TINYINT" property="salaryType" />
     <result column="item_type" jdbcType="TINYINT" property="itemType" />
     <result column="is_tax" jdbcType="TINYINT" property="isTax" />
+    <result column="is_edit" jdbcType="TINYINT" property="isEdit" />
     <result column="status" jdbcType="TINYINT" property="status" />
     <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
   </resultMap>

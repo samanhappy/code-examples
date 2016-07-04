@@ -197,6 +197,30 @@ public class SocialEmployeePayment {
     private BigDecimal personalPaymentSum;
 
     /**
+     * 补缴起始月
+     */
+    @Column(name = "add_pay_start_year_month")
+    private Integer addPayStartYearMonth;
+
+    /**
+     * 补缴结束月
+     */
+    @Column(name = "add_pay_end_year_month")
+    private Integer addPayEndYearMonth;
+
+    /**
+     * 补缴金额企业部分
+     */
+    @Column(name = "add_enterprise_payment_sum")
+    private BigDecimal addEnterprisePaymentSum;
+
+    /**
+     * 补缴金额个人部分
+     */
+    @Column(name = "add_personal_payment_sum")
+    private BigDecimal addPersonalPaymentSum;
+
+    /**
      * 更新时间
      */
     private Date updatetime;
@@ -771,6 +795,78 @@ public class SocialEmployeePayment {
      */
     public void setPersonalPaymentSum(BigDecimal personalPaymentSum) {
         this.personalPaymentSum = personalPaymentSum;
+    }
+
+    /**
+     * 获取补缴起始月
+     *
+     * @return add_pay_start_year_month - 补缴起始月
+     */
+    public Integer getAddPayStartYearMonth() {
+        return addPayStartYearMonth;
+    }
+
+    /**
+     * 设置补缴起始月
+     *
+     * @param addPayStartYearMonth 补缴起始月
+     */
+    public void setAddPayStartYearMonth(Integer addPayStartYearMonth) {
+        this.addPayStartYearMonth = addPayStartYearMonth;
+    }
+
+    /**
+     * 获取补缴结束月
+     *
+     * @return add_pay_end_year_month - 补缴结束月
+     */
+    public Integer getAddPayEndYearMonth() {
+        return addPayEndYearMonth;
+    }
+
+    /**
+     * 设置补缴结束月
+     *
+     * @param addPayEndYearMonth 补缴结束月
+     */
+    public void setAddPayEndYearMonth(Integer addPayEndYearMonth) {
+        this.addPayEndYearMonth = addPayEndYearMonth;
+    }
+
+    /**
+     * 获取补缴金额企业部分
+     *
+     * @return add_enterprise_payment_sum - 补缴金额企业部分
+     */
+    public BigDecimal getAddEnterprisePaymentSum() {
+        return addEnterprisePaymentSum;
+    }
+
+    /**
+     * 设置补缴金额企业部分
+     *
+     * @param addEnterprisePaymentSum 补缴金额企业部分
+     */
+    public void setAddEnterprisePaymentSum(BigDecimal addEnterprisePaymentSum) {
+        this.addEnterprisePaymentSum = addEnterprisePaymentSum;
+    }
+
+    /**
+     * 获取补缴金额个人部分
+     *
+     * @return add_personal_payment_sum - 补缴金额个人部分
+     */
+    public BigDecimal getAddPersonalPaymentSum() {
+        return addPersonalPaymentSum;
+    }
+
+    /**
+     * 设置补缴金额个人部分
+     *
+     * @param addPersonalPaymentSum 补缴金额个人部分
+     */
+    public void setAddPersonalPaymentSum(BigDecimal addPersonalPaymentSum) {
+        this.addPersonalPaymentSum = addPersonalPaymentSum;
     }
 
     /**

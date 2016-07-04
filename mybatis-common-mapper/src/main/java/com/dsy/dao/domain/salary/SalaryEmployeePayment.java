@@ -59,6 +59,30 @@ public class SalaryEmployeePayment {
     private Integer departmentId;
 
     /**
+     * 岗位ID
+     */
+    @Column(name = "post_id")
+    private Integer postId;
+
+    /**
+     * 岗位名称
+     */
+    @Column(name = "post_name")
+    private String postName;
+
+    /**
+     * 工资卡卡号
+     */
+    @Column(name = "salary_card_num")
+    private String salaryCardNum;
+
+    /**
+     * 工资卡所在银行
+     */
+    @Column(name = "salary_card_bank")
+    private String salaryCardBank;
+
+    /**
      * 部门名称
      */
     @Column(name = "department_name")
@@ -87,6 +111,12 @@ public class SalaryEmployeePayment {
      */
     @Column(name = "house_fund_base")
     private BigDecimal houseFundBase;
+
+    /**
+     * 社保结算ID
+     */
+    @Column(name = "social_employee_payment_id")
+    private Integer socialEmployeePaymentId;
 
     /**
      * 养老保险企业支付
@@ -199,14 +229,44 @@ public class SalaryEmployeePayment {
     /**
      * 应发工资
      */
-    @Column(name = "personal_salary_sum")
-    private BigDecimal personalSalarySum;
+    @Column(name = "total_pay_amount")
+    private BigDecimal totalPayAmount;
+
+    /**
+     * 实发工资
+     */
+    @Column(name = "final_pay_amount")
+    private BigDecimal finalPayAmount;
 
     /**
      * 企业支付总额
      */
     @Column(name = "enterprise_payment_sum")
     private BigDecimal enterprisePaymentSum;
+
+    /**
+     * 补缴起始月
+     */
+    @Column(name = "add_pay_start_year_month")
+    private Integer addPayStartYearMonth;
+
+    /**
+     * 补缴结束月
+     */
+    @Column(name = "add_pay_end_year_month")
+    private Integer addPayEndYearMonth;
+
+    /**
+     * 补缴金额企业部分
+     */
+    @Column(name = "add_enterprise_payment_sum")
+    private BigDecimal addEnterprisePaymentSum;
+
+    /**
+     * 补缴金额个人部分
+     */
+    @Column(name = "add_personal_payment_sum")
+    private BigDecimal addPersonalPaymentSum;
 
     /**
      * 更新时间
@@ -372,6 +432,78 @@ public class SalaryEmployeePayment {
     }
 
     /**
+     * 获取岗位ID
+     *
+     * @return post_id - 岗位ID
+     */
+    public Integer getPostId() {
+        return postId;
+    }
+
+    /**
+     * 设置岗位ID
+     *
+     * @param postId 岗位ID
+     */
+    public void setPostId(Integer postId) {
+        this.postId = postId;
+    }
+
+    /**
+     * 获取岗位名称
+     *
+     * @return post_name - 岗位名称
+     */
+    public String getPostName() {
+        return postName;
+    }
+
+    /**
+     * 设置岗位名称
+     *
+     * @param postName 岗位名称
+     */
+    public void setPostName(String postName) {
+        this.postName = postName;
+    }
+
+    /**
+     * 获取工资卡卡号
+     *
+     * @return salary_card_num - 工资卡卡号
+     */
+    public String getSalaryCardNum() {
+        return salaryCardNum;
+    }
+
+    /**
+     * 设置工资卡卡号
+     *
+     * @param salaryCardNum 工资卡卡号
+     */
+    public void setSalaryCardNum(String salaryCardNum) {
+        this.salaryCardNum = salaryCardNum;
+    }
+
+    /**
+     * 获取工资卡所在银行
+     *
+     * @return salary_card_bank - 工资卡所在银行
+     */
+    public String getSalaryCardBank() {
+        return salaryCardBank;
+    }
+
+    /**
+     * 设置工资卡所在银行
+     *
+     * @param salaryCardBank 工资卡所在银行
+     */
+    public void setSalaryCardBank(String salaryCardBank) {
+        this.salaryCardBank = salaryCardBank;
+    }
+
+    /**
      * 获取部门名称
      *
      * @return department_name - 部门名称
@@ -459,6 +591,24 @@ public class SalaryEmployeePayment {
      */
     public void setHouseFundBase(BigDecimal houseFundBase) {
         this.houseFundBase = houseFundBase;
+    }
+
+    /**
+     * 获取社保结算ID
+     *
+     * @return social_employee_payment_id - 社保结算ID
+     */
+    public Integer getSocialEmployeePaymentId() {
+        return socialEmployeePaymentId;
+    }
+
+    /**
+     * 设置社保结算ID
+     *
+     * @param socialEmployeePaymentId 社保结算ID
+     */
+    public void setSocialEmployeePaymentId(Integer socialEmployeePaymentId) {
+        this.socialEmployeePaymentId = socialEmployeePaymentId;
     }
 
     /**
@@ -788,19 +938,37 @@ public class SalaryEmployeePayment {
     /**
      * 获取应发工资
      *
-     * @return personal_salary_sum - 应发工资
+     * @return total_pay_amount - 应发工资
      */
-    public BigDecimal getPersonalSalarySum() {
-        return personalSalarySum;
+    public BigDecimal getTotalPayAmount() {
+        return totalPayAmount;
     }
 
     /**
      * 设置应发工资
      *
-     * @param personalSalarySum 应发工资
+     * @param totalPayAmount 应发工资
      */
-    public void setPersonalSalarySum(BigDecimal personalSalarySum) {
-        this.personalSalarySum = personalSalarySum;
+    public void setTotalPayAmount(BigDecimal totalPayAmount) {
+        this.totalPayAmount = totalPayAmount;
+    }
+
+    /**
+     * 获取实发工资
+     *
+     * @return final_pay_amount - 实发工资
+     */
+    public BigDecimal getFinalPayAmount() {
+        return finalPayAmount;
+    }
+
+    /**
+     * 设置实发工资
+     *
+     * @param finalPayAmount 实发工资
+     */
+    public void setFinalPayAmount(BigDecimal finalPayAmount) {
+        this.finalPayAmount = finalPayAmount;
     }
 
     /**
@@ -819,6 +987,78 @@ public class SalaryEmployeePayment {
      */
     public void setEnterprisePaymentSum(BigDecimal enterprisePaymentSum) {
         this.enterprisePaymentSum = enterprisePaymentSum;
+    }
+
+    /**
+     * 获取补缴起始月
+     *
+     * @return add_pay_start_year_month - 补缴起始月
+     */
+    public Integer getAddPayStartYearMonth() {
+        return addPayStartYearMonth;
+    }
+
+    /**
+     * 设置补缴起始月
+     *
+     * @param addPayStartYearMonth 补缴起始月
+     */
+    public void setAddPayStartYearMonth(Integer addPayStartYearMonth) {
+        this.addPayStartYearMonth = addPayStartYearMonth;
+    }
+
+    /**
+     * 获取补缴结束月
+     *
+     * @return add_pay_end_year_month - 补缴结束月
+     */
+    public Integer getAddPayEndYearMonth() {
+        return addPayEndYearMonth;
+    }
+
+    /**
+     * 设置补缴结束月
+     *
+     * @param addPayEndYearMonth 补缴结束月
+     */
+    public void setAddPayEndYearMonth(Integer addPayEndYearMonth) {
+        this.addPayEndYearMonth = addPayEndYearMonth;
+    }
+
+    /**
+     * 获取补缴金额企业部分
+     *
+     * @return add_enterprise_payment_sum - 补缴金额企业部分
+     */
+    public BigDecimal getAddEnterprisePaymentSum() {
+        return addEnterprisePaymentSum;
+    }
+
+    /**
+     * 设置补缴金额企业部分
+     *
+     * @param addEnterprisePaymentSum 补缴金额企业部分
+     */
+    public void setAddEnterprisePaymentSum(BigDecimal addEnterprisePaymentSum) {
+        this.addEnterprisePaymentSum = addEnterprisePaymentSum;
+    }
+
+    /**
+     * 获取补缴金额个人部分
+     *
+     * @return add_personal_payment_sum - 补缴金额个人部分
+     */
+    public BigDecimal getAddPersonalPaymentSum() {
+        return addPersonalPaymentSum;
+    }
+
+    /**
+     * 设置补缴金额个人部分
+     *
+     * @param addPersonalPaymentSum 补缴金额个人部分
+     */
+    public void setAddPersonalPaymentSum(BigDecimal addPersonalPaymentSum) {
+        this.addPersonalPaymentSum = addPersonalPaymentSum;
     }
 
     /**
