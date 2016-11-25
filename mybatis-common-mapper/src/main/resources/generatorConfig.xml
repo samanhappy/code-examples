@@ -14,55 +14,125 @@
 		</plugin>
 
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://114.55.27.196:3306/suying" userId="root"
-			password="suying!@!">
+			connectionURL="jdbc:mysql://114.55.27.196:3306/sutest" userId="root"
+			password="dfslkjf!!#@">
 		</jdbcConnection>
 
 		<javaTypeResolver type="org.mybatis.generator.util.MyJavaTypeResolver">
 			<property name="forceBigDecimals" value="false" />
 		</javaTypeResolver>
-
-		<javaModelGenerator targetPackage="com.dsy.dao.domain.salary"
-			targetProject="D:\workspace\code-examples\mybatis-common-mapper\src\main\java" />
-
+		
+		<javaModelGenerator targetPackage="com.dsy.dao.domain.positive"
+			targetProject="D:\workspace-luna\dsy\dsy-dao\src\main\java" />
 		<sqlMapGenerator targetPackage="META-INF.mybatis.sql"
-			targetProject="D:\workspace\code-examples\mybatis-common-mapper\src\main\resources" />
-
-		<javaClientGenerator targetPackage="com.dsy.dao.salary.mapper"
-			targetProject="D:\workspace\code-examples\mybatis-common-mapper\src\main\java" type="XMLMAPPER" />
-
-		<table tableName="t_salary_employee_payment" domainObjectName="SalaryEmployeePayment" >
+			targetProject="D:\workspace-luna\dsy\dsy-dao\src\main\resources" />
+		<javaClientGenerator targetPackage="com.dsy.dao.positive.mapper"
+			targetProject="D:\workspace-luna\dsy\dsy-dao\src\main\java" type="XMLMAPPER" />
+			
+<!-- 		<table tableName="t_positive_apply" domainObjectName="PositiveApply" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+		
+		<table tableName="t_positive_confirm" domainObjectName="PositiveConfirm" >
 			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
 		</table>
 		
+<!-- 		<table tableName="t_positive_audit" domainObjectName="PositiveAudit" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+
+
+
+<!-- 		<javaModelGenerator targetPackage="com.dsy.dao.domain.dimission" -->
+<!-- 			targetProject="D:\workspace-luna\dsy\dsy-dao\src\main\java" /> -->
+<!-- 		<sqlMapGenerator targetPackage="META-INF.mybatis.sql" -->
+<!-- 			targetProject="D:\workspace-luna\dsy\dsy-dao\src\main\resources" /> -->
+<!-- 		<javaClientGenerator targetPackage="com.dsy.dao.dimission.mapper" -->
+<!-- 			targetProject="D:\workspace-luna\dsy\dsy-dao\src\main\java" type="XMLMAPPER" /> -->
+		
+<!-- 		<table tableName="t_dimission_employee_apply" domainObjectName="DimissionEmployeeApply" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="t_dimission_employee_audit" domainObjectName="DimissionEmployeeAudit" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="t_dimission_apply" domainObjectName="DimissionApply" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="t_dimission_dept_handle" domainObjectName="DimissionDeptHandle" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="t_dimission_audit" domainObjectName="DimissionAudit" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="t_dimission_dept" domainObjectName="DimissionDept" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="t_dimission_dept_template" domainObjectName="DimissionDeptTemplate" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="t_dimission_dept_template_dept" domainObjectName="DimissionDeptTemplateDept" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="t_dimission_person" domainObjectName="DimissionPerson" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+
+<!-- 		<javaModelGenerator targetPackage="com.dsy.dao.domain.entry" -->
+<!-- 			targetProject="D:\workspace-luna\dsy\dsy-dao\src\main\java" /> -->
+<!-- 		<sqlMapGenerator targetPackage="META-INF.mybatis.sql" -->
+<!-- 			targetProject="D:\workspace-luna\dsy\dsy-dao\src\main\resources" /> -->
+<!-- 		<javaClientGenerator targetPackage="com.dsy.dao.entry.mapper" -->
+<!-- 			targetProject="D:\workspace-luna\dsy\dsy-dao\src\main\java" type="XMLMAPPER" /> -->
+<!-- 		<table tableName="t_entry_apply" domainObjectName="EntryApply" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="t_entry_dept_handle" domainObjectName="EntryDeptHandle" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="t_entry_audit" domainObjectName="EntryAudit" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="t_entry_dept" domainObjectName="EntryDept" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="t_entry_dept_template" domainObjectName="EntryDeptTemplate" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="t_entry_dept_template_dept" domainObjectName="EntryDeptTemplateDept" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="t_entry_person" domainObjectName="EntryPerson" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+<!-- 		<table tableName="t_entry_contract" domainObjectName="EntryContract" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
+
+<!-- 		<table tableName="t_salary_employee_payment" domainObjectName="SalaryEmployeePayment" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
 <!-- 		<table tableName="t_salary_item" domainObjectName="SalaryItem" > -->
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
 <!-- 		</table> -->
-		
 <!-- 		<table tableName="t_salary_payment" domainObjectName="SalaryPayment" > -->
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
 <!-- 		</table> -->
-		
 <!-- 		<table tableName="t_salary_plan" domainObjectName="SalaryPlan" > -->
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
 <!-- 		</table> -->
-		
 <!-- 		<table tableName="t_salary_plan_item" domainObjectName="SalaryPlanItem" > -->
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
 <!-- 		</table> -->
-		
 <!-- 		<table tableName="t_social_citydata" domainObjectName="SocialCitydata" > -->
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
 <!-- 		</table> -->
-		
-		<table tableName="t_social_employee_payment" domainObjectName="SocialEmployeePayment" >
-			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
-		</table>
-		
+<!-- 		<table tableName="t_social_employee_payment" domainObjectName="SocialEmployeePayment" > -->
+<!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!-- 		</table> -->
 <!-- 		<table tableName="t_social_payment" domainObjectName="SocialPayment" > -->
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
 <!-- 		</table> -->
-		
 <!-- 		<table tableName="t_social_plan" domainObjectName="SocialPlan" > -->
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
 <!-- 		</table> -->
