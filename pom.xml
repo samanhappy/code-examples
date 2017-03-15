@@ -32,5 +32,6 @@
     <module>netty</module>
     <module>mybatis-common-mapper</module>
     <module>spring</module>
+    <module>redis</module>
   </modules>
 </project>
