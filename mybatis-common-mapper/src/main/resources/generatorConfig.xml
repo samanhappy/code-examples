@@ -12,7 +12,55 @@
 			<!-- caseSensitive默认false，当数据库表名区分大小写时，可以将该属性设置为true -->
 			<property name="caseSensitive" value="true" />
 		</plugin>
+		
+        <!-- 		
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+            connectionURL="jdbc:mysql://192.168.99.100:3307/nbsh" userId="root"
+            password="123456">
+        </jdbcConnection>
 
+        <javaTypeResolver type="org.mybatis.generator.util.MyJavaTypeResolver">
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        
+        <javaModelGenerator targetPackage="com.cplatform.visitor.domain"
+            targetProject="D:\workspace-luna\visitor\visitorDaoNBSH\src\main\java" />
+        <sqlMapGenerator targetPackage="com.cplatform.visitor.mapper"
+            targetProject="D:\workspace-luna\visitor\visitorDaoNBSH\src\main\resources" />
+        <javaClientGenerator targetPackage="com.cplatform.visitor.mapper"
+            targetProject="D:\workspace-luna\visitor\visitorDaoNBSH\src\main\java" type="XMLMAPPER" />
+            
+        <table tableName="t_visit_apply" domainObjectName="VisitApply" >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
+        </table>
+        
+        -->
+		
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+            connectionURL="jdbc:mysql://192.168.99.100:3307/visitor" userId="root"
+            password="123456">
+        </jdbcConnection>
+
+        <javaTypeResolver type="org.mybatis.generator.util.MyJavaTypeResolver">
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        
+        <javaModelGenerator targetPackage="com.cplatform.visitor.domain"
+            targetProject="D:\workspace-luna\visitor\visitorDaoBL\src\main\java" />
+        <sqlMapGenerator targetPackage="com.cplatform.visitor.mapper"
+            targetProject="D:\workspace-luna\visitor\visitorDaoBL\src\main\resources" />
+        <javaClientGenerator targetPackage="com.cplatform.visitor.mapper"
+            targetProject="D:\workspace-luna\visitor\visitorDaoBL\src\main\java" type="XMLMAPPER" />
+            
+        <table tableName="t_visit_apply" domainObjectName="VisitApply" >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
+        </table>
+        
+<!--         <table tableName="t_visit_audit" domainObjectName="VisitAudit" > -->
+<!--             <generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
+<!--         </table> -->
+
+        <!-- 
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
 			connectionURL="jdbc:mysql://114.55.27.196:3306/sutest" userId="root"
 			password="dfslkjf!!#@">
@@ -29,13 +77,16 @@
 		<javaClientGenerator targetPackage="com.dsy.dao.positive.mapper"
 			targetProject="D:\workspace-luna\dsy\dsy-dao\src\main\java" type="XMLMAPPER" />
 			
+	    -->
 <!-- 		<table tableName="t_positive_apply" domainObjectName="PositiveApply" > -->
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
 <!-- 		</table> -->
 		
+		<!--
 		<table tableName="t_positive_confirm" domainObjectName="PositiveConfirm" >
 			<generatedKey column="id" sqlStatement="Mysql" identity="true" />
 		</table>
+		-->
 		
 <!-- 		<table tableName="t_positive_audit" domainObjectName="PositiveAudit" > -->
 <!-- 			<generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
