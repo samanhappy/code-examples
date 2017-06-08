@@ -13,6 +13,63 @@
 			<property name="caseSensitive" value="true" />
 		</plugin>
 		
+		
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+            connectionURL="jdbc:mysql://192.168.99.100:3307/zhzx" userId="root"
+            password="123456">
+        </jdbcConnection>
+
+        <javaTypeResolver type="org.mybatis.generator.util.MyJavaTypeResolver">
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+        
+        <!--
+        <javaModelGenerator targetPackage="com.common.wx.domain"
+            targetProject="D:\workspace-luna\visitor\visitorCommon\src\main\java" />
+        <sqlMapGenerator targetPackage="com.common.wx.mapper"
+            targetProject="D:\workspace-luna\visitor\visitorCommon\src\main\resources" />
+        <javaClientGenerator targetPackage="com.common.wx.mapper"
+            targetProject="D:\workspace-luna\visitor\visitorCommon\src\main\java" type="XMLMAPPER" />
+        <table tableName="wx_cp_dept" domainObjectName="WxCpDeptDO" >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
+        </table>
+         -->
+        
+        <javaModelGenerator targetPackage="com.cplatform.app.domain"
+            targetProject="D:\workspace-luna\visitor\zhzxService\src\main\java" />
+        <sqlMapGenerator targetPackage="com.cplatform.app.mapper"
+            targetProject="D:\workspace-luna\visitor\zhzxService\src\main\resources" />
+        <javaClientGenerator targetPackage="com.cplatform.app.mapper"
+            targetProject="D:\workspace-luna\visitor\zhzxService\src\main\java" type="XMLMAPPER" />
+        
+        
+        
+        <table tableName="proposal" domainObjectName="Proposal" >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
+        </table>
+        
+        <!--
+        <table tableName="meeting" domainObjectName="Meeting" >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
+        </table>
+        -->  
+        
+        <!--
+        <table tableName="meeting_user" domainObjectName="MeetingUser" >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
+        </table>
+         -->  
+         
+        <!--   
+        <table tableName="social" domainObjectName="Social" >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
+        </table>
+        
+        <table tableName="vehicle" domainObjectName="Vehicle" >
+            <generatedKey column="id" sqlStatement="Mysql" identity="true" />
+        </table>
+         -->  
+		
         <!-- 		
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
             connectionURL="jdbc:mysql://192.168.99.100:3307/nbsh" userId="root"
@@ -34,7 +91,6 @@
             <generatedKey column="id" sqlStatement="Mysql" identity="true" />
         </table>
         
-        -->
 		
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
             connectionURL="jdbc:mysql://192.168.99.100:3307/visitor" userId="root"
@@ -55,6 +111,8 @@
         <table tableName="t_visit_apply" domainObjectName="VisitApply" >
             <generatedKey column="id" sqlStatement="Mysql" identity="true" />
         </table>
+        
+        -->
         
 <!--         <table tableName="t_visit_audit" domainObjectName="VisitAudit" > -->
 <!--             <generatedKey column="id" sqlStatement="Mysql" identity="true" /> -->
