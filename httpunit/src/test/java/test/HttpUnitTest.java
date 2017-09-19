@@ -11,7 +11,7 @@ public class HttpUnitTest
     public void homePage() throws Exception {
         try (final WebClient webClient = new WebClient())
         {
-            final HtmlPage page = webClient.getPage("http://htmlunit.sourceforge.net");
+            final HtmlPage page = webClient.getPage("http://www.toutiao.com/a6467052999819067662/");
             System.out.println(page.getTitleText());
             System.out.println(page.asXml());
             System.out.println(page.asText());
