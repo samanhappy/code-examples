@@ -33,5 +33,6 @@
     <module>mybatis-common-mapper</module>
     <module>spring</module>
     <module>redis</module>
+    <module>java-basic</module>
   </modules>
 </project>
