@@ -2,7 +2,6 @@ package test.java.io;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -22,7 +21,7 @@ public class FileOutputStreamTest
     String file = "src/main/resources/write.txt";
     
     @Before
-    public void before() throws FileNotFoundException {
+    public void before() {
         
     }
     
@@ -49,9 +48,6 @@ public class FileOutputStreamTest
         Assert.assertEquals('2', fis.read());
         Assert.assertEquals('3', fis.read());
         Assert.assertEquals('5', fis.read());
-        
-        fos.close();
-        fis.close();
     }
     
     @Test
@@ -59,13 +55,12 @@ public class FileOutputStreamTest
         fos = new FileOutputStream(file, true);
         fos.write('1');
         fos.close();
+        
         fos = new FileOutputStream(file, true);
         fos.write('2');
-        fos.close();
         
         fis = new FileInputStream(file);
         Assert.assertEquals('1', fis.read());
         Assert.assertEquals('2', fis.read());
-        
     }
 }
